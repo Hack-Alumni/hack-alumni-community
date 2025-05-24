@@ -10,7 +10,7 @@ export async function loader() {
 export default function LoginLayout() {
   return (
     <Public.Content>
-      <Login.Title>ColorStack Profile</Login.Title>
+      <Login.Title>Hack.Diversity Profile</Login.Title>
       <Outlet />
     </Public.Content>
   );

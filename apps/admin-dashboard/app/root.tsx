@@ -27,7 +27,7 @@ export const links: LinksFunction = () => {
 
 export const meta: MetaFunction = () => {
   return buildMeta({
-    description: `Your home for all things ColorStack administration. Manage applications, events and more!`,
+    description: `Your home for all things Hack.Diversity administration. Manage applications, events and more!`,
     title: 'Admin Dashboard',
   });
 };
