@@ -1,6 +1,7 @@
 import { type PropsWithChildren } from 'react';
 
 import { cx, Text } from '@oyster/ui';
+import { Colors } from '../../../../../packages/ui/src/colors';
 
 export type CardProps = PropsWithChildren<{
   className?: string;
@@ -9,10 +10,8 @@ export type CardProps = PropsWithChildren<{
 export const Card = ({ children, className, ...rest }: CardProps) => {
   return (
     <div
-      className={cx(
-        'flex flex-col gap-4 rounded-2xl border border-gray-200 p-4',
-        className
-      )}
+      style={{ borderColor: Colors.Grey200 }}
+      className={cx('flex flex-col gap-4 rounded-2xl border p-4', className)}
       {...rest}
     >
       {children}
@@ -21,7 +20,7 @@ export const Card = ({ children, className, ...rest }: CardProps) => {
 };
 
 Card.Description = function Description({ children }: PropsWithChildren) {
-  return <Text color="gray-500">{children}</Text>;
+  return <p style={{ color: Colors.Grey500 }}>{children}</p>;
 };
 
 Card.Header = function Header({ children }: PropsWithChildren) {

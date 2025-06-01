@@ -19,6 +19,7 @@ import { SearchBar, type SearchBarProps } from './search-bar';
 import { Text } from './text';
 import { useDelayedValue } from '../hooks/use-delayed-value';
 import { cx } from '../utils/cx';
+import { Colors } from '../colors';
 
 type DashboardContextValue = {
   open: boolean;
@@ -80,9 +81,11 @@ Dashboard.Header = function Header({ children }: PropsWithChildren) {
 
 const itemClassName = cx(
   'box-border flex w-full items-center gap-2 rounded-lg p-2 transition-colors',
-  'hover:bg-primary hover:bg-opacity-10',
-  'active:bg-primary active:bg-opacity-20',
-  'aria-[current="page"]:bg-primary aria-[current="page"]:text-white aria-[current="page"]:hover:text-white'
+  'hover:bg-[#fd685b]/10',
+  'active:bg-[#fd685b]/20',
+  'aria-[current="page"]:bg-[#fd685b]',
+  'aria-[current="page"]:text-white',
+  'aria-[current="page"]:hover:text-white'
 );
 
 Dashboard.LogoutForm = function LogoutForm() {
@@ -149,7 +152,14 @@ Dashboard.NavigationLink = function NavigationLink({
       >
         {React.cloneElement(icon, { className: 'h-5 w-5' })} {label}{' '}
         {isNew && (
-          <span className="rounded bg-green-100 px-1 text-xs text-green-700">
+          <span
+            className="rounded px-1 text-xs"
+            style={{
+              backgroundColor: Colors.CoreBlue20,
+              color: Colors.CoreBlue100,
+            }}
+          >
+            {' '}
             New
           </span>
         )}

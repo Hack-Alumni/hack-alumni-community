@@ -70,7 +70,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     acceptedAt,
     claimedSwagPackAt,
     requirementsCompleted: member.activationRequirementsCompleted.filter(
-      (requirement) => {
+      (requirement: string) => {
         return ACTIVATION_REQUIREMENTS.includes(
           requirement as ActivationRequirement
         );
