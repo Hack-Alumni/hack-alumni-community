@@ -9,10 +9,9 @@ import {
   type Icon,
   Instagram,
   Linkedin,
-  Mail,
   Twitter,
-  Youtube,
 } from 'react-feather';
+import MediumIcon from 'public/MediumIcon';
 import { match } from 'ts-pattern';
 
 import { countEventAttendees } from '@oyster/core/events/attendees';
@@ -519,13 +518,6 @@ function ImportantResourcesCard() {
         </ResourceItem>
 
         <ResourceItem
-          description="The codebase, will Hack Alumni Community be public👀,idk lol"
-          href="https://github.com/colorstackorg/oyster"
-        >
-          GitHub
-        </ResourceItem>
-        
-        <ResourceItem
           description="Don't act a fool. Abide by our Code of Conduct!"
           href="https://drive.google.com/file/d/1LBdbiEJcpRcyN_3py7zGB_eEc0Dd9Bsw/view"
         >
@@ -581,11 +573,8 @@ function SocialsCard() {
 
         <SocialItem Icon={GitHub} href="https://github.com/HackDotDiversity"/>
 
+        <SocialItem Icon={MediumIcon} href='https://medium.com/hack-diversity-movement'/>
 
-        {/* <SocialItem
-          Icon={----find medium icon-----}
-          href="https://medium.com/hack-diversity-movement"
-        /> */}
       </ul>
     </Card>
   );
