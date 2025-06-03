@@ -17,9 +17,9 @@ import { LogOut, Menu, X } from 'react-feather';
 import { IconButton } from './icon-button';
 import { SearchBar, type SearchBarProps } from './search-bar';
 import { Text } from './text';
+import { Colors } from '../colors';
 import { useDelayedValue } from '../hooks/use-delayed-value';
 import { cx } from '../utils/cx';
-import { Colors } from '../colors';
 
 type DashboardContextValue = {
   open: boolean;
