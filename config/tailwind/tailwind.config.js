@@ -1,4 +1,5 @@
 import colors from 'tailwindcss/colors';
+const appColors = require('../../packages/ui/src/colors').Colors;
 
 /** @type {import('tailwindcss').Config} */
 export const tailwindConfig = {
@@ -11,10 +12,11 @@ export const tailwindConfig = {
   theme: {
     extend: {
       colors: {
+        ...appColors,
         error: colors.red[600],
         gold: '#fdb532',
         'gold-100': '#fff7ea',
-        primary: '#348e87',
+        primary: appColors.CoreOrange100,
         success: colors.green[600],
         warning: colors.yellow[400],
       },
