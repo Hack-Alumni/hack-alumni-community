@@ -175,7 +175,7 @@ export default function UpdateGeneralInformationSection() {
         />
 
         <Field
-          description="Enter your 10-digit phone number. We'll use this to send you important Hack updates."
+          description="Enter your 10-digit phone number. We'll use this to send you important ColorStack updates."
           error={errors.phoneNumber}
           label="Phone Number"
           labelFor={keys.phoneNumber}

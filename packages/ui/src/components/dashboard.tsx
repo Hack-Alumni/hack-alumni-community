@@ -63,10 +63,10 @@ Dashboard.ColorStackLogo = function ColorStackLogo() {
   return (
     <Link to="/">
       <img
-        alt="Hack.Diversity Wordmark"
-        height={100}
-        src = "/images/hack-wordmark.png"
-        width={300}
+        alt="ColorStack Wordmark"
+        height={21}
+        src="/images/colorstack-wordmark.png"
+        width={140}
       />
     </Link>
   );
