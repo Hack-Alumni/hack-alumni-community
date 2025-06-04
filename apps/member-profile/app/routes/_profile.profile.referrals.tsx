@@ -149,7 +149,7 @@ export default function Referrals() {
             <EmptyState icon={<Send />} />
 
             <ProfileDescription>
-              You can refer your friends to join ColorStack! When they apply
+              You can refer your friends to join Hack! When they apply
               using your referral, they'll have a better chance of getting
               accepted. You'll also earn points for each successful referral!
             </ProfileDescription>

@@ -14,7 +14,7 @@ export function CurrentLocationField({
 }: FieldProps<string> & Omit<CityComboboxProps, 'required'>) {
   return (
     <Field
-      description="We'll use this to connect you to ColorStack members and events in your area."
+      description="We'll use this to connect you to Hack members and events in your area."
       error={error}
       labelFor={name}
       label="Current Location"
