@@ -13,7 +13,7 @@ export default {
     extend: {
       colors: {
         ...appColors,
-        primary: appColors.CoreOrange100,
+        primary: appColors.CoreBlue80,
       },
     },
   },
