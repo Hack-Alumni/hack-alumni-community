@@ -1,5 +1,5 @@
 import { tailwindConfig } from '@oyster/tailwind';
-const appColors = require('../../packages/ui/src/colors').Colors;
+import { Colors } from '../../packages/ui/src/colors';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -12,8 +12,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        ...appColors,
-        primary: appColors.CoreBlue80,
+        ...Colors,
+        primary: Colors.CoreBlue80,
       },
     },
   },
