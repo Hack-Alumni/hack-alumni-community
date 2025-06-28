@@ -139,9 +139,9 @@ function EmailAddressSection() {
       </ProfileHeader>
 
       <ProfileDescription>
-        If you engage with ColorStack using multiple email addresses (ie:
+        If you engage with Hack.Diversity using multiple email addresses (ie:
         school, personal, work), please add them here. Your primary email is the
-        email where you will receive all ColorStack communications.
+        email where you will receive all Hack.Diversity communications.
       </ProfileDescription>
 
       <ul className="flex flex-col gap-2">
@@ -177,26 +177,6 @@ function EmailAddressSection() {
           </Button>
         )}
       </Button.Group>
-
-      <Form
-        className="form"
-        method="post"
-        onChange={(e) => submit(e.currentTarget)}
-      >
-        <Field
-          description="If you go to school where there is a ColorStack chapter, this will allow that chapter's leaders to reach out to you about local events and opportunities."
-          error={errors.allowEmailShare}
-          label="Would you like to share your email with chapter leaders?"
-        >
-          <Checkbox
-            defaultChecked={student.allowEmailShare}
-            label="Share my email with chapter leaders! 🌟"
-            id={keys.allowEmailShare}
-            name={keys.allowEmailShare}
-            value="1"
-          />
-        </Field>
-      </Form>
     </ProfileSection>
   );
 }

@@ -4,13 +4,14 @@ import dayjs from 'dayjs';
 import { type PropsWithChildren } from 'react';
 import {
   ExternalLink,
+  Facebook,
   GitHub,
   type Icon,
   Instagram,
   Linkedin,
   Twitter,
-  Youtube,
 } from 'react-feather';
+import MediumIcon from 'public/MediumIcon';
 import { match } from 'ts-pattern';
 
 import { countEventAttendees } from '@oyster/core/events/attendees';
@@ -281,7 +282,6 @@ export default function HomeLayout() {
         <Home.Column>
           <ImportantResourcesCard />
           <SocialsCard />
-          <MerchStoreCard />
         </Home.Column>
       </div>
 
@@ -497,49 +497,28 @@ function ImportantResourcesCard() {
       <ul className="flex flex-col gap-3">
         <ResourceItem
           description="The heartbeat of our community."
-          href="https://colorstack-family.slack.com/"
+          href="https://hackdiversity.slack.com"
         >
           Slack
         </ResourceItem>
 
         <ResourceItem
-          description="A collection of career, community, and academic related resources."
-          href="https://wiki.colorstack.org/the-colorstack-family"
+          description="Get onboarded to slack."
+          href="https://docs.google.com/document/d/1FX1R8qsi6Ib2QyWIdpMgdyLfyXqsbroolVZFYcOSL7g/edit?tab=t.0"
         >
-          Member Wiki
+          Slack Quick Start Guide
         </ResourceItem>
 
         <ResourceItem
-          description="A list of ColorStack chapters across the nation."
-          href="https://colorstack.notion.site/colorstack-chapters-list"
+          description="A collection of all previous Hack.Diversity cohorts."
+          href="https://www.hackdiversity.com/2017-2024-cohorts"
         >
-          Chapters
-        </ResourceItem>
-
-        <ResourceItem
-          description="The codebase where our software, called Oyster, lives. Go read + contribute to the codebase!"
-          href="https://github.com/colorstackorg/oyster"
-        >
-          GitHub
-        </ResourceItem>
-
-        <ResourceItem
-          description="A collection of our past event recordings. Don't miss a beat!"
-          href="https://youtube.com/@colorstackinc.2266"
-        >
-          YouTube Channel
-        </ResourceItem>
-
-        <ResourceItem
-          description="Show off your ColorStack pride with our new merch collection!"
-          href="https://colorstackmerch.org"
-        >
-          Merch Store
+          Alumni
         </ResourceItem>
 
         <ResourceItem
           description="Don't act a fool. Abide by our Code of Conduct!"
-          href="https://wiki.colorstack.org/the-colorstack-family/community/code-of-conduct/code-of-conduct"
+          href="https://drive.google.com/file/d/1LBdbiEJcpRcyN_3py7zGB_eEc0Dd9Bsw/view"
         >
           Code of Conduct
         </ResourceItem>
@@ -565,36 +544,35 @@ function ResourceItem({
     </li>
   );
 }
-
 function SocialsCard() {
   return (
     <Card>
-      <Card.Title>ColorStack Socials</Card.Title>
+      <Card.Title>Hack.Diversity Socials</Card.Title>
 
       <Card.Description>
         Be sure to follow us on all our socials to stay up to date with what's
-        happening in ColorStack.
+        happening in Hack.Diversity.
       </Card.Description>
 
       <ul className="flex gap-4">
         <SocialItem
           Icon={Linkedin}
-          href="https://linkedin.com/company/colorstack"
+          href="https://www.linkedin.com/company/hackdiversity/"
         />
 
         <SocialItem
           Icon={Instagram}
-          href="https://instagram.com/colorstackorg"
+          href="https://www.instagram.com/hack.diversity/"
         />
 
-        <SocialItem Icon={Twitter} href="https://twitter.com/colorstackorg" />
+        <SocialItem Icon={Twitter} href="https://x.com/hack_diversity"/>
 
-        <SocialItem Icon={GitHub} href="https://github.com/colorstackorg" />
+        <SocialItem Icon={Facebook} href="https://www.facebook.com/hack.diversity/"/>
 
-        <SocialItem
-          Icon={Youtube}
-          href="https://youtube.com/@colorstackinc.2266"
-        />
+        <SocialItem Icon={GitHub} href="https://github.com/HackDotDiversity"/>
+
+        <SocialItem Icon={MediumIcon} href='https://medium.com/hack-diversity-movement'/>
+
       </ul>
     </Card>
   );
