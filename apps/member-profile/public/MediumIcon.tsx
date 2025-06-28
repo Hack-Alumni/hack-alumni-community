@@ -1,5 +1,3 @@
-
-/// <reference types="react" />
 import { FC, SVGAttributes } from 'react';
 interface IconProps extends SVGAttributes<SVGElement> {
   color?: string;

@@ -282,7 +282,6 @@ export default function HomeLayout() {
         <Home.Column>
           <ImportantResourcesCard />
           <SocialsCard />
-          {/* <MerchStoreCard /> */}
         </Home.Column>
       </div>
 
@@ -545,7 +544,6 @@ function ResourceItem({
     </li>
   );
 }
-// add medium resource and icon
 function SocialsCard() {
   return (
     <Card>

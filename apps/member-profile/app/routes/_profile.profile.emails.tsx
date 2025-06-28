@@ -177,26 +177,6 @@ function EmailAddressSection() {
           </Button>
         )}
       </Button.Group>
-      {/* Not sure wether to delete this or not, or reuse */}
-      <Form
-        className="form"
-        method="post"
-        onChange={(e) => submit(e.currentTarget)}
-      >
-        <Field
-          description="If you go to school where there is a ColorStack chapter, this will allow that chapter's leaders to reach out to you about local events and opportunities."
-          error={errors.allowEmailShare}
-          label="Would you like to share your email with chapter leaders?"
-        >
-          <Checkbox
-            defaultChecked={student.allowEmailShare}
-            label="Share my email with chapter leaders! 🌟"
-            id={keys.allowEmailShare}
-            name={keys.allowEmailShare}
-            value="1"
-          />
-        </Field>
-      </Form>
     </ProfileSection>
   );
 }
