@@ -1,8 +1,7 @@
 import { type PropsWithChildren } from 'react';
 
 import { cx, Text } from '@oyster/ui';
-import { Colors } from '../../../../../packages/ui/src/colors';
-
+import { Colors } from '@ui/colors';
 export type CardProps = PropsWithChildren<{
   className?: string;
 }>;
