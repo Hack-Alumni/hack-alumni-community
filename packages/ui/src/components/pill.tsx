@@ -4,6 +4,7 @@ import { X } from 'react-feather';
 import { match } from 'ts-pattern';
 
 import { getTextCn } from './text';
+import { Colors } from '../colors';
 import { cx } from '../utils/cx';
 
 export type PillProps = Pick<
@@ -43,6 +44,7 @@ export const Pill = ({
         getPillCn({ color, onCloseHref }),
         className
       )}
+      style={getPillStyle(color)}
     >
       {children}{' '}
       {onCloseHref && (
@@ -64,26 +66,31 @@ export const Pill = ({
   return body;
 };
 
+function getPillStyle(color: PillProps['color']): React.CSSProperties {
+  return match(color)
+    .with('amber-100', () => ({ backgroundColor: Colors.Amber50 }))
+    .with('blue-100', () => ({ backgroundColor: Colors.CoreBlue10 }))
+    .with('cyan-100', () => ({ backgroundColor: Colors.Cyan10 }))
+    .with('gold-100', () => ({ backgroundColor: Colors.Yellow10 }))
+    .with('gray-100', () => ({ backgroundColor: Colors.Grey200 }))
+    .with('green-100', () => ({ backgroundColor: Colors.Green50 }))
+    .with('lime-100', () => ({ backgroundColor: Colors.Lime40 }))
+    .with('orange-100', () => ({ backgroundColor: Colors.LightOrange50 }))
+    .with('pink-100', () => ({ backgroundColor: Colors.Pink10 }))
+    .with('purple-100', () => ({ backgroundColor: Colors.Purple30 }))
+    .with('red-100', () => ({ backgroundColor: Colors.Red10 }))
+    .with('success', () => ({
+      backgroundColor: Colors.Green100,
+      color: Colors.White,
+    }))
+    .exhaustive();
+}
+
 export function getPillCn({ color, onCloseHref }: Omit<PillProps, 'children'>) {
   return cx(
     'w-max rounded-full px-2 text-sm',
 
-    onCloseHref && 'flex items-center gap-1',
-
-    match(color)
-      .with('amber-100', () => 'bg-amber-100')
-      .with('blue-100', () => 'bg-blue-100')
-      .with('cyan-100', () => 'bg-cyan-100')
-      .with('gold-100', () => 'bg-gold-100')
-      .with('gray-100', () => 'bg-gray-100')
-      .with('green-100', () => 'bg-green-100')
-      .with('lime-100', () => 'bg-lime-100')
-      .with('orange-100', () => 'bg-orange-100')
-      .with('pink-100', () => 'bg-pink-100')
-      .with('purple-100', () => 'bg-purple-100')
-      .with('red-100', () => 'bg-red-100')
-      .with('success', () => 'bg-success text-white')
-      .exhaustive()
+    onCloseHref && 'flex items-center gap-1'
   );
 }
 
