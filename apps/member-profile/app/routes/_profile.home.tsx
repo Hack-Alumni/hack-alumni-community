@@ -181,7 +181,7 @@ async function getStudent(id: string) {
     dayjs().year(2023).month(5).date(9).startOf('day').toDate().valueOf();
 
   row.activationRequirementsCompleted =
-    row.activationRequirementsCompleted.filter((requirement) => {
+    row.activationRequirementsCompleted.filter((requirement: string) => {
       return ACTIVATION_REQUIREMENTS.includes(
         requirement as ActivationRequirement
       );
