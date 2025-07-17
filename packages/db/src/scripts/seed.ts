@@ -495,6 +495,40 @@ async function seed(trx: Transaction<DB>) {
     ])
     .execute();
 
+  // 1. Decide how many fake companies to add
+  const NUM_FAKE_COMPANIES = 10;
+
+  // 2. Generate fake company records
+  const fakeCompanyRecords = Array.from({ length: NUM_FAKE_COMPANIES }).map(
+    () => ({
+      id: id(),
+      createdAt: new Date(),
+      crunchbaseId: faker.string.uuid(),
+      description: faker.company.catchPhrase(),
+      domain: faker.internet.domainName(),
+      imageUrl: faker.image.url(),
+      leetcodeSlug: faker.helpers.slugify(faker.company.name().toLowerCase()),
+      levelsFyiSlug: faker.helpers.slugify(faker.company.name().toLowerCase()),
+      name: faker.company.name(),
+      stockSymbol:
+        faker.finance.currencyCode() + ':' + faker.finance.currencySymbol(),
+    })
+  );
+
+  // 3. Insert fake companies into the companies table
+  await trx.insertInto('companies').values(fakeCompanyRecords).execute();
+  console.log('Inserted fake companies:', fakeCompanyRecords.length);
+
+  // 4. (Optional) Collect all company IDs for later use
+  const allCompanyIds = [
+    companyId1,
+    companyId2,
+    companyId3,
+    companyId4,
+    companyId5,
+    ...fakeCompanyRecords.map((company) => company.id),
+  ];
+
   // Opportunities
 
   const opportunityId1 = id();
@@ -578,6 +612,32 @@ async function seed(trx: Transaction<DB>) {
       },
     ])
     .execute();
+  const NUM_FAKE_OPPORTUNITIES = 10; // or however many you want
+
+  const fakeOpportunities = Array.from({ length: NUM_FAKE_OPPORTUNITIES }).map(
+    () => {
+      const companyId = faker.helpers.arrayElement(allCompanyIds);
+      const postedBy = faker.helpers.arrayElement(fakeStudentRecords).studentId;
+
+      return {
+        id: id(),
+        companyId,
+        createdAt: new Date(),
+        description: faker.lorem.paragraph(),
+        expiresAt: faker.date.future(),
+        lastExpirationCheck: undefined,
+        link: faker.internet.url(),
+        postedBy,
+        refinedAt: new Date(),
+        slackChannelId: undefined,
+        slackMessageId: undefined,
+        title: faker.name.jobTitle(),
+      };
+    }
+  );
+
+  await trx.insertInto('opportunities').values(fakeOpportunities).execute();
+  console.log('Inserted fake opportunities:', fakeOpportunities.length);
 
   const aiTagId = id();
   const earlyCareerTagId = id();
