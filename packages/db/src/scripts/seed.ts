@@ -1,3 +1,4 @@
+import { faker } from '@faker-js/faker';
 import { sql, type Transaction } from 'kysely';
 import readline from 'readline';
 import { z } from 'zod';
@@ -147,6 +148,18 @@ async function seed(trx: Transaction<DB>) {
       },
     ])
     .execute();
+
+  const NUM_ADMINS = 5;
+  // Generate unique admins
+  const adminRecords = Array.from({ length: NUM_ADMINS }).map(() => ({
+    id: id(),
+    email: faker.internet.email().toLowerCase(),
+    firstName: faker.person.firstName(),
+    lastName: faker.person.lastName(),
+    role: faker.helpers.arrayElement(['admin', 'ambassador', 'owner']),
+  }));
+
+  await trx.insertInto('admins').values(adminRecords).execute();
 
   const memberId1 = id();
   const memberId2 = id();
