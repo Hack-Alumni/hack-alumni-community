@@ -678,6 +678,37 @@ async function seed(trx: Transaction<DB>) {
       { opportunityId: opportunityId5, tagId: scholarshipTagId },
     ])
     .execute();
+  const allOpportunityTagIds = [
+    aiTagId,
+    earlyCareerTagId,
+    hardwareTagId,
+    internshipTagId,
+    pmTagId,
+    quantTagId,
+    scholarshipTagId,
+    sweTagId,
+    uxTagId,
+  ];
+  // For each fake opportunity, assign 1-3 random tags
+  const fakeOpportunityTagAssociations = fakeOpportunities.flatMap((opp) => {
+    // Pick a random number of tags (1 to 3)
+    const numTags = faker.number.int({ min: 1, max: 3 });
+    // Shuffle and pick the first numTags
+    const selectedTagIds = faker.helpers
+      .shuffle(allOpportunityTagIds)
+      .slice(0, numTags);
+
+    // Return an array of association objects
+    return selectedTagIds.map((tagId) => ({
+      opportunityId: opp.id,
+      tagId,
+    }));
+  });
+
+  await trx
+    .insertInto('opportunityTagAssociations')
+    .values(fakeOpportunityTagAssociations)
+    .execute();
 
   // Resources
 
