@@ -1,8 +1,9 @@
 import { faker } from '@faker-js/faker';
-import { sql, type Transaction } from 'kysely';
+import { sql, type Transaction, type ValueExpression } from 'kysely';
 import readline from 'readline';
 import { z } from 'zod';
 
+import { type Point } from '../../dist/db';
 import { db } from '../shared/db';
 import { IS_PRODUCTION } from '../shared/env';
 import { type DB } from '../shared/types';
@@ -147,6 +148,13 @@ async function seed(trx: Transaction<DB>) {
   );
 
   await trx.insertInto('schools').values(fakeSchoolRecords).execute();
+  // Collect all school IDs (real + fake)
+  const allSchoolIds = [
+    schoolId1,
+    schoolId2,
+    schoolId3,
+    ...fakeSchoolRecords.map((school) => school.id),
+  ];
 
   await trx
     .insertInto('admins')
@@ -264,6 +272,81 @@ async function seed(trx: Transaction<DB>) {
     .set({ studentId: memberId3 })
     .where('email', '=', memberEmail3)
     .execute();
+
+  const NUM_FAKE_STUDENTS = 10;
+  const fakeStudentRecords = Array.from({ length: NUM_FAKE_STUDENTS }).map(
+    () => {
+      const studentId = id();
+      const email = faker.internet.email().toLowerCase();
+      const long = faker.location.longitude();
+      const lat = faker.location.latitude();
+      const coordinates:
+        | ValueExpression<DB, 'students', Point | null>
+        | undefined = sql`point(${long}, ${lat})`;
+
+      // Use the correct type for currentLocationCoordinates
+      return {
+        student: {
+          acceptedAt: new Date(),
+          currentLocation:
+            faker.location.city() +
+            ', ' +
+            faker.location.state({ abbreviated: true }),
+          currentLocationCoordinates: coordinates,
+          educationLevel: faker.helpers.arrayElement([
+            'undergraduate',
+            'graduate',
+          ]),
+          email,
+          firstName: faker.person.firstName(),
+          gender: faker.helpers.arrayElement([
+            'male',
+            'female',
+            'non-binary',
+            '',
+          ]),
+          graduationYear: faker.date
+            .future({ years: 4 })
+            .getFullYear()
+            .toString(),
+          id: studentId,
+          lastName: faker.person.lastName(),
+          joinedMemberDirectoryAt: new Date(),
+          major: faker.helpers.arrayElement([
+            'computer_science',
+            'information_science',
+            'electrical_engineering',
+          ]),
+          otherDemographics: [],
+          race: [],
+          schoolId: faker.helpers.arrayElement(allSchoolIds),
+        },
+        email,
+        studentId,
+      };
+    }
+  );
+
+  // Insert emails into studentEmails
+  await trx
+    .insertInto('studentEmails')
+    .values(fakeStudentRecords.map(({ email }) => ({ email })))
+    .execute();
+
+  // Insert students into students
+  await trx
+    .insertInto('students')
+    .values(fakeStudentRecords.map(({ student }) => student))
+    .execute();
+
+  // Update studentEmails with studentId
+  for (const { email, studentId } of fakeStudentRecords) {
+    await trx
+      .updateTable('studentEmails')
+      .set({ studentId })
+      .where('email', '=', email)
+      .execute();
+  }
 
   await trx
     .insertInto('applications')
