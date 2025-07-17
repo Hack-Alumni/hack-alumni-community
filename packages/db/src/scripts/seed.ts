@@ -135,6 +135,18 @@ async function seed(trx: Transaction<DB>) {
       },
     ])
     .execute();
+  const NUM_FAKE_SCHOOLS = 10; // or however many you want
+  const fakeSchoolRecords = Array.from({ length: NUM_FAKE_SCHOOLS }).map(
+    () => ({
+      id: id(),
+      name: faker.company.name() + ' University',
+      addressCity: faker.location.city(),
+      addressState: faker.location.state({ abbreviated: true }),
+      addressZip: faker.location.zipCode(),
+    })
+  );
+
+  await trx.insertInto('schools').values(fakeSchoolRecords).execute();
 
   await trx
     .insertInto('admins')
