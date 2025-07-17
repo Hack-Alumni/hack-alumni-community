@@ -387,6 +387,29 @@ async function seed(trx: Transaction<DB>) {
       },
     ])
     .execute();
+  const NUM_FAKE_APPLICATIONS = 10; // or however many you want
+
+  const fakeApplications = fakeStudentRecords
+    .slice(0, NUM_FAKE_APPLICATIONS)
+    .map(({ student }) => ({
+      id: id(),
+      email: student.email,
+      contribution: faker.lorem.sentence(),
+      educationLevel: student.educationLevel,
+      gender: student.gender,
+      goals: faker.lorem.sentences(2),
+      graduationYear: Number(student.graduationYear),
+      firstName: student.firstName,
+      lastName: student.lastName,
+      linkedInUrl: faker.internet.url(),
+      major: student.major,
+      otherDemographics: student.otherDemographics,
+      race: student.race,
+      schoolId: student.schoolId,
+      status: faker.helpers.arrayElement(['pending', 'accepted', 'rejected']),
+    }));
+
+  await trx.insertInto('applications').values(fakeApplications).execute();
 
   // Companies
 
