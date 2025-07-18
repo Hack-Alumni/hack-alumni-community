@@ -790,6 +790,14 @@ async function seed(trx: Transaction<DB>) {
     ])
     .execute();
 
+  const NUM_FAKE_TAGS = 10; // or however many you want
+  const fakeTags = Array.from({ length: NUM_FAKE_TAGS }).map(() => ({
+    id: id(),
+    name: faker.word.noun(), // or any faker method for tag names
+  }));
+
+  await trx.insertInto('tags').values(fakeTags).execute();
+
   await trx
     .insertInto('resourceTags')
     .values([
@@ -807,6 +815,7 @@ async function seed(trx: Transaction<DB>) {
     interviewPrepTagId,
     learningTagId,
     videoTagId,
+    ...fakeTags.map((tag) => tag.id),
   ];
 
   const fakeResourceTags = fakeResourceRecords.flatMap((resource) => {
