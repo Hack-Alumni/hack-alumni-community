@@ -866,6 +866,23 @@ async function seed(trx: Transaction<DB>) {
       { id: slackChannelId3, name: 'random', type: 'public' },
     ])
     .execute();
+  const NUM_FAKE_SLACK_CHANNELS = 10; // or however many you want
+
+  const fakeSlackChannelRecords = Array.from({
+    length: NUM_FAKE_SLACK_CHANNELS,
+  }).map(() => ({
+    id: id(),
+    name: faker.helpers
+      .slugify(faker.word.words({ count: 2 }))
+      .replace(/_/g, '-'),
+    type: faker.helpers.arrayElement(['public', 'private']),
+  }));
+
+  await trx
+    .insertInto('slackChannels')
+    .values(fakeSlackChannelRecords)
+    .execute();
+  console.log('Inserted fake slack channels:', fakeSlackChannelRecords.length);
 
   // Countries
 
