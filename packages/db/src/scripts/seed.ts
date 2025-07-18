@@ -749,6 +749,30 @@ async function seed(trx: Transaction<DB>) {
     ])
     .execute();
 
+  const NUM_FAKE_RESOURCES = 10;
+  const fakeResourceRecords = Array.from({ length: NUM_FAKE_RESOURCES }).map(
+    () => {
+      const postedBy = faker.helpers.arrayElement([
+        memberId1,
+        memberId2,
+        memberId3,
+        ...fakeStudentRecords.map((rec) => rec.studentId),
+      ]);
+
+      return {
+        id: id(),
+        description: faker.lorem.sentence(),
+        link: faker.internet.url(),
+        postedAt: new Date(),
+        postedBy,
+        title: faker.company.catchPhrase(),
+        type: 'url',
+      };
+    }
+  );
+
+  await trx.insertInto('resources').values(fakeResourceRecords).execute();
+
   const academicTagId = id();
   const careerAdviceTagId = id();
   const interviewPrepTagId = id();
@@ -777,6 +801,25 @@ async function seed(trx: Transaction<DB>) {
       { resourceId: resourceId3, tagId: learningTagId },
     ])
     .execute();
+  const allTagIds = [
+    academicTagId,
+    careerAdviceTagId,
+    interviewPrepTagId,
+    learningTagId,
+    videoTagId,
+  ];
+
+  const fakeResourceTags = fakeResourceRecords.flatMap((resource) => {
+    const numTags = faker.number.int({ min: 1, max: 3 });
+    const selectedTagIds = faker.helpers.shuffle(allTagIds).slice(0, numTags);
+
+    return selectedTagIds.map((tagId) => ({
+      resourceId: resource.id,
+      tagId,
+    }));
+  });
+
+  await trx.insertInto('resourceTags').values(fakeResourceTags).execute();
 
   await trx
     .insertInto('resourceUpvotes')
@@ -789,6 +832,25 @@ async function seed(trx: Transaction<DB>) {
       { resourceId: resourceId3, studentId: memberId2 },
     ])
     .execute();
+  const fakeResourceUpvotes = fakeResourceRecords.flatMap((resource) => {
+    // Each resource gets 1-3 upvotes from random students
+    const numUpvotes = faker.number.int({ min: 1, max: 3 });
+    const selectedStudentIds = faker.helpers
+      .shuffle([
+        memberId1,
+        memberId2,
+        memberId3,
+        ...fakeStudentRecords.map((rec) => rec.studentId),
+      ])
+      .slice(0, numUpvotes);
+
+    return selectedStudentIds.map((studentId) => ({
+      resourceId: resource.id,
+      studentId,
+    }));
+  });
+
+  await trx.insertInto('resourceUpvotes').values(fakeResourceUpvotes).execute();
 
   // Slack Channels
 
