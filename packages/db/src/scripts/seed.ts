@@ -3,7 +3,7 @@ import { sql, type Transaction, type ValueExpression } from 'kysely';
 import readline from 'readline';
 import { z } from 'zod';
 
-import { countries, Country } from './data/countries';
+import { countries } from './data/countries';
 import { type Point } from '../../dist/db';
 import { db } from '../shared/db';
 import { IS_PRODUCTION } from '../shared/env';
@@ -86,6 +86,7 @@ function id() {
 }
 
 async function seed(trx: Transaction<DB>) {
+  // ------ SCHOOLS ------
   const schoolId1 = id();
   const schoolId2 = id();
   const schoolId3 = id();
@@ -137,7 +138,7 @@ async function seed(trx: Transaction<DB>) {
       },
     ])
     .execute();
-  const NUM_FAKE_SCHOOLS = 10; // or however many you want
+  const NUM_FAKE_SCHOOLS = 10;
   const fakeSchoolRecords = Array.from({ length: NUM_FAKE_SCHOOLS }).map(
     () => ({
       id: id(),
@@ -149,7 +150,7 @@ async function seed(trx: Transaction<DB>) {
   );
 
   await trx.insertInto('schools').values(fakeSchoolRecords).execute();
-  // Collect all school IDs (real + fake)
+  // Collect all school IDs (static + fake)
   const allSchoolIds = [
     schoolId1,
     schoolId2,
@@ -157,6 +158,7 @@ async function seed(trx: Transaction<DB>) {
     ...fakeSchoolRecords.map((school) => school.id),
   ];
 
+  // ------ ADMINS ------
   await trx
     .insertInto('admins')
     .values([
@@ -182,6 +184,7 @@ async function seed(trx: Transaction<DB>) {
 
   await trx.insertInto('admins').values(adminRecords).execute();
 
+  // ------ STUDENTS ------
   const memberId1 = id();
   const memberId2 = id();
   const memberId3 = id();
@@ -349,6 +352,7 @@ async function seed(trx: Transaction<DB>) {
       .execute();
   }
 
+  // ------ APPLICATIONS ------
   await trx
     .insertInto('applications')
     .values([
@@ -388,7 +392,7 @@ async function seed(trx: Transaction<DB>) {
       },
     ])
     .execute();
-  const NUM_FAKE_APPLICATIONS = 10; // or however many you want
+  const NUM_FAKE_APPLICATIONS = 10;
 
   const fakeApplications = fakeStudentRecords
     .slice(0, NUM_FAKE_APPLICATIONS)
@@ -412,8 +416,7 @@ async function seed(trx: Transaction<DB>) {
 
   await trx.insertInto('applications').values(fakeApplications).execute();
 
-  // Companies
-
+  // ------ COMPANIES ------
   const companyId1 = id();
   const companyId2 = id();
   const companyId3 = id();
@@ -496,10 +499,7 @@ async function seed(trx: Transaction<DB>) {
     ])
     .execute();
 
-  // 1. Decide how many fake companies to add
   const NUM_FAKE_COMPANIES = 10;
-
-  // 2. Generate fake company records
   const fakeCompanyRecords = Array.from({ length: NUM_FAKE_COMPANIES }).map(
     () => ({
       id: id(),
@@ -516,11 +516,9 @@ async function seed(trx: Transaction<DB>) {
     })
   );
 
-  // 3. Insert fake companies into the companies table
   await trx.insertInto('companies').values(fakeCompanyRecords).execute();
   console.log('Inserted fake companies:', fakeCompanyRecords.length);
 
-  // 4. (Optional) Collect all company IDs for later use
   const allCompanyIds = [
     companyId1,
     companyId2,
@@ -530,8 +528,7 @@ async function seed(trx: Transaction<DB>) {
     ...fakeCompanyRecords.map((company) => company.id),
   ];
 
-  // Opportunities
-
+  // ------ OPPORTUNITIES ------
   const opportunityId1 = id();
   const opportunityId2 = id();
   const opportunityId3 = id();
@@ -613,7 +610,7 @@ async function seed(trx: Transaction<DB>) {
       },
     ])
     .execute();
-  const NUM_FAKE_OPPORTUNITIES = 10; // or however many you want
+  const NUM_FAKE_OPPORTUNITIES = 10;
 
   const fakeOpportunities = Array.from({ length: NUM_FAKE_OPPORTUNITIES }).map(
     () => {
@@ -640,6 +637,7 @@ async function seed(trx: Transaction<DB>) {
   await trx.insertInto('opportunities').values(fakeOpportunities).execute();
   console.log('Inserted fake opportunities:', fakeOpportunities.length);
 
+  // ------ TAGS ------
   const aiTagId = id();
   const earlyCareerTagId = id();
   const hardwareTagId = id();
@@ -711,8 +709,7 @@ async function seed(trx: Transaction<DB>) {
     .values(fakeOpportunityTagAssociations)
     .execute();
 
-  // Resources
-
+  // ------ RESOURCES ------
   const resourceId1 = id();
   const resourceId2 = id();
   const resourceId3 = id();
@@ -791,10 +788,10 @@ async function seed(trx: Transaction<DB>) {
     ])
     .execute();
 
-  const NUM_FAKE_TAGS = 10; // or however many you want
+  const NUM_FAKE_TAGS = 10;
   const fakeTags = Array.from({ length: NUM_FAKE_TAGS }).map(() => ({
     id: id(),
-    name: faker.word.noun(), // or any faker method for tag names
+    name: faker.word.noun(),
   }));
 
   await trx.insertInto('tags').values(fakeTags).execute();
@@ -862,8 +859,7 @@ async function seed(trx: Transaction<DB>) {
 
   await trx.insertInto('resourceUpvotes').values(fakeResourceUpvotes).execute();
 
-  // Slack Channels
-
+  // ------ SLACK CHANNELS ------
   const slackChannelId1 = id();
   const slackChannelId2 = id();
   const slackChannelId3 = id();
@@ -876,7 +872,7 @@ async function seed(trx: Transaction<DB>) {
       { id: slackChannelId3, name: 'random', type: 'public' },
     ])
     .execute();
-  const NUM_FAKE_SLACK_CHANNELS = 10; // or however many you want
+  const NUM_FAKE_SLACK_CHANNELS = 10;
 
   const fakeSlackChannelRecords = Array.from({
     length: NUM_FAKE_SLACK_CHANNELS,
@@ -894,7 +890,7 @@ async function seed(trx: Transaction<DB>) {
     .execute();
   console.log('Inserted fake slack channels:', fakeSlackChannelRecords.length);
 
-  // Countries
+  // ------ COUNTRIES ------
   await trx.insertInto('countries').values(countries).execute();
 }
 
