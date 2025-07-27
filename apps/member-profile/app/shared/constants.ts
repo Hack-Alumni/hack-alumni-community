@@ -7,6 +7,7 @@ const ROUTES = [
   '/companies/:id',
   '/companies/:id/employees',
   '/companies/:id/reviews',
+  '/developers',
   '/directory',
   '/directory/join',
   '/directory/join/1',
