@@ -15,7 +15,13 @@ import {
 } from '@hack-alumni/core/member-profile/server';
 import { WorkExperienceItem } from '@hack-alumni/core/member-profile/ui';
 import { type MixpanelEvent } from '@hack-alumni/core/mixpanel';
-import { Button, cx, ProfilePicture, Text, type TextProps } from '@hack-alumni/ui';
+import {
+  Button,
+  cx,
+  ProfilePicture,
+  Text,
+  type TextProps,
+} from '@hack-alumni/ui';
 
 import { Card } from '@/shared/components/card';
 import { EducationExperienceItem } from '@/shared/components/education-experience';

@@ -13,7 +13,10 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { editFullTimeOffer, EditFullTimeOfferInput } from '@hack-alumni/core/offers';
+import {
+  editFullTimeOffer,
+  EditFullTimeOfferInput,
+} from '@hack-alumni/core/offers';
 import {
   OfferAdditionalNotesField,
   OfferBaseSalaryField,

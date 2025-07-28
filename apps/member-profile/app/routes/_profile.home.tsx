@@ -1,6 +1,7 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
+import MediumIcon from 'public/MediumIcon';
 import { type PropsWithChildren } from 'react';
 import {
   ExternalLink,
@@ -11,7 +12,6 @@ import {
   Linkedin,
   Twitter,
 } from 'react-feather';
-import MediumIcon from 'public/MediumIcon';
 import { match } from 'ts-pattern';
 
 import { countEventAttendees } from '@hack-alumni/core/events/attendees';
@@ -19,7 +19,11 @@ import {
   countMessagesSent,
   getActiveStreakLeaderboard,
 } from '@hack-alumni/core/member-profile/server';
-import { getIpAddress, setMixpanelProfile, track } from '@hack-alumni/core/mixpanel';
+import {
+  getIpAddress,
+  setMixpanelProfile,
+  track,
+} from '@hack-alumni/core/mixpanel';
 import { db } from '@hack-alumni/db';
 import {
   ACTIVATION_REQUIREMENTS,
@@ -544,6 +548,7 @@ function ResourceItem({
     </li>
   );
 }
+
 function SocialsCard() {
   return (
     <Card>
@@ -565,14 +570,19 @@ function SocialsCard() {
           href="https://www.instagram.com/hack.diversity/"
         />
 
-        <SocialItem Icon={Twitter} href="https://x.com/hack_diversity"/>
+        <SocialItem Icon={Twitter} href="https://x.com/hack_diversity" />
 
-        <SocialItem Icon={Facebook} href="https://www.facebook.com/hack.diversity/"/>
+        <SocialItem
+          Icon={Facebook}
+          href="https://www.facebook.com/hack.diversity/"
+        />
 
-        <SocialItem Icon={GitHub} href="https://github.com/HackDotDiversity"/>
+        <SocialItem Icon={GitHub} href="https://github.com/HackDotDiversity" />
 
-        <SocialItem Icon={MediumIcon} href='https://medium.com/hack-diversity-movement'/>
-
+        <SocialItem
+          Icon={MediumIcon}
+          href="https://medium.com/hack-diversity-movement"
+        />
       </ul>
     </Card>
   );

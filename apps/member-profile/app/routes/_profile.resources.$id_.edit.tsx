@@ -17,8 +17,14 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { type ResourceType, UpdateResourceInput } from '@hack-alumni/core/resources';
-import { getResource, updateResource } from '@hack-alumni/core/resources/server';
+import {
+  type ResourceType,
+  UpdateResourceInput,
+} from '@hack-alumni/core/resources';
+import {
+  getResource,
+  updateResource,
+} from '@hack-alumni/core/resources/server';
 import {
   Button,
   Divider,

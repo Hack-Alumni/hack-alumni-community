@@ -30,7 +30,11 @@ import {
   Text,
 } from '@hack-alumni/ui';
 import { FilterList } from '@hack-alumni/ui/filter';
-import { FilterPopover, FilterRoot, FilterTrigger } from '@hack-alumni/ui/filter';
+import {
+  FilterPopover,
+  FilterRoot,
+  FilterTrigger,
+} from '@hack-alumni/ui/filter';
 import { type FilterValue } from '@hack-alumni/ui/filter';
 import { FilterItem } from '@hack-alumni/ui/filter';
 import {

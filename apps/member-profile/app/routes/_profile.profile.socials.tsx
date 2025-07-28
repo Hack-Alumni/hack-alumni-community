@@ -8,7 +8,13 @@ import { z } from 'zod';
 
 import { updateMember } from '@hack-alumni/core/member-profile/server';
 import { nullableField, Student } from '@hack-alumni/types';
-import { Button, getErrors, InputField, Text, validateForm } from '@hack-alumni/ui';
+import {
+  Button,
+  getErrors,
+  InputField,
+  Text,
+  validateForm,
+} from '@hack-alumni/ui';
 
 import {
   ProfileHeader,

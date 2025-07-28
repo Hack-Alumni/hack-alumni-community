@@ -3,7 +3,13 @@ import React from 'react';
 import parseSlackMessage, { type Node, NodeType } from 'slack-message-parser';
 import { match } from 'ts-pattern';
 
-import { Button, cx, ProfilePicture, Text, type TextProps } from '@hack-alumni/ui';
+import {
+  Button,
+  cx,
+  ProfilePicture,
+  Text,
+  type TextProps,
+} from '@hack-alumni/ui';
 
 import { Card } from '@/shared/components/card';
 

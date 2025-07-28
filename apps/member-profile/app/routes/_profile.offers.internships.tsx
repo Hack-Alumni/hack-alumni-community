@@ -15,7 +15,12 @@ import { DollarSign, MapPin } from 'react-feather';
 import { track } from '@hack-alumni/core/mixpanel';
 import { hourlyToMonthlyRate } from '@hack-alumni/core/offers';
 import { db } from '@hack-alumni/db';
-import { Pagination, Table, type TableColumnProps, Text } from '@hack-alumni/ui';
+import {
+  Pagination,
+  Table,
+  type TableColumnProps,
+  Text,
+} from '@hack-alumni/ui';
 import {
   FilterEmptyMessage,
   FilterItem,
