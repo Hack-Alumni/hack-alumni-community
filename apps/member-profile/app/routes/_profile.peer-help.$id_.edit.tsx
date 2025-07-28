@@ -13,15 +13,15 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { editHelpRequest, EditHelpRequestInput } from '@oyster/core/peer-help';
-import { db } from '@oyster/db';
+import { editHelpRequest, EditHelpRequestInput } from '@hack-alumni/core/peer-help';
+import { db } from '@hack-alumni/db';
 import {
   Button,
   ErrorMessage,
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import {
   HelpRequestDescriptionField,

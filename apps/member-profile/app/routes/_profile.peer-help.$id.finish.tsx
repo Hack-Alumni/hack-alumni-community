@@ -15,8 +15,8 @@ import {
   finishHelpRequest,
   FinishHelpRequestInput,
   type HelpRequestStatus,
-} from '@oyster/core/peer-help';
-import { db } from '@oyster/db';
+} from '@hack-alumni/core/peer-help';
+import { db } from '@hack-alumni/db';
 import {
   Button,
   ErrorMessage,
@@ -25,7 +25,7 @@ import {
   Radio,
   Textarea,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import {

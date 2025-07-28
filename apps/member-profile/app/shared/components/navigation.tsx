@@ -1,7 +1,7 @@
 import { NavLink } from '@remix-run/react';
 import { type PropsWithChildren } from 'react';
 
-import { cx } from '@oyster/ui';
+import { cx } from '@hack-alumni/ui';
 
 type NavigationItemProps = PropsWithChildren<{
   to: string;

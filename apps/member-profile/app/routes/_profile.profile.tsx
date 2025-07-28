@@ -18,7 +18,7 @@ import {
   Zap,
 } from 'react-feather';
 
-import { cx, Divider, ProfilePicture, Text } from '@oyster/ui';
+import { cx, Divider, ProfilePicture, Text } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import { getMember } from '@/shared/queries';

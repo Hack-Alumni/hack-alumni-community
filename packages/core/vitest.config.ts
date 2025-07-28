@@ -32,11 +32,11 @@ export default defineConfig({
 
     // The global setup file is only run once before ALL test suites.
     // See: https://vitest.dev/config/#globalsetup
-    globalSetup: ['@oyster/db/test/setup.global.ts'],
+    globalSetup: ['@hack-alumni/db/test/setup.global.ts'],
 
     // The setup files are run before EACH test suite.
     // See: https://vitest.dev/config/#setupfiles
-    setupFiles: ['@oyster/db/test/setup.ts'],
+    setupFiles: ['@hack-alumni/db/test/setup.ts'],
 
     // Mocking
 

@@ -3,9 +3,9 @@ import { type ExpressionBuilder } from 'kysely';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { db, type DB } from '@oyster/db';
-import { nullableField } from '@oyster/types';
-import { id } from '@oyster/utils';
+import { db, type DB } from '@hack-alumni/db';
+import { nullableField } from '@hack-alumni/types';
+import { id } from '@hack-alumni/utils';
 
 import { getChatCompletion } from '@/infrastructure/ai';
 import { job, registerWorker } from '@/infrastructure/bull';

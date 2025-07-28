@@ -8,7 +8,7 @@ import { type PropsWithChildren } from 'react';
 import { ArrowUp, BarChart2, Edit, Share } from 'react-feather';
 import { match } from 'ts-pattern';
 
-import { ResourceType } from '@oyster/core/resources';
+import { ResourceType } from '@hack-alumni/core/resources';
 import {
   cx,
   getIconButtonCn,
@@ -16,13 +16,13 @@ import {
   Pill,
   ProfilePicture,
   Text,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
+} from '@hack-alumni/ui/tooltip';
 
 import { Route } from '@/shared/constants';
 import { useMixpanelTracker } from '@/shared/hooks/use-mixpanel-tracker';

@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack-alumni/db';
 
 /**
  * Checks if a student has review access by checking if they have a work

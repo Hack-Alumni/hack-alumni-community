@@ -14,13 +14,13 @@ import dayjs from 'dayjs';
 import { ArrowRight, Check, Edit, Info, User } from 'react-feather';
 import { z } from 'zod';
 
-import { ListSearchParams } from '@oyster/core/member-profile/ui';
-import { track } from '@oyster/core/mixpanel';
+import { ListSearchParams } from '@hack-alumni/core/member-profile/ui';
+import { track } from '@hack-alumni/core/mixpanel';
 import {
   type HelpRequestStatus,
   HelpRequestType,
-} from '@oyster/core/peer-help';
-import { db } from '@oyster/db';
+} from '@hack-alumni/core/peer-help';
+import { db } from '@hack-alumni/db';
 import {
   Button,
   Dashboard,
@@ -28,18 +28,18 @@ import {
   Pagination,
   ProfilePicture,
   Text,
-} from '@oyster/ui';
-import { FilterList } from '@oyster/ui/filter';
-import { FilterPopover, FilterRoot, FilterTrigger } from '@oyster/ui/filter';
-import { type FilterValue } from '@oyster/ui/filter';
-import { FilterItem } from '@oyster/ui/filter';
+} from '@hack-alumni/ui';
+import { FilterList } from '@hack-alumni/ui/filter';
+import { FilterPopover, FilterRoot, FilterTrigger } from '@hack-alumni/ui/filter';
+import { type FilterValue } from '@hack-alumni/ui/filter';
+import { FilterItem } from '@hack-alumni/ui/filter';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
-import { toTitleCase } from '@oyster/utils';
+} from '@hack-alumni/ui/tooltip';
+import { toTitleCase } from '@hack-alumni/utils';
 
 import {
   HelpRequestDescription,

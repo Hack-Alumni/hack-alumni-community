@@ -1,6 +1,6 @@
 import { type Insertable } from 'kysely';
 
-import { EducationLevel, Gender, Major } from '@oyster/types';
+import { EducationLevel, Gender, Major } from '@hack-alumni/types';
 
 import { type DB } from '../shared/types';
 

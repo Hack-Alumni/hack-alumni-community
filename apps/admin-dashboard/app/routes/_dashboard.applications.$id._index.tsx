@@ -9,22 +9,22 @@ import dayjs from 'dayjs';
 import { type PropsWithChildren, useState } from 'react';
 import { ChevronDown, Info } from 'react-feather';
 
-import { type EducationLevel } from '@oyster/core/admin-dashboard/ui';
+import { type EducationLevel } from '@hack-alumni/core/admin-dashboard/ui';
 import {
   acceptApplication,
   getApplication,
   rejectApplication,
-} from '@oyster/core/applications';
-import { ApplicationRejectionReason } from '@oyster/core/applications/types';
-import { Application } from '@oyster/core/applications/ui';
+} from '@hack-alumni/core/applications';
+import { ApplicationRejectionReason } from '@hack-alumni/core/applications/types';
+import { Application } from '@hack-alumni/core/applications/ui';
 import {
   Application as ApplicationType,
   type Gender,
   type Major,
   type OtherDemographic,
   type Race,
-} from '@oyster/types';
-import { Button, Dropdown, Field, Select, Text } from '@oyster/ui';
+} from '@hack-alumni/types';
+import { Button, Dropdown, Field, Select, Text } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

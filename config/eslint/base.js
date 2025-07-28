@@ -85,6 +85,6 @@ module.exports = {
     ],
   },
   settings: {
-    'import/internal-regex': '^@oyster/',
+    'import/internal-regex': '^@hack-alumni/',
   },
 };

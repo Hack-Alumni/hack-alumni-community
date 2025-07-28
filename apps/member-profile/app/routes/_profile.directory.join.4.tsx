@@ -13,12 +13,12 @@ import {
   getIcebreakerResponses,
   joinMemberDirectory,
   upsertIcebreakerResponses,
-} from '@oyster/core/member-profile/server';
+} from '@hack-alumni/core/member-profile/server';
 import {
   IcebreakerPrompt,
   IcebreakerResponse,
-} from '@oyster/core/member-profile/ui';
-import { db } from '@oyster/db';
+} from '@hack-alumni/core/member-profile/ui';
+import { db } from '@hack-alumni/db';
 import {
   Button,
   Field,
@@ -26,8 +26,8 @@ import {
   Select,
   Textarea,
   validateForm,
-} from '@oyster/ui';
-import { id } from '@oyster/utils';
+} from '@hack-alumni/ui';
+import { id } from '@hack-alumni/utils';
 
 import {
   JoinDirectoryBackButton,

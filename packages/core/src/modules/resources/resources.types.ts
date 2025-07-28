@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { type ExtractValue } from '@oyster/types';
+import { type ExtractValue } from '@hack-alumni/types';
 
 import { ListSearchParams } from '@/shared/types';
 import { FileLike } from '@/shared/utils/zod';

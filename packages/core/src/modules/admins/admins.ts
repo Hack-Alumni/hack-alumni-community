@@ -1,5 +1,5 @@
-import { type DB, db } from '@oyster/db';
-import { id } from '@oyster/utils';
+import { type DB, db } from '@hack-alumni/db';
+import { id } from '@hack-alumni/utils';
 
 import { type SelectExpression } from '@/shared/types';
 import { fail, type Result, success } from '@/shared/utils/core';

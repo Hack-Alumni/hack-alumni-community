@@ -12,7 +12,7 @@ import isbot from 'isbot';
 import { renderToPipeableStream } from 'react-dom/server';
 import { PassThrough } from 'stream';
 
-import { getCookie, run } from '@oyster/utils';
+import { getCookie, run } from '@hack-alumni/utils';
 
 import { ENV } from '@/shared/constants.server';
 

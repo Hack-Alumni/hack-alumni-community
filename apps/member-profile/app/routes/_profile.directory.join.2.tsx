@@ -7,9 +7,9 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 
-import { updateMember } from '@oyster/core/member-profile/server';
-import { nullableField, Student } from '@oyster/types';
-import { Button, Divider, getErrors, validateForm } from '@oyster/ui';
+import { updateMember } from '@hack-alumni/core/member-profile/server';
+import { nullableField, Student } from '@hack-alumni/types';
+import { Button, Divider, getErrors, validateForm } from '@hack-alumni/ui';
 
 import {
   JoinDirectoryBackButton,

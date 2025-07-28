@@ -13,7 +13,7 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { editFullTimeOffer, EditFullTimeOfferInput } from '@oyster/core/offers';
+import { editFullTimeOffer, EditFullTimeOfferInput } from '@hack-alumni/core/offers';
 import {
   OfferAdditionalNotesField,
   OfferBaseSalaryField,
@@ -27,8 +27,8 @@ import {
   OfferRoleField,
   OfferSignOnBonusField,
   OfferTotalStockField,
-} from '@oyster/core/offers/ui';
-import { db } from '@oyster/db';
+} from '@hack-alumni/core/offers/ui';
+import { db } from '@hack-alumni/db';
 import {
   Button,
   Divider,
@@ -36,7 +36,7 @@ import {
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import {

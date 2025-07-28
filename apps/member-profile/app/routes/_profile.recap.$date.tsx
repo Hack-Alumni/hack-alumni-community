@@ -10,13 +10,13 @@ import {
 import dayjs from 'dayjs';
 import { type PropsWithChildren } from 'react';
 
-import { listCompanyReviews } from '@oyster/core/employment/server';
-import { listMembersInDirectory } from '@oyster/core/member-profile/server';
-import { track } from '@oyster/core/mixpanel';
-import { listResources } from '@oyster/core/resources/server';
-import { listSlackMessages } from '@oyster/core/slack/server';
-import { Divider, Text } from '@oyster/ui';
-import { run } from '@oyster/utils';
+import { listCompanyReviews } from '@hack-alumni/core/employment/server';
+import { listMembersInDirectory } from '@hack-alumni/core/member-profile/server';
+import { track } from '@hack-alumni/core/mixpanel';
+import { listResources } from '@hack-alumni/core/resources/server';
+import { listSlackMessages } from '@hack-alumni/core/slack/server';
+import { Divider, Text } from '@hack-alumni/ui';
+import { run } from '@hack-alumni/utils';
 
 import { NavigationItem } from '@/shared/components/navigation';
 import { type Route } from '@/shared/constants';

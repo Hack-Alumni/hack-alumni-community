@@ -14,7 +14,7 @@ import {
   StudentAnniversaryEmail,
   StudentAttendedOnboardingEmail,
   StudentRemovedEmail,
-} from '@oyster/email-templates';
+} from '@hack-alumni/email-templates';
 
 import { getObject } from '@/infrastructure/s3';
 import { ENVIRONMENT } from '@/shared/env';

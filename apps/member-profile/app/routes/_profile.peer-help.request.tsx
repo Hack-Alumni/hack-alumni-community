@@ -12,14 +12,14 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { requestHelp, RequestHelpInput } from '@oyster/core/peer-help';
+import { requestHelp, RequestHelpInput } from '@hack-alumni/core/peer-help';
 import {
   Button,
   ErrorMessage,
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import {
   HelpRequestDescriptionField,

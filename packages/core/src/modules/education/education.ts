@@ -1,7 +1,7 @@
 import { type SelectExpression, sql } from 'kysely';
 
-import { db, type DB } from '@oyster/db';
-import { id, splitArray } from '@oyster/utils';
+import { db, type DB } from '@hack-alumni/db';
+import { id, splitArray } from '@hack-alumni/utils';
 
 import { job } from '@/infrastructure/bull';
 import {

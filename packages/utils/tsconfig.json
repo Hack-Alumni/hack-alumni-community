@@ -1,5 +1,5 @@
 {
-  "extends": "@oyster/tsconfig/base.json",
+  "extends": "@hack-alumni/tsconfig/base.json",
   "include": ["src"],
   "compilerOptions": {
     "module": "ESNext",

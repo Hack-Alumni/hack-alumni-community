@@ -6,15 +6,15 @@ import {
 } from '@remix-run/node';
 import { useActionData, useLoaderData } from '@remix-run/react';
 
-import { editActivity } from '@oyster/core/gamification';
+import { editActivity } from '@hack-alumni/core/gamification';
 import {
   type ActivityPeriod,
   type ActivityType,
   EditActivityInput,
-} from '@oyster/core/gamification/types';
-import { ActivityForm } from '@oyster/core/gamification/ui';
-import { db } from '@oyster/db';
-import { getErrors, Modal, validateForm } from '@oyster/ui';
+} from '@hack-alumni/core/gamification/types';
+import { ActivityForm } from '@hack-alumni/core/gamification/ui';
+import { db } from '@hack-alumni/db';
+import { getErrors, Modal, validateForm } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import {

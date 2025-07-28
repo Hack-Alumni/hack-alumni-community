@@ -14,13 +14,13 @@ import dayjs from 'dayjs';
 import { emojify } from 'node-emoji';
 import { Edit, Flag } from 'react-feather';
 
-import { job } from '@oyster/core/bull';
-import { track } from '@oyster/core/mixpanel';
+import { job } from '@hack-alumni/core/bull';
+import { track } from '@hack-alumni/core/mixpanel';
 import {
   getOpportunityDetails,
   reportOpportunity,
-} from '@oyster/core/opportunities';
-import { db } from '@oyster/db';
+} from '@hack-alumni/core/opportunities';
+import { db } from '@hack-alumni/db';
 import {
   Dropdown,
   getIconButtonCn,
@@ -28,14 +28,14 @@ import {
   Modal,
   Pill,
   Text,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
-import { run } from '@oyster/utils';
+} from '@hack-alumni/ui/tooltip';
+import { run } from '@hack-alumni/utils';
 
 import {
   BookmarkButton,

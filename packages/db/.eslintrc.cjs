@@ -1,6 +1,6 @@
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ['@oyster/eslint-config/base'],
+  extends: ['@hack-alumni/eslint-config/base'],
   ignorePatterns: ['*.js'],
   overrides: [
     {

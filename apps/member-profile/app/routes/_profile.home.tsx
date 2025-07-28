@@ -14,21 +14,21 @@ import {
 import MediumIcon from 'public/MediumIcon';
 import { match } from 'ts-pattern';
 
-import { countEventAttendees } from '@oyster/core/events/attendees';
+import { countEventAttendees } from '@hack-alumni/core/events/attendees';
 import {
   countMessagesSent,
   getActiveStreakLeaderboard,
-} from '@oyster/core/member-profile/server';
-import { getIpAddress, setMixpanelProfile, track } from '@oyster/core/mixpanel';
-import { db } from '@oyster/db';
+} from '@hack-alumni/core/member-profile/server';
+import { getIpAddress, setMixpanelProfile, track } from '@hack-alumni/core/mixpanel';
+import { db } from '@hack-alumni/db';
 import {
   ACTIVATION_REQUIREMENTS,
   type ActivationRequirement,
   StudentActiveStatus,
   Timezone,
-} from '@oyster/types';
-import { Button, cx, Divider, Text } from '@oyster/ui';
-import { toTitleCase } from '@oyster/utils';
+} from '@hack-alumni/types';
+import { Button, cx, Divider, Text } from '@hack-alumni/ui';
+import { toTitleCase } from '@hack-alumni/utils';
 
 import { Card, type CardProps } from '@/shared/components/card';
 import { Leaderboard } from '@/shared/components/leaderboard';

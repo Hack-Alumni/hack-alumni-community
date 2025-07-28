@@ -18,8 +18,8 @@ import { z } from 'zod';
 import {
   listEmails,
   updateAllowEmailShare,
-} from '@oyster/core/member-profile/server';
-import { buildMeta } from '@oyster/core/remix';
+} from '@hack-alumni/core/member-profile/server';
+import { buildMeta } from '@hack-alumni/core/remix';
 import {
   Button,
   Checkbox,
@@ -28,7 +28,7 @@ import {
   getErrors,
   Text,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import {
   ProfileDescription,

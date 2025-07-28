@@ -1,6 +1,6 @@
 import { type z } from 'zod';
 
-import { Application, BooleanInput, type ExtractValue } from '@oyster/types';
+import { Application, BooleanInput, type ExtractValue } from '@hack-alumni/types';
 
 // Enums
 

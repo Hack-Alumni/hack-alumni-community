@@ -1,4 +1,4 @@
-import { type Environment } from '@oyster/core/member-profile/ui';
+import { type Environment } from '@hack-alumni/core/member-profile/ui';
 
 declare global {
   interface Window {

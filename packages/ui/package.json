@@ -1,5 +1,5 @@
 {
-  "name": "@oyster/ui",
+  "name": "@hack-alumni/ui",
   "version": "0.0.0",
   "private": true,
   "sideEffects": false,
@@ -26,10 +26,10 @@
     "@radix-ui/react-tooltip": "^1.0.7"
   },
   "devDependencies": {
-    "@oyster/eslint-config": "*",
-    "@oyster/tsconfig": "*",
-    "@oyster/types": "*",
-    "@oyster/utils": "*",
+    "@hack-alumni/eslint-config": "*",
+    "@hack-alumni/tsconfig": "*",
+    "@hack-alumni/types": "*",
+    "@hack-alumni/utils": "*",
     "@remix-run/react": "^2.8.1",
     "@types/react": "^18.0.26",
     "react": "^18.2.0",

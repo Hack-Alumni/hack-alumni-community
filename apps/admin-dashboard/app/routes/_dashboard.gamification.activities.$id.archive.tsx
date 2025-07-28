@@ -11,8 +11,8 @@ import {
   useNavigation,
 } from '@remix-run/react';
 
-import { archiveActivity } from '@oyster/core/gamification';
-import { Button, ErrorMessage, Modal } from '@oyster/ui';
+import { archiveActivity } from '@hack-alumni/core/gamification';
+import { Button, ErrorMessage, Modal } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import {

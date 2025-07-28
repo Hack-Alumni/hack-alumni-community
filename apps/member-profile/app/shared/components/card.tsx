@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react';
 
-import { cx, Text } from '@oyster/ui';
+import { cx, Text } from '@hack-alumni/ui';
 import { Colors } from '@ui/colors';
 export type CardProps = PropsWithChildren<{
   className?: string;

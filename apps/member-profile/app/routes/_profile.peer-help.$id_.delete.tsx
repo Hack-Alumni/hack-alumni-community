@@ -11,9 +11,9 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { deleteHelpRequest } from '@oyster/core/peer-help';
-import { db } from '@oyster/db';
-import { Button, ErrorMessage, getErrors, Modal } from '@oyster/ui';
+import { deleteHelpRequest } from '@hack-alumni/core/peer-help';
+import { db } from '@hack-alumni/db';
+import { Button, ErrorMessage, getErrors, Modal } from '@hack-alumni/ui';
 
 import { HelpRequestDescription } from '@/shared/components/peer-help';
 import { Route } from '@/shared/constants';

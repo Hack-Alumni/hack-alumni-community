@@ -1,4 +1,4 @@
-import { sleep } from '@oyster/utils';
+import { sleep } from '@hack-alumni/utils';
 
 export type Result<T = object, E = object> =
   | {

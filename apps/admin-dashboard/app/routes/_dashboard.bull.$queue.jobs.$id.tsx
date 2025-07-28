@@ -8,7 +8,7 @@ import {
 import dayjs from 'dayjs';
 import { type PropsWithChildren } from 'react';
 
-import { Modal, Text } from '@oyster/ui';
+import { Modal, Text } from '@hack-alumni/ui';
 
 import { validateQueue } from '@/shared/bull';
 import { Route } from '@/shared/constants';

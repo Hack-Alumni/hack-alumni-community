@@ -7,18 +7,18 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
 
-import { getResumeBook, updateResumeBook } from '@oyster/core/resume-books';
+import { getResumeBook, updateResumeBook } from '@hack-alumni/core/resume-books';
 import {
   RESUME_BOOK_TIMEZONE,
   UpdateResumeBookInput,
-} from '@oyster/core/resume-books/types';
+} from '@hack-alumni/core/resume-books/types';
 import {
   ResumeBookEndDateField,
   ResumeBookHiddenField,
   ResumeBookNameField,
   ResumeBookStartDateField,
-} from '@oyster/core/resume-books/ui';
-import { Button, getErrors, Modal, validateForm } from '@oyster/ui';
+} from '@hack-alumni/core/resume-books/ui';
+import { Button, getErrors, Modal, validateForm } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import {

@@ -1,4 +1,4 @@
-import { student1, student1Emails } from '@oyster/db/test/constants';
+import { student1, student1Emails } from '@hack-alumni/db/test/constants';
 
 import { listEmails } from './list-emails';
 

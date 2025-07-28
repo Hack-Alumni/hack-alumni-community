@@ -1,5 +1,5 @@
 {
-  "name": "@oyster/admin-dashboard",
+  "name": "@hack-alumni/admin-dashboard",
   "version": "0.0.0",
   "private": true,
   "sideEffects": false,
@@ -14,11 +14,11 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@oyster/core": "*",
-    "@oyster/db": "*",
-    "@oyster/types": "*",
-    "@oyster/ui": "*",
-    "@oyster/utils": "*",
+    "@hack-alumni/core": "*",
+    "@hack-alumni/db": "*",
+    "@hack-alumni/types": "*",
+    "@hack-alumni/ui": "*",
+    "@hack-alumni/utils": "*",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
@@ -37,9 +37,9 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@oyster/eslint-config": "*",
-    "@oyster/tailwind": "*",
-    "@oyster/tsconfig": "*",
+    "@hack-alumni/eslint-config": "*",
+    "@hack-alumni/tailwind": "*",
+    "@hack-alumni/tsconfig": "*",
     "@remix-run/dev": "^2.8.1",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^18.7.18",

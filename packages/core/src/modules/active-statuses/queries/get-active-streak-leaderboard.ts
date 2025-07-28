@@ -1,6 +1,6 @@
 import { sql } from 'kysely';
 
-import { db } from '@oyster/db';
+import { db } from '@hack-alumni/db';
 
 import { ONE_HOUR_IN_SECONDS, withCache } from '@/infrastructure/redis';
 import { LeaderboardPosition } from '../shared/active-status.shared';

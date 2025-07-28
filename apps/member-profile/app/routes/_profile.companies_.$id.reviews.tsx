@@ -5,12 +5,12 @@ import dayjs from 'dayjs';
 import {
   type EmploymentType,
   type LocationType,
-} from '@oyster/core/employment';
+} from '@hack-alumni/core/employment';
 import {
   hasReviewAccess,
   listCompanyReviews,
-} from '@oyster/core/employment/server';
-import { Text } from '@oyster/ui';
+} from '@hack-alumni/core/employment/server';
+import { Text } from '@hack-alumni/ui';
 
 import { CompanyReview } from '@/shared/components/company-review';
 import { ensureUserAuthenticated, user } from '@/shared/session.server';
