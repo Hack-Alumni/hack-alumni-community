@@ -1,7 +1,7 @@
 import { Link, useLocation } from '@remix-run/react';
 import { ChevronLeft, ChevronRight } from 'react-feather';
 
-import { run } from '@oyster/utils';
+import { run } from '@hack/utils';
 
 import { Text } from './text';
 import { cx } from '../utils/cx';

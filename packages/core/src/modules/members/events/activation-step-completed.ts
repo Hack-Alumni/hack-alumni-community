@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
 import dedent from 'dedent';
 
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 import {
   ACTIVATION_REQUIREMENTS,
   type ActivationRequirement,
   type Student,
-} from '@oyster/types';
+} from '@hack/types';
 
 import { job } from '@/infrastructure/bull';
 import { activateMember } from '@/modules/members/use-cases/activate-member';

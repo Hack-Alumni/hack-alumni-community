@@ -15,8 +15,8 @@ import {
   deleteOpportunity,
   getOpportunity,
   hasOpportunityWritePermission,
-} from '@oyster/core/opportunities';
-import { Button, ErrorMessage, getErrors, Modal } from '@oyster/ui';
+} from '@hack/core/opportunities';
+import { Button, ErrorMessage, getErrors, Modal } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated, user } from '@/shared/session.server';

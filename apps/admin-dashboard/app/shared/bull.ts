@@ -1,4 +1,4 @@
-import { getQueue, isValidQueue } from '@oyster/core/bull';
+import { getQueue, isValidQueue } from '@hack/core/bull';
 
 /**
  * Validates a queue name and returns the corresponding queue instance.

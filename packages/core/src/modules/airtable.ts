@@ -1,13 +1,13 @@
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 import {
   FORMATTED_DEMOGRAPHICS,
   FORMATTED_GENDER,
   FORMATTED_RACE,
   Student,
-} from '@oyster/types';
+} from '@hack/types';
 
 import { registerWorker } from '@/infrastructure/bull';
 import {

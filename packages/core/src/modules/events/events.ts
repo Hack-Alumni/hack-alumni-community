@@ -3,9 +3,9 @@ import { type SelectExpression, sql } from 'kysely';
 import { match } from 'ts-pattern';
 import { type z } from 'zod';
 
-import { type DB, db } from '@oyster/db';
-import { Event, type EventType } from '@oyster/types';
-import { id } from '@oyster/utils';
+import { type DB, db } from '@hack/db';
+import { Event, type EventType } from '@hack/types';
+import { id } from '@hack/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
 import { type GetBullJobData } from '@/infrastructure/bull.types';

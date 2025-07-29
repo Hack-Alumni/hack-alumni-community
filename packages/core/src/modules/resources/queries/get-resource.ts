@@ -1,6 +1,6 @@
 import { type SelectExpression } from 'kysely';
 
-import { db, type DB } from '@oyster/db';
+import { db, type DB } from '@hack/db';
 
 import {
   buildAttachmentsField,

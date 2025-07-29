@@ -3,8 +3,8 @@ import { type Fetcher, generatePath, useFetcher } from '@remix-run/react';
 import { createContext, type PropsWithChildren, useContext } from 'react';
 import { Bookmark } from 'react-feather';
 
-import { bookmarkOpportunity } from '@oyster/core/opportunities';
-import { cx, IconButton } from '@oyster/ui';
+import { bookmarkOpportunity } from '@hack/core/opportunities';
+import { cx, IconButton } from '@hack/ui';
 
 import { ensureUserAuthenticated, user } from '@/shared/session.server';
 

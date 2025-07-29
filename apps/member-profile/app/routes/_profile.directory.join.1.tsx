@@ -7,8 +7,8 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 
-import { updateMember } from '@oyster/core/member-profile/server';
-import { Student } from '@oyster/types';
+import { updateMember } from '@hack/core/member-profile/server';
+import { Student } from '@hack/types';
 import {
   Button,
   Checkbox,
@@ -20,7 +20,7 @@ import {
   Text,
   type TextProps,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { JoinDirectoryNextButton } from '@/routes/_profile.directory.join';
 import { CurrentLocationField } from '@/shared/components/profile.general';

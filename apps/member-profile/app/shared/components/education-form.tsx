@@ -5,15 +5,15 @@ import React, {
   useState,
 } from 'react';
 
-import { MajorCombobox, SchoolCombobox } from '@oyster/core/education/ui';
+import { MajorCombobox, SchoolCombobox } from '@hack/core/education/ui';
 import {
   DegreeType,
   FORMATTED_DEGREEE_TYPE,
   type School,
-} from '@oyster/core/member-profile/ui';
-import { type Major } from '@oyster/types';
-import { DatePicker, Field, Input, Select } from '@oyster/ui';
-import { toTitleCase } from '@oyster/utils';
+} from '@hack/core/member-profile/ui';
+import { type Major } from '@hack/types';
+import { DatePicker, Field, Input, Select } from '@hack/ui';
+import { toTitleCase } from '@hack/utils';
 
 const EducationFormContext = React.createContext({
   isOtherFieldOfStudy: false,

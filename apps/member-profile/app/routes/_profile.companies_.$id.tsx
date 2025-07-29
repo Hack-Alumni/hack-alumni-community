@@ -6,14 +6,14 @@ import {
 import { generatePath, Link, Outlet, useLoaderData } from '@remix-run/react';
 import { ExternalLink } from 'react-feather';
 
-import { getCompany } from '@oyster/core/employment/server';
-import { Button, Text } from '@oyster/ui';
+import { getCompany } from '@hack/core/employment/server';
+import { Button, Text } from '@hack/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
+} from '@hack/ui/tooltip';
 
 import { NavigationItem } from '@/shared/components/navigation';
 import { Route } from '@/shared/constants';

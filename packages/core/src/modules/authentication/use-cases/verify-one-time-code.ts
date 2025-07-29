@@ -1,6 +1,6 @@
 import { match } from 'ts-pattern';
 
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { job } from '@/infrastructure/bull';
 import { IS_DEVELOPMENT } from '@/shared/env';

@@ -11,9 +11,9 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { deleteOffer, hasOfferWritePermission } from '@oyster/core/offers';
-import { db } from '@oyster/db';
-import { Button, ErrorMessage, getErrors, Modal } from '@oyster/ui';
+import { deleteOffer, hasOfferWritePermission } from '@hack/core/offers';
+import { db } from '@hack/db';
+import { Button, ErrorMessage, getErrors, Modal } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import {

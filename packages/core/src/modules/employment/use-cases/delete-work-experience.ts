@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { job } from '@/infrastructure/bull';
 import { type DeleteWorkExperienceInput } from '../employment.types';

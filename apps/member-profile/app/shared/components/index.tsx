@@ -4,7 +4,7 @@
 import { generatePath, Link } from '@remix-run/react';
 import { Briefcase } from 'react-feather';
 
-import { Text } from '@oyster/ui';
+import { Text } from '@hack/ui';
 import {
   FilterEmptyMessage,
   FilterItem,
@@ -13,9 +13,9 @@ import {
   FilterSearch,
   FilterTrigger,
   useFilterContext,
-} from '@oyster/ui/filter';
-import { FilterRoot } from '@oyster/ui/filter';
-import { toEscapedString } from '@oyster/utils';
+} from '@hack/ui/filter';
+import { FilterRoot } from '@hack/ui/filter';
+import { toEscapedString } from '@hack/utils';
 
 import { Route } from '@/shared/constants';
 

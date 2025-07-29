@@ -3,16 +3,16 @@ import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import { Info, Send } from 'react-feather';
 import { match } from 'ts-pattern';
 
-import { ApplicationRejectionReason } from '@oyster/core/applications/types';
-import { listReferrals } from '@oyster/core/referrals';
-import { type ReferralStatus } from '@oyster/core/referrals/ui';
-import { Button, Pill, Text } from '@oyster/ui';
+import { ApplicationRejectionReason } from '@hack/core/applications/types';
+import { listReferrals } from '@hack/core/referrals';
+import { type ReferralStatus } from '@hack/core/referrals/ui';
+import { Button, Pill, Text } from '@hack/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
+} from '@hack/ui/tooltip';
 
 import {
   EmptyState,

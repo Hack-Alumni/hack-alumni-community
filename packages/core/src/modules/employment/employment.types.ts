@@ -7,7 +7,7 @@ import {
   ISO8601Date,
   NullishString,
   Student,
-} from '@oyster/types';
+} from '@hack/types';
 
 import { ListSearchParams } from '@/shared/types';
 

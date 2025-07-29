@@ -1,5 +1,5 @@
 {
-  "name": "@oyster/member-profile",
+  "name": "@hack/member-profile",
   "version": "0.0.0",
   "private": true,
   "sideEffects": false,
@@ -16,11 +16,11 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.576.0",
     "@aws-sdk/s3-request-presigner": "^3.577.0",
-    "@oyster/core": "*",
-    "@oyster/db": "*",
-    "@oyster/types": "*",
-    "@oyster/ui": "*",
-    "@oyster/utils": "*",
+    "@hack/core": "*",
+    "@hack/db": "*",
+    "@hack/types": "*",
+    "@hack/ui": "*",
+    "@hack/utils": "*",
     "@remix-run/node": "^2.8.1",
     "@remix-run/react": "^2.8.1",
     "@remix-run/serve": "^2.8.1",
@@ -41,9 +41,9 @@
     "zod": "^3.20.2"
   },
   "devDependencies": {
-    "@oyster/eslint-config": "*",
-    "@oyster/tailwind": "*",
-    "@oyster/tsconfig": "*",
+    "@hack/eslint-config": "*",
+    "@hack/tailwind": "*",
+    "@hack/tsconfig": "*",
     "@remix-run/dev": "^2.8.1",
     "@types/node": "^18.7.18",
     "@types/react": "^18.0.26",

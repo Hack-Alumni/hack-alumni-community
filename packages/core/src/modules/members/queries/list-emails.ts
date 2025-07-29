@@ -1,8 +1,8 @@
 import { sql } from 'kysely';
 import { z } from 'zod';
 
-import { db } from '@oyster/db';
-import { Email } from '@oyster/types';
+import { db } from '@hack/db';
+import { Email } from '@hack/types';
 
 const EmailResult = z.object({
   email: Email,

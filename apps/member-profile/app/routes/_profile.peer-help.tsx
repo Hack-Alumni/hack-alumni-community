@@ -14,13 +14,13 @@ import dayjs from 'dayjs';
 import { ArrowRight, Check, Edit, Info, User } from 'react-feather';
 import { z } from 'zod';
 
-import { ListSearchParams } from '@oyster/core/member-profile/ui';
-import { track } from '@oyster/core/mixpanel';
+import { ListSearchParams } from '@hack/core/member-profile/ui';
+import { track } from '@hack/core/mixpanel';
 import {
   type HelpRequestStatus,
   HelpRequestType,
-} from '@oyster/core/peer-help';
-import { db } from '@oyster/db';
+} from '@hack/core/peer-help';
+import { db } from '@hack/db';
 import {
   Button,
   Dashboard,
@@ -28,18 +28,18 @@ import {
   Pagination,
   ProfilePicture,
   Text,
-} from '@oyster/ui';
-import { FilterList } from '@oyster/ui/filter';
-import { FilterPopover, FilterRoot, FilterTrigger } from '@oyster/ui/filter';
-import { type FilterValue } from '@oyster/ui/filter';
-import { FilterItem } from '@oyster/ui/filter';
+} from '@hack/ui';
+import { FilterList } from '@hack/ui/filter';
+import { FilterPopover, FilterRoot, FilterTrigger } from '@hack/ui/filter';
+import { type FilterValue } from '@hack/ui/filter';
+import { FilterItem } from '@hack/ui/filter';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
-import { toTitleCase } from '@oyster/utils';
+} from '@hack/ui/tooltip';
+import { toTitleCase } from '@hack/utils';
 
 import {
   HelpRequestDescription,

@@ -21,10 +21,10 @@ import {
   getPointsLeaderboard,
   getTotalPoints,
   listActivities,
-} from '@oyster/core/gamification';
-import { type CompletedActivity } from '@oyster/core/gamification/types';
-import { track } from '@oyster/core/mixpanel';
-import { db } from '@oyster/db';
+} from '@hack/core/gamification';
+import { type CompletedActivity } from '@hack/core/gamification/types';
+import { track } from '@hack/core/mixpanel';
+import { db } from '@hack/db';
 import {
   Button,
   cx,
@@ -33,7 +33,7 @@ import {
   Select,
   Text,
   useSearchParams,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { Card, type CardProps } from '@/shared/components/card';
 import {

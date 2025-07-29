@@ -1,6 +1,6 @@
 import { Outlet } from '@remix-run/react';
 
-import { cx, Dashboard } from '@oyster/ui';
+import { cx, Dashboard } from '@hack/ui';
 
 import { NavigationItem } from '@/shared/components/navigation';
 import { AddOfferButton } from '@/shared/components/offer';

@@ -17,8 +17,8 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { type ResourceType, UpdateResourceInput } from '@oyster/core/resources';
-import { getResource, updateResource } from '@oyster/core/resources/server';
+import { type ResourceType, UpdateResourceInput } from '@hack/core/resources';
+import { getResource, updateResource } from '@hack/core/resources/server';
 import {
   Button,
   Divider,
@@ -26,7 +26,7 @@ import {
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import {
   ResourceAttachmentField,

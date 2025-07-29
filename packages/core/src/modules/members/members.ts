@@ -1,6 +1,6 @@
 import { type ExpressionBuilder, sql } from 'kysely';
 
-import { type DB } from '@oyster/db';
+import { type DB } from '@hack/db';
 
 /**
  * Builds the "full name" of a member using the first, last and preferred name!

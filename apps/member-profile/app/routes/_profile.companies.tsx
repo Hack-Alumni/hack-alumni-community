@@ -17,9 +17,9 @@ import { FileText, Layers, Plus, Star, Users } from 'react-feather';
 import {
   ListCompaniesOrderBy,
   ListCompaniesWhere,
-} from '@oyster/core/employment';
-import { listCompanies } from '@oyster/core/employment/server';
-import { track } from '@oyster/core/mixpanel';
+} from '@hack/core/employment';
+import { listCompanies } from '@hack/core/employment/server';
+import { track } from '@hack/core/mixpanel';
 import {
   Button,
   cx,
@@ -29,13 +29,13 @@ import {
   Pagination,
   Select,
   Text,
-} from '@oyster/ui';
+} from '@hack/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
+} from '@hack/ui/tooltip';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated, user } from '@/shared/session.server';

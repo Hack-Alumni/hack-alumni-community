@@ -2,9 +2,9 @@ import dayjs from 'dayjs';
 import { type SelectExpression } from 'kysely';
 import { match } from 'ts-pattern';
 
-import { type DB, db, point } from '@oyster/db';
-import { FORMATTED_RACE, Race } from '@oyster/types';
-import { id, run } from '@oyster/utils';
+import { type DB, db, point } from '@hack/db';
+import { FORMATTED_RACE, Race } from '@hack/types';
+import { id, run } from '@hack/utils';
 
 import { job } from '@/infrastructure/bull';
 import { getPresignedURL, putObject } from '@/infrastructure/s3';

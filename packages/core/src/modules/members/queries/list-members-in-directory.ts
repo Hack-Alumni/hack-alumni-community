@@ -1,6 +1,6 @@
 import { sql } from 'kysely';
 
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { type ListMembersInDirectoryWhere } from '@/modules/members/members.types';
 

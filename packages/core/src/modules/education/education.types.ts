@@ -8,7 +8,7 @@ import {
   Major,
   NullishString,
   Student,
-} from '@oyster/types';
+} from '@hack/types';
 
 // Enums
 

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
-import { CityCombobox, type CityComboboxProps } from '@oyster/core/location/ui';
-import { Field, type FieldProps, Input, Text } from '@oyster/ui';
+import { CityCombobox, type CityComboboxProps } from '@hack/core/location/ui';
+import { Field, type FieldProps, Input, Text } from '@hack/ui';
 
 export function CurrentLocationField({
   defaultValue,

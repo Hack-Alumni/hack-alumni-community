@@ -4,7 +4,7 @@ import { type ExpressionBuilder, sql } from 'kysely';
 import { emojify } from 'node-emoji';
 import { z } from 'zod';
 
-import { type DB, db } from '@oyster/db';
+import { type DB, db } from '@hack/db';
 
 import {
   createEmbedding,

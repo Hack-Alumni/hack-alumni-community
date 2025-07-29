@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { getSlackUserByEmail } from '@/modules/slack/services/slack-user.service';

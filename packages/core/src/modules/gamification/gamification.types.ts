@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Entity, type ExtractValue, Student } from '@oyster/types';
+import { Entity, type ExtractValue, Student } from '@hack/types';
 
 // Enums
 

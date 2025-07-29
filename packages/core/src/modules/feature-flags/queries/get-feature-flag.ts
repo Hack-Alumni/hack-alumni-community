@@ -1,6 +1,6 @@
 import { type SelectExpression } from 'kysely';
 
-import { type DB, db } from '@oyster/db';
+import { type DB, db } from '@hack/db';
 
 type GetMembersOptions<Selection> = {
   select: Selection[];

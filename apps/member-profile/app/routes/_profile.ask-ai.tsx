@@ -24,8 +24,8 @@ import {
   answerMemberProfileQuestion,
   type ParsedChatbotAnswer,
   type ThreadReference,
-} from '@oyster/core/slack';
-import { IconButton, ProfilePicture, Text } from '@oyster/ui';
+} from '@hack/core/slack';
+import { IconButton, ProfilePicture, Text } from '@hack/ui';
 
 import { cache } from '@/infrastructure/redis';
 import { EmptyState } from '@/shared/components/empty-state';

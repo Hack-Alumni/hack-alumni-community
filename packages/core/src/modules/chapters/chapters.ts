@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
-import { db } from '@oyster/db';
-import { id } from '@oyster/utils';
+import { db } from '@hack/db';
+import { id } from '@hack/utils';
 
 const Chapter = z.object({
   id: z.string().trim().min(1),

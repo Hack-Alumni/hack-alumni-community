@@ -2,8 +2,8 @@ import { defer, type LoaderFunctionArgs } from '@remix-run/node';
 import { Await, useLoaderData } from '@remix-run/react';
 import { Suspense } from 'react';
 
-import { getOysterContributorStats } from '@oyster/core/github';
-import { Modal, Spinner, Text } from '@oyster/ui';
+import { getOysterContributorStats } from '@hack/core/github';
+import { Modal, Spinner, Text } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

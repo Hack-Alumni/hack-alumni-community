@@ -1,6 +1,6 @@
 import { Redis } from 'ioredis';
 
-import { type ExtractValue } from '@oyster/types';
+import { type ExtractValue } from '@hack/types';
 
 // Environment Variables
 

@@ -19,8 +19,8 @@ import {
   Input,
   Select,
   useDelayedValue,
-} from '@oyster/ui';
-import { order } from '@oyster/utils';
+} from '@hack/ui';
+import { order } from '@hack/utils';
 
 import {
   type BaseCompany,

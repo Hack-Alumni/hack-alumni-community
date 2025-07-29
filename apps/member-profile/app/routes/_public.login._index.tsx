@@ -4,8 +4,8 @@ import { useLoaderData } from '@remix-run/react';
 import {
   getGoogleAuthUri,
   getSlackAuthUri,
-} from '@oyster/core/member-profile/server';
-import { ErrorMessage, Login } from '@oyster/ui';
+} from '@hack/core/member-profile/server';
+import { ErrorMessage, Login } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

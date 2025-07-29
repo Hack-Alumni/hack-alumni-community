@@ -11,9 +11,9 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { deleteResource } from '@oyster/core/resources/server';
-import { db } from '@oyster/db';
-import { Button, ErrorMessage, getErrors, Modal } from '@oyster/ui';
+import { deleteResource } from '@hack/core/resources/server';
+import { db } from '@hack/db';
+import { Button, ErrorMessage, getErrors, Modal } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import {

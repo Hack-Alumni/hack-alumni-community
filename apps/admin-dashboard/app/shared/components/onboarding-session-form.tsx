@@ -9,7 +9,7 @@ import {
   MultiComboboxItem,
   MultiComboboxSearch,
   MultiComboboxValues,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { type SearchMembersResult } from '@/routes/members.search';
 

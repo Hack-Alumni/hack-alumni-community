@@ -7,8 +7,8 @@ import {
 import { Form, useActionData } from '@remix-run/react';
 import { z } from 'zod';
 
-import { createEvent } from '@oyster/core/events';
-import { Event, EventType } from '@oyster/types';
+import { createEvent } from '@hack/core/events';
+import { Event, EventType } from '@hack/types';
 import {
   Button,
   DatePicker,
@@ -20,8 +20,8 @@ import {
   Select,
   Textarea,
   validateForm,
-} from '@oyster/ui';
-import { toTitleCase } from '@oyster/utils';
+} from '@hack/ui';
+import { toTitleCase } from '@hack/utils';
 
 import { Route } from '@/shared/constants';
 import {
