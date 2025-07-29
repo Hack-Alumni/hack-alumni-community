@@ -9,13 +9,7 @@ import { z } from 'zod';
 
 import { updateMember } from '@hack/core/member-profile/server';
 import { ISO8601Date, nullableField, Student } from '@hack/types';
-import {
-  Button,
-  Divider,
-  getErrors,
-  InputField,
-  validateForm,
-} from '@hack/ui';
+import { Button, Divider, getErrors, InputField, validateForm } from '@hack/ui';
 
 import {
   ProfileHeader,

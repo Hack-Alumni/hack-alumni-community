@@ -1,13 +1,7 @@
 import { type Country } from '@hack/core/location/types';
 import { CityCombobox, type CityComboboxProps } from '@hack/core/location/ui';
 import { FORMATTED_GENDER, type Gender } from '@hack/types';
-import {
-  Checkbox,
-  DatePicker,
-  Field,
-  type FieldProps,
-  Select,
-} from '@hack/ui';
+import { Checkbox, DatePicker, Field, type FieldProps, Select } from '@hack/ui';
 
 import { EthnicityMultiCombobox } from '@/shared/components/ethnicity-combobox';
 

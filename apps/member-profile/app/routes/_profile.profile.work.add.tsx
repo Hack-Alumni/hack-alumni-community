@@ -9,10 +9,7 @@ import dayjs from 'dayjs';
 import { z } from 'zod';
 
 import { addWorkExperience } from '@hack/core/member-profile/server';
-import {
-  AddWorkExperienceInput,
-  WorkForm,
-} from '@hack/core/member-profile/ui';
+import { AddWorkExperienceInput, WorkForm } from '@hack/core/member-profile/ui';
 import {
   Address,
   Button,

@@ -15,13 +15,7 @@ import {
 
 import { editHelpRequest, EditHelpRequestInput } from '@hack/core/peer-help';
 import { db } from '@hack/db';
-import {
-  Button,
-  ErrorMessage,
-  getErrors,
-  Modal,
-  validateForm,
-} from '@hack/ui';
+import { Button, ErrorMessage, getErrors, Modal, validateForm } from '@hack/ui';
 
 import {
   HelpRequestDescriptionField,

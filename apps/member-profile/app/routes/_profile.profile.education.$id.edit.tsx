@@ -22,13 +22,7 @@ import {
 } from '@hack/core/member-profile/ui';
 import { db } from '@hack/db';
 import { type Major } from '@hack/types';
-import {
-  Button,
-  ErrorMessage,
-  getErrors,
-  Modal,
-  validateForm,
-} from '@hack/ui';
+import { Button, ErrorMessage, getErrors, Modal, validateForm } from '@hack/ui';
 
 import { EducationForm } from '@/shared/components/education-form';
 import { Route } from '@/shared/constants';

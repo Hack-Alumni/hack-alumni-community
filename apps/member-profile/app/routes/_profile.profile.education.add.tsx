@@ -10,13 +10,7 @@ import { type z } from 'zod';
 
 import { addEducation } from '@hack/core/member-profile/server';
 import { AddEducationInput } from '@hack/core/member-profile/ui';
-import {
-  Button,
-  ErrorMessage,
-  getErrors,
-  Modal,
-  validateForm,
-} from '@hack/ui';
+import { Button, ErrorMessage, getErrors, Modal, validateForm } from '@hack/ui';
 
 import { EducationForm } from '@/shared/components/education-form';
 import { Route } from '@/shared/constants';

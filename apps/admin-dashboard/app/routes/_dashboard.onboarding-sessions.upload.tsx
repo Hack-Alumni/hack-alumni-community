@@ -9,13 +9,7 @@ import { z } from 'zod';
 
 import { uploadOnboardingSession } from '@hack/core/admin-dashboard/server';
 import { OnboardingSession } from '@hack/core/admin-dashboard/ui';
-import {
-  Button,
-  ErrorMessage,
-  getErrors,
-  Modal,
-  validateForm,
-} from '@hack/ui';
+import { Button, ErrorMessage, getErrors, Modal, validateForm } from '@hack/ui';
 
 import {
   OnboardingSessionAttendeesField,

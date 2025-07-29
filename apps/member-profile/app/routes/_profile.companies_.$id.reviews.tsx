@@ -2,10 +2,7 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
 
-import {
-  type EmploymentType,
-  type LocationType,
-} from '@hack/core/employment';
+import { type EmploymentType, type LocationType } from '@hack/core/employment';
 import {
   hasReviewAccess,
   listCompanyReviews,

@@ -11,10 +11,7 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import {
-  addInternshipOffer,
-  AddInternshipOfferInput,
-} from '@hack/core/offers';
+import { addInternshipOffer, AddInternshipOfferInput } from '@hack/core/offers';
 import {
   OfferAdditionalNotesField,
   OfferBenefitsField,

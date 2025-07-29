@@ -8,10 +8,7 @@ import { Form, useActionData } from '@remix-run/react';
 import { type z } from 'zod';
 
 import { job } from '@hack/core/bull';
-import {
-  OneTimeCode,
-  OneTimeCodePurpose,
-} from '@hack/core/member-profile/ui';
+import { OneTimeCode, OneTimeCodePurpose } from '@hack/core/member-profile/ui';
 import { db } from '@hack/db';
 import {
   Button,

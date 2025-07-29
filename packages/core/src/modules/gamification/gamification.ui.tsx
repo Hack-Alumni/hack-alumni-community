@@ -1,13 +1,6 @@
 import { Form } from '@remix-run/react';
 
-import {
-  Button,
-  ErrorMessage,
-  Field,
-  Input,
-  Select,
-  Textarea,
-} from '@hack/ui';
+import { Button, ErrorMessage, Field, Input, Select, Textarea } from '@hack/ui';
 import { toTitleCase } from '@hack/utils';
 
 import {

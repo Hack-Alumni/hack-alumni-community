@@ -13,13 +13,7 @@ import {
 } from '@remix-run/react';
 
 import { requestHelp, RequestHelpInput } from '@hack/core/peer-help';
-import {
-  Button,
-  ErrorMessage,
-  getErrors,
-  Modal,
-  validateForm,
-} from '@hack/ui';
+import { Button, ErrorMessage, getErrors, Modal, validateForm } from '@hack/ui';
 
 import {
   HelpRequestDescriptionField,

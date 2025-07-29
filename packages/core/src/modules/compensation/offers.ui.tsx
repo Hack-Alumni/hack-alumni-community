@@ -1,10 +1,4 @@
-import {
-  DollarInput,
-  Field,
-  type FieldProps,
-  Input,
-  Textarea,
-} from '@hack/ui';
+import { DollarInput, Field, type FieldProps, Input, Textarea } from '@hack/ui';
 
 import { CompanyCombobox } from '@/modules/employment/ui/company-field';
 

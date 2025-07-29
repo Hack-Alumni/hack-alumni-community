@@ -9,13 +9,7 @@ import { z } from 'zod';
 
 import { addOnboardingSessionAttendees } from '@hack/core/admin-dashboard/server';
 import { db } from '@hack/db';
-import {
-  Button,
-  ErrorMessage,
-  getErrors,
-  Modal,
-  validateForm,
-} from '@hack/ui';
+import { Button, ErrorMessage, getErrors, Modal, validateForm } from '@hack/ui';
 
 import { OnboardingSessionAttendeesField } from '@/shared/components/onboarding-session-form';
 import { Route } from '@/shared/constants';

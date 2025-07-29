@@ -1,10 +1,9 @@
+import { run } from '@oyster/utils';
 import dedent from 'dedent';
 import { writeFileSync } from 'fs';
 import path from 'path';
 import prompt from 'prompt-sync';
 import { fileURLToPath } from 'url';
-
-import { run } from '@oyster/utils';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
