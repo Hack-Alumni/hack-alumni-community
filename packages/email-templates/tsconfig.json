@@ -1,5 +1,5 @@
 {
-  "extends": "@oyster/tsconfig/base.json",
+  "extends": "@hack/tsconfig/base.json",
   "include": ["src", "emails"],
   "compilerOptions": {
     "jsx": "react-jsx"
