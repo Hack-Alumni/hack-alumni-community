@@ -236,28 +236,9 @@ async function getTotalStudentsCount() {
 export default function HomeLayout() {
   const { student } = useLoaderData<typeof loader>();
 
-  const showActivationCard =
-    !!student.joinedAfterActivation &&
-    !student.activatedAt &&
-    !student.claimedSwagPackAt;
-
-  const showOnboardingCard =
-    !!student.joinedAfterActivation && !student.onboardedAt;
-
   return (
     <>
       <Text variant="2xl">Hey, {student.firstName}! 👋</Text>
-
-      {(showActivationCard || showOnboardingCard) && (
-        <>
-          <div className="grid grid-cols-1 items-start gap-4 @[1000px]:grid-cols-2 @[1500px]:grid-cols-3">
-            {showActivationCard && <ActivationCard />}
-            {showOnboardingCard && <OnboardingSessionCard />}
-          </div>
-
-          <Divider />
-        </>
-      )}
 
       <div className="grid grid-cols-1 items-start gap-4 @[900px]:grid-cols-2 @[1500px]:grid-cols-3">
         <Home.Column>
@@ -282,6 +263,8 @@ export default function HomeLayout() {
         <Home.Column>
           <ImportantResourcesCard />
           <SocialsCard />
+          <DeveloperCard />
+          <BuyMeACoffee />
         </Home.Column>
       </div>
 
@@ -348,53 +331,6 @@ function ActiveStatusCard() {
           </div>
         </div>
       </div>
-    </Card>
-  );
-}
-
-function OnboardingSessionCard() {
-  return (
-    <Card>
-      <Card.Title>Attend an Onboarding Session 📆</Card.Title>
-
-      <Card.Description>
-        Attend an onboarding session to learn more about ColorStack and meet
-        other members!
-      </Card.Description>
-
-      <Button.Group>
-        <Button.Slot variant="primary">
-          <Link
-            target="_blank"
-            to="https://calendly.com/colorstack-onboarding-ambassador/onboarding"
-          >
-            Book Onboarding Session <ExternalLink size={20} />
-          </Link>
-        </Button.Slot>
-      </Button.Group>
-    </Card>
-  );
-}
-
-function ActivationCard() {
-  const { student } = useLoaderData<typeof loader>();
-
-  return (
-    <Card>
-      <Card.Title>Activation ✅</Card.Title>
-
-      <Card.Description>
-        You've completed {student.activationRequirementsCompleted.length}/
-        {ACTIVATION_REQUIREMENTS.length} activation requirements. Once you hit
-        all {ACTIVATION_REQUIREMENTS.length}, you will get a gift card to claim
-        your FREE merch! 👀
-      </Card.Description>
-
-      <Button.Group>
-        <Button.Slot variant="primary">
-          <Link to={Route['/home/activation']}>See Progress</Link>
-        </Button.Slot>
-      </Button.Group>
     </Card>
   );
 }
@@ -565,15 +501,54 @@ function SocialsCard() {
           href="https://www.instagram.com/hack.diversity/"
         />
 
-        <SocialItem Icon={Twitter} href="https://x.com/hack_diversity"/>
+        <SocialItem Icon={Twitter} href="https://x.com/hack_diversity" />
 
-        <SocialItem Icon={Facebook} href="https://www.facebook.com/hack.diversity/"/>
+        <SocialItem
+          Icon={Facebook}
+          href="https://www.facebook.com/hack.diversity/"
+        />
 
-        <SocialItem Icon={GitHub} href="https://github.com/HackDotDiversity"/>
+        <SocialItem Icon={GitHub} href="https://github.com/HackDotDiversity" />
 
-        <SocialItem Icon={MediumIcon} href='https://medium.com/hack-diversity-movement'/>
-
+        <SocialItem
+          Icon={MediumIcon}
+          href="https://medium.com/hack-diversity-movement"
+        />
       </ul>
+    </Card>
+  );
+}
+
+function DeveloperCard() {
+  return (
+    <Card>
+      <Card.Title>Developing Team</Card.Title>
+
+      <Card.Description>
+        Meet the developers who built this platform with ❤️
+      </Card.Description>
+      <Button.Slot variant="primary">
+        <Link target="_blank" to={Route['/developers']}>
+          Meet The Developers
+        </Link>
+      </Button.Slot>
+    </Card>
+  );
+}
+
+function BuyMeACoffee() {
+  return (
+    <Card>
+      <Card.Title>Like this platform? Help keep it online ☕</Card.Title>
+
+      <Card.Description>
+        Your support helps cover hosting and essential tools.{' '}
+      </Card.Description>
+      <Button.Slot variant="primary">
+        <Link target="_blank" to={Route['/home']}>
+          Buy Us A Coffee
+        </Link>
+      </Button.Slot>
     </Card>
   );
 }

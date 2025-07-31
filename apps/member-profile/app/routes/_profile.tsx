@@ -108,7 +108,6 @@ export default function ProfileLayout() {
             <Dashboard.NavigationLink
               icon={<Users />}
               label="Peer Help"
-              isNew
               pathname={Route['/peer-help']}
               prefetch="intent"
             />
@@ -120,24 +119,6 @@ export default function ProfileLayout() {
                 prefetch="intent"
               />
             )}
-            <Dashboard.NavigationLink
-              icon={<Calendar />}
-              label="Events"
-              pathname={Route['/events']}
-              prefetch="intent"
-            />
-            <Dashboard.NavigationLink
-              icon={<MessageCircle />}
-              label="Ask AI"
-              pathname={Route['/ask-ai']}
-              prefetch="intent"
-            />
-            <Dashboard.NavigationLink
-              icon={<FileText />}
-              label="Resume Review"
-              pathname={Route['/resume/review']}
-              prefetch="intent"
-            />
             <Dashboard.NavigationLink
               icon={<User />}
               label="Profile"
