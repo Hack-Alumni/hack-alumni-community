@@ -20,7 +20,7 @@ export type SelectProps = Pick<
 };
 
 /**
- * @deprecated Use the `Select` component from `@oyster/ui/select` instead.
+ * @deprecated Use the `Select` component from `@hack-alumni/ui/select` instead.
  */
 export function Select({
   children,

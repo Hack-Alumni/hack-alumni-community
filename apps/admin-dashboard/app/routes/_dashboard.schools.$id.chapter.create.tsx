@@ -6,9 +6,9 @@ import {
 } from '@remix-run/node';
 import { Form as RemixForm, useLoaderData } from '@remix-run/react';
 
-import { createChapter } from '@oyster/core/chapters';
-import { getSchool } from '@oyster/core/education';
-import { Button, Modal } from '@oyster/ui';
+import { createChapter } from '@hack-alumni/core/chapters';
+import { getSchool } from '@hack-alumni/core/education';
+import { Button, Modal } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import {

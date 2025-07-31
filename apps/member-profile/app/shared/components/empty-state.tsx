@@ -1,6 +1,6 @@
 import React, { type PropsWithChildren } from 'react';
 
-import { Text } from '@oyster/ui';
+import { Text } from '@hack-alumni/ui';
 
 export const EmptyState = ({ icon }: { icon: React.ReactElement }) => {
   icon = React.cloneElement(icon, {

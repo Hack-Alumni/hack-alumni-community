@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Application, Email, Student } from '@oyster/types';
+import { Application, Email, Student } from '@hack-alumni/types';
 
 const BaseEmail = z.object({
   to: Email,

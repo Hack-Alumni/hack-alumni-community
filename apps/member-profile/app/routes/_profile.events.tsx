@@ -14,8 +14,8 @@ import {
 } from 'react-feather';
 import { generatePath } from 'react-router';
 
-import { listPastEvents, listUpcomingEvents } from '@oyster/core/events';
-import { Button, Dashboard, ProfilePicture, Text } from '@oyster/ui';
+import { listPastEvents, listUpcomingEvents } from '@hack-alumni/core/events';
+import { Button, Dashboard, ProfilePicture, Text } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import { getTimezone } from '@/shared/cookies.server';

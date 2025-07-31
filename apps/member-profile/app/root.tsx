@@ -10,9 +10,9 @@ import {
 } from '@remix-run/react';
 import { withSentry } from '@sentry/remix';
 
-import { buildMeta } from '@oyster/core/remix';
-import { Toast } from '@oyster/ui';
-import uiStylesheet from '@oyster/ui/index.css?url';
+import { buildMeta } from '@hack-alumni/core/remix';
+import { Toast } from '@hack-alumni/ui';
+import uiStylesheet from '@hack-alumni/ui/index.css?url';
 
 import { ENV } from '@/shared/constants.server';
 import { commitSession, getSession, SESSION } from '@/shared/session.server';

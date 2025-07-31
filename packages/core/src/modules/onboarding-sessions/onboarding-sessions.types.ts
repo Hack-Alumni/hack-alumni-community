@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Entity, Student } from '@oyster/types';
+import { Entity, Student } from '@hack-alumni/types';
 
 export const OnboardingSession = Entity.extend({
   date: z.string().trim().min(1),

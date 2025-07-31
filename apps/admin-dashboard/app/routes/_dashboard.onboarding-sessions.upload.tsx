@@ -7,15 +7,15 @@ import {
 import { Form, useActionData } from '@remix-run/react';
 import { z } from 'zod';
 
-import { uploadOnboardingSession } from '@oyster/core/admin-dashboard/server';
-import { OnboardingSession } from '@oyster/core/admin-dashboard/ui';
+import { uploadOnboardingSession } from '@hack-alumni/core/admin-dashboard/server';
+import { OnboardingSession } from '@hack-alumni/core/admin-dashboard/ui';
 import {
   Button,
   ErrorMessage,
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import {
   OnboardingSessionAttendeesField,

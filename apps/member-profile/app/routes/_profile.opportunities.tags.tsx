@@ -6,12 +6,12 @@ import {
 import { useFetcher } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 
-import { getRandomAccentColor } from '@oyster/core/member-profile/ui';
+import { getRandomAccentColor } from '@hack-alumni/core/member-profile/ui';
 import {
   createOpportunityTag,
   CreateOpportunityTagInput,
   listOpportunityTags,
-} from '@oyster/core/opportunities';
+} from '@hack-alumni/core/opportunities';
 import {
   type AccentColor,
   ComboboxPopover,
@@ -23,8 +23,8 @@ import {
   MultiComboboxValues,
   Pill,
   validateForm,
-} from '@oyster/ui';
-import { id } from '@oyster/utils';
+} from '@hack-alumni/ui';
+import { id } from '@hack-alumni/utils';
 
 import { ensureUserAuthenticated } from '@/shared/session.server';
 

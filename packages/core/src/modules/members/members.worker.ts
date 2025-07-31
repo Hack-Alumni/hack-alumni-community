@@ -2,8 +2,8 @@ import dayjs from 'dayjs';
 import { sql } from 'kysely';
 import { match } from 'ts-pattern';
 
-import { db } from '@oyster/db';
-import { splitArray } from '@oyster/utils';
+import { db } from '@hack-alumni/db';
+import { splitArray } from '@hack-alumni/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
 import { StudentBullJob } from '@/infrastructure/bull.types';

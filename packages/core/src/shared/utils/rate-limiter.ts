@@ -1,4 +1,4 @@
-import { sleep } from '@oyster/utils';
+import { sleep } from '@hack-alumni/utils';
 
 import { redis } from '@/infrastructure/redis';
 

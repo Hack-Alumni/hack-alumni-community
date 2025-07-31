@@ -5,8 +5,8 @@ import {
 } from '@remix-run/node';
 import { generatePath, Link, useLoaderData } from '@remix-run/react';
 
-import { listCompanyEmployees } from '@oyster/core/employment/server';
-import { cx, getTextCn, ProfilePicture, Text } from '@oyster/ui';
+import { listCompanyEmployees } from '@hack-alumni/core/employment/server';
+import { cx, getTextCn, ProfilePicture, Text } from '@hack-alumni/ui';
 
 import { Card } from '@/shared/components/card';
 import { Route } from '@/shared/constants';

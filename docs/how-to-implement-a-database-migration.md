@@ -8,7 +8,7 @@ database. Kysely also supports classic "up"/"down" migrations.
 
 ## Where Our Migrations Live
 
-All of our database migrations live in our `@oyster/db` package, specifically
+All of our database migrations live in our `@hack-alumni/db` package, specifically
 [here](../packages/db/src/migrations).
 
 ## How to Run Migrations

@@ -3,8 +3,8 @@ import { sql } from 'kysely';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { db, relativeTime } from '@oyster/db';
-import { id } from '@oyster/utils';
+import { db, relativeTime } from '@hack-alumni/db';
+import { id } from '@hack-alumni/utils';
 
 import { getChatCompletion } from '@/infrastructure/ai';
 import { job, registerWorker } from '@/infrastructure/bull';

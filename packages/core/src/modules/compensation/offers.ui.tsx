@@ -4,7 +4,7 @@ import {
   type FieldProps,
   Input,
   Textarea,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import { CompanyCombobox } from '@/modules/employment/ui/company-field';
 

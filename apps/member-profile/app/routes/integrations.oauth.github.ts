@@ -5,7 +5,7 @@ import {
   getGithubProfile,
   reportException,
   updateMember,
-} from '@oyster/core/member-profile/server';
+} from '@hack-alumni/core/member-profile/server';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

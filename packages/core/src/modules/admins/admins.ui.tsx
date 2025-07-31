@@ -2,7 +2,7 @@ import { Form, generatePath, Link } from '@remix-run/react';
 import { Trash } from 'react-feather';
 import { match } from 'ts-pattern';
 
-import { type DB } from '@oyster/db';
+import { type DB } from '@hack-alumni/db';
 import {
   Button,
   Dropdown,
@@ -13,7 +13,7 @@ import {
   Select,
   Table,
   type TableColumnProps,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import { AddAdminInput, AdminRole } from '@/modules/admins/admins.types';
 

@@ -2,7 +2,7 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { Outlet, useLoaderData, useNavigate } from '@remix-run/react';
 import { BookOpen, Plus } from 'react-feather';
 
-import { Button } from '@oyster/ui';
+import { Button } from '@hack-alumni/ui';
 
 import { EducationExperienceItem } from '@/shared/components/education-experience';
 import {

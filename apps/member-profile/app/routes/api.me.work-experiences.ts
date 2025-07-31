@@ -4,7 +4,7 @@ import {
   type SerializeFrom,
 } from '@remix-run/node';
 
-import { listWorkExperiences } from '@oyster/core/member-profile/server';
+import { listWorkExperiences } from '@hack-alumni/core/member-profile/server';
 
 import { ensureUserAuthenticated, user } from '@/shared/session.server';
 

@@ -72,7 +72,7 @@ export async function migrate(options: MigrateOptions = defaultOptions) {
   if (error) {
     console.error(
       'Something went wrong! To debug, see common migration errors here:',
-      'https://github.com/colorstackorg/oyster/blob/main/docs/how-to-implement-a-database-migration.md#common-errors.',
+      'https://github.com/colorstackorg/hack-alumni/blob/main/docs/how-to-implement-a-database-migration.md#common-errors.',
       error
     );
 

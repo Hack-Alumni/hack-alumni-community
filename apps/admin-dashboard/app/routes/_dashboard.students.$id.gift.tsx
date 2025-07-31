@@ -7,8 +7,8 @@ import {
 import { Form, useActionData } from '@remix-run/react';
 import { z } from 'zod';
 
-import { createGoodyOrder } from '@oyster/core/goody';
-import { db } from '@oyster/db';
+import { createGoodyOrder } from '@hack-alumni/core/goody';
+import { db } from '@hack-alumni/db';
 import {
   Button,
   ErrorMessage,
@@ -16,7 +16,7 @@ import {
   Modal,
   Textarea,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 import {

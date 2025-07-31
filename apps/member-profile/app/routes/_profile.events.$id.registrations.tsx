@@ -1,9 +1,9 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { generatePath, Link, useLoaderData } from '@remix-run/react';
 
-import { listEventRegistrations } from '@oyster/core/events/registrations';
-import { type Student } from '@oyster/types';
-import { Modal, ProfilePicture } from '@oyster/ui';
+import { listEventRegistrations } from '@hack-alumni/core/events/registrations';
+import { type Student } from '@hack-alumni/types';
+import { Modal, ProfilePicture } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 

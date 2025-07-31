@@ -5,7 +5,7 @@ import { match } from 'ts-pattern';
 import {
   type HelpRequestStatus,
   type HelpRequestType,
-} from '@oyster/core/peer-help';
+} from '@hack-alumni/core/peer-help';
 import {
   cx,
   Field,
@@ -14,7 +14,7 @@ import {
   Radio,
   Text,
   Textarea,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 // Information
 

@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack-alumni/db';
 
 import { type CreateTagInput } from '@/modules/resources/resources.types';
 

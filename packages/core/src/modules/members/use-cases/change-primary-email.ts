@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack-alumni/db';
 
 import { job } from '@/infrastructure/bull';
 import { type ChangePrimaryEmailInput } from '@/modules/members/members.types';

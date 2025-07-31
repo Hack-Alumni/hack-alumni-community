@@ -6,9 +6,9 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { type z } from 'zod';
 
-import { updateMember } from '@oyster/core/member-profile/server';
-import { track } from '@oyster/core/mixpanel';
-import { Student } from '@oyster/types';
+import { updateMember } from '@hack-alumni/core/member-profile/server';
+import { track } from '@hack-alumni/core/mixpanel';
+import { Student } from '@hack-alumni/types';
 import {
   Button,
   Divider,
@@ -17,7 +17,7 @@ import {
   InputField,
   PhoneNumberInput,
   validateForm,
-} from '@oyster/ui';
+} from '@hack-alumni/ui';
 
 import {
   ProfileHeader,

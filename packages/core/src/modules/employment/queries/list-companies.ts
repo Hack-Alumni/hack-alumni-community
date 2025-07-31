@@ -1,7 +1,7 @@
 import { type SelectExpression, sql } from 'kysely';
 import { match } from 'ts-pattern';
 
-import { db, type DB } from '@oyster/db';
+import { db, type DB } from '@hack-alumni/db';
 
 import {
   type ListCompaniesOrderBy,

@@ -1,5 +1,5 @@
 {
-  "extends": "@oyster/tsconfig/base.json",
+  "extends": "@hack-alumni/tsconfig/base.json",
   "include": ["src", "../db/kysely-patch.d.ts", "../db/dist/db.d.ts"],
   "compilerOptions": {
     "baseUrl": ".",

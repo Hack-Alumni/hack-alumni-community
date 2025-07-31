@@ -5,10 +5,10 @@ import {
   doesAdminHavePermission,
   getAdmin,
   listAdmins,
-} from '@oyster/core/admins';
-import { type AdminRole } from '@oyster/core/admins/types';
-import { AdminTable } from '@oyster/core/admins/ui';
-import { Dashboard } from '@oyster/ui';
+} from '@hack-alumni/core/admins';
+import { type AdminRole } from '@hack-alumni/core/admins/types';
+import { AdminTable } from '@hack-alumni/core/admins/ui';
+import { Dashboard } from '@hack-alumni/ui';
 
 import { ensureUserAuthenticated } from '@/shared/session.server';
 import { user } from '@/shared/session.server';

@@ -1,5 +1,5 @@
-import { db } from '@oyster/db';
-import { id } from '@oyster/utils';
+import { db } from '@hack-alumni/db';
+import { id } from '@hack-alumni/utils';
 
 import { job } from '@/infrastructure/bull';
 import { putObject } from '@/infrastructure/s3';

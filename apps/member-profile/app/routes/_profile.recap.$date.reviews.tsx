@@ -2,11 +2,11 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
 
-import { listCompanyReviews } from '@oyster/core/employment/server';
+import { listCompanyReviews } from '@hack-alumni/core/employment/server';
 import {
   type EmploymentType,
   type LocationType,
-} from '@oyster/core/member-profile/ui';
+} from '@hack-alumni/core/member-profile/ui';
 
 import { getDateRange, Recap } from '@/routes/_profile.recap.$date';
 import { CompanyReview } from '@/shared/components/company-review';

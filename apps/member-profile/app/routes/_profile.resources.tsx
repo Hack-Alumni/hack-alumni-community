@@ -10,17 +10,17 @@ import {
 import dayjs from 'dayjs';
 import { Plus } from 'react-feather';
 
-import { isMemberAdmin } from '@oyster/core/admins';
-import { ListSearchParams } from '@oyster/core/member-profile/ui';
-import { track } from '@oyster/core/mixpanel';
+import { isMemberAdmin } from '@hack-alumni/core/admins';
+import { ListSearchParams } from '@hack-alumni/core/member-profile/ui';
+import { track } from '@hack-alumni/core/mixpanel';
 import {
   ListResourcesOrderBy,
   ListResourcesWhere,
   type ResourceType,
-} from '@oyster/core/resources';
-import { listResources, listTags } from '@oyster/core/resources/server';
-import { getPresignedURL } from '@oyster/core/s3';
-import { ISO8601Date } from '@oyster/types';
+} from '@hack-alumni/core/resources';
+import { listResources, listTags } from '@hack-alumni/core/resources/server';
+import { getPresignedURL } from '@hack-alumni/core/s3';
+import { ISO8601Date } from '@hack-alumni/types';
 import {
   Button,
   Dashboard,
@@ -29,8 +29,8 @@ import {
   Pill,
   Select,
   Text,
-} from '@oyster/ui';
-import { run } from '@oyster/utils';
+} from '@hack-alumni/ui';
+import { run } from '@hack-alumni/utils';
 
 import { Resource } from '@/shared/components/resource';
 import { Route } from '@/shared/constants';

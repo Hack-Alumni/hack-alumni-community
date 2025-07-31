@@ -2,8 +2,8 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { ExternalLink } from 'react-feather';
 
-import { Pill, Text } from '@oyster/ui';
-import { run } from '@oyster/utils';
+import { Pill, Text } from '@hack-alumni/ui';
+import { run } from '@hack-alumni/utils';
 
 import {
   ProfileHeader,
@@ -54,10 +54,10 @@ export default function IntegrationsPage() {
               the{' '}
               <a
                 className="link"
-                href="https://github.com/colorstackorg/oyster"
+                href="https://github.com/colorstackorg/hack-alumni"
                 target="_blank"
               >
-                Oyster codebase
+                hack-alumni codebase
               </a>
               .
             </>

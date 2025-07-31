@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
 import { z } from 'zod';
 
-import { Event, EventAttendee } from '@oyster/types';
-import { sleep } from '@oyster/utils';
+import { Event, EventAttendee } from '@hack-alumni/types';
+import { sleep } from '@hack-alumni/utils';
 
 import { redis, RedisKey } from '@/infrastructure/redis';
 import { reportException } from '@/infrastructure/sentry';

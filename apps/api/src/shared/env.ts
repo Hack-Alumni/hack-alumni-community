@@ -5,7 +5,7 @@
 import { config } from 'dotenv';
 import { z } from 'zod';
 
-import { Environment } from '@oyster/core/api';
+import { Environment } from '@hack-alumni/core/api';
 
 // Loads the .env file into `process.env`.
 config();

@@ -1,7 +1,7 @@
 import { generatePath, Link } from '@remix-run/react';
 import { type PropsWithChildren } from 'react';
 
-import { cx, ProfilePicture, Text } from '@oyster/ui';
+import { cx, ProfilePicture, Text } from '@hack-alumni/ui';
 
 import { Route } from '@/shared/constants';
 

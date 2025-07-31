@@ -1,5 +1,5 @@
 {
-  "extends": "@oyster/tsconfig/base.json",
+  "extends": "@hack-alumni/tsconfig/base.json",
   "exclude": ["node_modules", "dist"],
   "include": ["src"],
   "compilerOptions": {
