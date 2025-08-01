@@ -1,7 +1,7 @@
 import { match } from 'ts-pattern';
 
-import { db } from '@oyster/db';
-import { id } from '@oyster/utils';
+import { db } from '@hackcommunity/db';
+import { id } from '@hackcommunity/utils';
 
 import { job } from '@/infrastructure/bull';
 import { sendEmail } from '@/modules/notifications/use-cases/send-email';

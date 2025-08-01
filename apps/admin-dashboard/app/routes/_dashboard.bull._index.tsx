@@ -1,6 +1,6 @@
 import { type LoaderFunctionArgs, redirect } from '@remix-run/node';
 
-import { listQueueNames } from '@oyster/core/bull';
+import { listQueueNames } from '@hackcommunity/core/bull';
 
 import { ensureUserAuthenticated } from '@/shared/session.server';
 

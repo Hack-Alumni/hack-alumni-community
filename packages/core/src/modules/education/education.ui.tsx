@@ -1,7 +1,7 @@
 import { useFetcher } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 
-import { Major } from '@oyster/types';
+import { Major } from '@hackcommunity/types';
 import {
   Combobox,
   ComboboxInput,
@@ -14,8 +14,8 @@ import {
   type InputProps,
   Select,
   useDelayedValue,
-} from '@oyster/ui';
-import { toEscapedString, toTitleCase } from '@oyster/utils';
+} from '@hackcommunity/ui';
+import { toEscapedString, toTitleCase } from '@hackcommunity/utils';
 
 import { School, SchoolTag } from '@/modules/education/education.types';
 

@@ -12,10 +12,10 @@ import {
   Video,
 } from 'react-feather';
 
-import { getAdmin } from '@oyster/core/admins';
-import { AdminRole } from '@oyster/core/admins/types';
-import { countPendingApplications } from '@oyster/core/applications';
-import { Dashboard, Divider } from '@oyster/ui';
+import { getAdmin } from '@hackcommunity/core/admins';
+import { AdminRole } from '@hackcommunity/core/admins/types';
+import { countPendingApplications } from '@hackcommunity/core/applications';
+import { Dashboard, Divider } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { getSession, user } from '@/shared/session.server';

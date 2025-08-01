@@ -5,7 +5,7 @@ import {
 } from '@remix-run/node';
 import { z } from 'zod';
 
-import { listCountries } from '@oyster/core/location';
+import { listCountries } from '@hackcommunity/core/location';
 
 import { ensureUserAuthenticated } from '@/shared/session.server';
 

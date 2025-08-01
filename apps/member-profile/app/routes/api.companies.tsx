@@ -8,7 +8,7 @@ import { z } from 'zod';
 import {
   reportException,
   searchCrunchbaseOrganizations,
-} from '@oyster/core/member-profile/server';
+} from '@hackcommunity/core/member-profile/server';
 
 import { ensureUserAuthenticated } from '@/shared/session.server';
 

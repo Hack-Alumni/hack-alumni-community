@@ -1,13 +1,13 @@
-import { type Country } from '@oyster/core/location/types';
-import { CityCombobox, type CityComboboxProps } from '@oyster/core/location/ui';
-import { FORMATTED_GENDER, type Gender } from '@oyster/types';
+import { type Country } from '@hackcommunity/core/location/types';
+import { CityCombobox, type CityComboboxProps } from '@hackcommunity/core/location/ui';
+import { FORMATTED_GENDER, type Gender } from '@hackcommunity/types';
 import {
   Checkbox,
   DatePicker,
   Field,
   type FieldProps,
   Select,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { EthnicityMultiCombobox } from '@/shared/components/ethnicity-combobox';
 

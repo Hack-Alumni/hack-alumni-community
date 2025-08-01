@@ -4,8 +4,8 @@ import {
   type Session,
 } from '@remix-run/node';
 
-import { type ToastProps } from '@oyster/ui';
-import { id } from '@oyster/utils';
+import { type ToastProps } from '@hackcommunity/ui';
+import { id } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

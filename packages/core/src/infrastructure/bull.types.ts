@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { EmailTemplate } from '@oyster/email-templates';
+import { EmailTemplate } from '@hackcommunity/email-templates';
 import {
   ActivationRequirement,
   Application,
@@ -10,7 +10,7 @@ import {
   ProfileView,
   Student,
   StudentEmail,
-} from '@oyster/types';
+} from '@hackcommunity/types';
 
 import { OneTimeCode } from '@/modules/authentication/authentication.types';
 import {

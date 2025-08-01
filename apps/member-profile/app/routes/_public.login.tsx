@@ -1,7 +1,7 @@
 import { json } from '@remix-run/node';
 import { Outlet } from '@remix-run/react';
 
-import { Login, Public } from '@oyster/ui';
+import { Login, Public } from '@hackcommunity/ui';
 
 export async function loader() {
   return json({});

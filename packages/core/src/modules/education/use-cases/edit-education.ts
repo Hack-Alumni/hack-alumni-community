@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 import { checkMostRecentEducation } from './check-most-recent-education';
 import { type Education } from '../education.types';

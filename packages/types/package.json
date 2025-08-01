@@ -1,5 +1,5 @@
 {
-  "name": "@oyster/types",
+  "name": "@hackcommunity/types",
   "version": "0.0.0",
   "private": true,
   "main": "./src/index.ts",
@@ -9,7 +9,7 @@
     "type-check": "tsc --noEmit"
   },
   "devDependencies": {
-    "@oyster/eslint-config": "*",
+    "@hackcommunity/eslint-config": "*",
     "zod": "^3.20.2"
   }
 }

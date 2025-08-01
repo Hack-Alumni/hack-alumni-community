@@ -4,10 +4,10 @@ import {
   type Session,
 } from '@remix-run/node';
 
-import { doesAdminHavePermission, getAdmin } from '@oyster/core/admins';
-import { type AdminRole } from '@oyster/core/admins/types';
-import { type ToastProps } from '@oyster/ui';
-import { id } from '@oyster/utils';
+import { doesAdminHavePermission, getAdmin } from '@hackcommunity/core/admins';
+import { type AdminRole } from '@hackcommunity/core/admins/types';
+import { type ToastProps } from '@hackcommunity/ui';
+import { id } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

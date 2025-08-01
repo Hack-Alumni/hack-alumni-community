@@ -9,8 +9,8 @@ import { Form, useActionData, useNavigate } from '@remix-run/react';
 import {
   deleteWorkExperience,
   getWorkExperience,
-} from '@oyster/core/member-profile/server';
-import { Button, ErrorMessage, Modal } from '@oyster/ui';
+} from '@hackcommunity/core/member-profile/server';
+import { Button, ErrorMessage, Modal } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

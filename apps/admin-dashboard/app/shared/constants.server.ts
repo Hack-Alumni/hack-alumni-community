@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Environment } from '@oyster/core/admin-dashboard/ui';
+import { Environment } from '@hackcommunity/core/admin-dashboard/ui';
 
 const EnvironmentVariable = z.string().trim().min(1);
 

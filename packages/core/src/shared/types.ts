@@ -4,7 +4,7 @@ import {
 } from 'kysely';
 import { z } from 'zod';
 
-import { type ExtractValue, Timezone } from '@oyster/types';
+import { type ExtractValue, Timezone } from '@hackcommunity/types';
 
 // Schemas
 

@@ -18,13 +18,13 @@ import { type PropsWithChildren } from 'react';
 import { FileText } from 'react-feather';
 import { match } from 'ts-pattern';
 
-import { buildMeta } from '@oyster/core/remix';
+import { buildMeta } from '@hackcommunity/core/remix';
 import {
   getLastResumeFeedback,
   type ResumeFeedback,
   reviewResume,
   ReviewResumeInput,
-} from '@oyster/core/resume-reviews';
+} from '@hackcommunity/core/resume-reviews';
 import {
   Button,
   cx,
@@ -34,8 +34,8 @@ import {
   MB_IN_BYTES,
   Text,
   validateForm,
-} from '@oyster/ui';
-import { Progress, useProgress } from '@oyster/ui/progress';
+} from '@hackcommunity/ui';
+import { Progress, useProgress } from '@hackcommunity/ui/progress';
 
 import {
   EmptyState,

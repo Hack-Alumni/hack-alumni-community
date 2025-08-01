@@ -15,9 +15,9 @@ import { BookOpen, Edit, Menu, Plus } from 'react-feather';
 import { generatePath } from 'react-router';
 import { match } from 'ts-pattern';
 
-import { ListSearchParams } from '@oyster/core/admin-dashboard/ui';
-import { SchoolTag } from '@oyster/core/education/types';
-import { db } from '@oyster/db';
+import { ListSearchParams } from '@hackcommunity/core/admin-dashboard/ui';
+import { SchoolTag } from '@hackcommunity/core/education/types';
+import { db } from '@hackcommunity/db';
 import {
   Dashboard,
   Dropdown,
@@ -27,7 +27,7 @@ import {
   Table,
   type TableColumnProps,
   useSearchParams,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

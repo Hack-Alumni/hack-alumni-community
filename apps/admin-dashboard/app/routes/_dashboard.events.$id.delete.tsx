@@ -6,9 +6,9 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 
-import { getEvent } from '@oyster/core/events';
-import { deleteEvent } from '@oyster/core/events';
-import { Button, ErrorMessage, getErrors, Modal } from '@oyster/ui';
+import { getEvent } from '@hackcommunity/core/events';
+import { deleteEvent } from '@hackcommunity/core/events';
+import { Button, ErrorMessage, getErrors, Modal } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

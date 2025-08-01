@@ -6,8 +6,8 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
 
-import { addIcebreakerPrompt } from '@oyster/core/admin-dashboard/server';
-import { AddIcebreakerPromptInput } from '@oyster/core/admin-dashboard/ui';
+import { addIcebreakerPrompt } from '@hackcommunity/core/admin-dashboard/server';
+import { AddIcebreakerPromptInput } from '@hackcommunity/core/admin-dashboard/ui';
 import {
   Button,
   ErrorMessage,
@@ -16,7 +16,7 @@ import {
   Input,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

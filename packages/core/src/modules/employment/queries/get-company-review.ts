@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 type GetCompanyReviewOptions = {
   where: { workExperienceId: string };

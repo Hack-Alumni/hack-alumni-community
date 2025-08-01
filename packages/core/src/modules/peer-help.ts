@@ -2,9 +2,9 @@ import dedent from 'dedent';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { db, relativeTime } from '@oyster/db';
-import { type ExtractValue, nullableField } from '@oyster/types';
-import { id, toTitleCase } from '@oyster/utils';
+import { db, relativeTime } from '@hackcommunity/db';
+import { type ExtractValue, nullableField } from '@hackcommunity/types';
+import { id, toTitleCase } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
 import {

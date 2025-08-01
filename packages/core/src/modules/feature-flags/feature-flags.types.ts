@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { BooleanInput, Entity } from '@oyster/types';
+import { BooleanInput, Entity } from '@hackcommunity/types';
 
 export type FeatureFlagName =
   | 'chatbot'

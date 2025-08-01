@@ -5,9 +5,9 @@ import { jsonBuildObject } from 'kysely/helpers/postgres';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { db } from '@oyster/db';
-import { ISO8601Date } from '@oyster/types';
-import { id } from '@oyster/utils';
+import { db } from '@hackcommunity/db';
+import { ISO8601Date } from '@hackcommunity/types';
+import { id } from '@hackcommunity/utils';
 
 import { getChatCompletion } from '@/infrastructure/ai';
 import { job, registerWorker } from '@/infrastructure/bull';

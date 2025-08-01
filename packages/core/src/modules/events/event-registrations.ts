@@ -1,9 +1,9 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 import {
   type EventRegistration,
   FORMATTED_GENDER,
   type Gender,
-} from '@oyster/types';
+} from '@hackcommunity/types';
 
 import { job } from '@/infrastructure/bull';
 import { type GetBullJobData } from '@/infrastructure/bull.types';

@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 export async function countMessagesSent(memberId: string) {
   const row = await db

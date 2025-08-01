@@ -14,7 +14,7 @@ import {
   Input,
   type InputProps,
   useDelayedValue,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { type BaseCompany, type Company } from '../employment.types';
 

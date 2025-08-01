@@ -1,4 +1,10 @@
-import { DatePicker, Field, type FieldProps, Input, Radio } from '@oyster/ui';
+import {
+  DatePicker,
+  Field,
+  type FieldProps,
+  Input,
+  Radio,
+} from '@hackcommunity/ui';
 
 import { ResumeBook } from '@/modules/resume-books/resume-books.types';
 

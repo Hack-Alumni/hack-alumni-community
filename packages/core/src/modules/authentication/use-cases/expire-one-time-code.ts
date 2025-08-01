@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 import { type GetBullJobData } from '@/infrastructure/bull.types';
 

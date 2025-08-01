@@ -1,4 +1,4 @@
-import { tailwindConfig } from '@oyster/tailwind';
+import { tailwindConfig } from '@hackcommunity/tailwind';
 import { Colors } from '../../packages/ui/src/colors';
 
 /** @type {import('tailwindcss').Config} */

@@ -1,6 +1,6 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-import { track } from '@oyster/core/mixpanel';
+import { track } from '@hackcommunity/core/mixpanel';
 
 import { getSession, user } from '@/shared/session.server';
 

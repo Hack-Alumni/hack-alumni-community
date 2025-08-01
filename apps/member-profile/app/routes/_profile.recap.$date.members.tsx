@@ -1,8 +1,8 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { generatePath, Link, useLoaderData } from '@remix-run/react';
 
-import { listMembersInDirectory } from '@oyster/core/member-profile/server';
-import { ProfilePicture, Text } from '@oyster/ui';
+import { listMembersInDirectory } from '@hackcommunity/core/member-profile/server';
+import { ProfilePicture, Text } from '@hackcommunity/ui';
 
 import { getDateRange, Recap } from '@/routes/_profile.recap.$date';
 import { Route } from '@/shared/constants';

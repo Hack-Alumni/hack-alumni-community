@@ -6,10 +6,10 @@ import {
 } from '@remix-run/node';
 import { Form, useLoaderData } from '@remix-run/react';
 
-import { job } from '@oyster/core/bull';
-import { db } from '@oyster/db';
-import { BooleanInput } from '@oyster/types';
-import { Button, Checkbox, Modal } from '@oyster/ui';
+import { job } from '@hackcommunity/core/bull';
+import { db } from '@hackcommunity/db';
+import { BooleanInput } from '@hackcommunity/types';
+import { Button, Checkbox, Modal } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

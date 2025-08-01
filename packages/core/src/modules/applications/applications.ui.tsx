@@ -10,7 +10,7 @@ import {
   Major,
   type OtherDemographic,
   type Race,
-} from '@oyster/types';
+} from '@hackcommunity/types';
 import {
   Checkbox,
   Field,
@@ -21,8 +21,8 @@ import {
   Text,
   Textarea,
   type TextProps,
-} from '@oyster/ui';
-import { run, toTitleCase } from '@oyster/utils';
+} from '@hackcommunity/ui';
+import { run, toTitleCase } from '@hackcommunity/utils';
 
 import {
   type EducationLevel,

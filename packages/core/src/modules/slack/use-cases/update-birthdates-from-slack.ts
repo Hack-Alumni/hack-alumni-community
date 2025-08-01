@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 import { slack } from '@/modules/slack/instances';
 import { RateLimiter } from '@/shared/utils/rate-limiter';

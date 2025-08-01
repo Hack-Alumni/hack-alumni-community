@@ -1,5 +1,5 @@
-import { db } from '@oyster/db';
-import { id } from '@oyster/utils';
+import { db } from '@hackcommunity/db';
+import { id } from '@hackcommunity/utils';
 
 import { type CreateFeatureFlagInput } from '@/modules/feature-flags/feature-flags.types';
 

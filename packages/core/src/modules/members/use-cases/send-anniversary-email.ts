@@ -1,6 +1,6 @@
 import { sql } from 'kysely';
 
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 import { job } from '@/infrastructure/bull';
 import { type GetBullJobData } from '@/infrastructure/bull.types';

@@ -7,7 +7,7 @@ import {
   ComboboxItem,
   ComboboxPopover,
   useDelayedValue,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { type Nullable } from '@/shared/types';
 

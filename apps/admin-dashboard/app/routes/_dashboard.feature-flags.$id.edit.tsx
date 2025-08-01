@@ -9,8 +9,8 @@ import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import {
   editFeatureFlag,
   getFeatureFlag,
-} from '@oyster/core/admin-dashboard/server';
-import { EditFeatureFlagInput } from '@oyster/core/admin-dashboard/ui';
+} from '@hackcommunity/core/admin-dashboard/server';
+import { EditFeatureFlagInput } from '@hackcommunity/core/admin-dashboard/ui';
 import {
   Button,
   Checkbox,
@@ -21,7 +21,7 @@ import {
   Modal,
   Textarea,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

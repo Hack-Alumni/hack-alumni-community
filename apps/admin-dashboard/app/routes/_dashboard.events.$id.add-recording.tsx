@@ -10,7 +10,7 @@ import {
   addEventRecordingLink,
   AddEventRecordingLinkInput,
   getEvent,
-} from '@oyster/core/events';
+} from '@hackcommunity/core/events';
 import {
   Button,
   ErrorMessage,
@@ -19,7 +19,7 @@ import {
   Input,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

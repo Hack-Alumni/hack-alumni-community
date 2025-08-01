@@ -1,4 +1,4 @@
-import { db, type DB } from '@oyster/db';
+import { db, type DB } from '@hackcommunity/db';
 
 import { reportException } from '@/infrastructure/sentry';
 import { slack } from '@/modules/slack/instances';

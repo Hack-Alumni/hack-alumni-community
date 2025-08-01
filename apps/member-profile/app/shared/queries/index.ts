@@ -1,12 +1,12 @@
 import dayjs from 'dayjs';
 
-import { Country } from '@oyster/core/location/types';
+import { Country } from '@hackcommunity/core/location/types';
 import {
   type DegreeType,
   FORMATTED_DEGREEE_TYPE,
-} from '@oyster/core/member-profile/ui';
-import { db } from '@oyster/db';
-import { toTitleCase } from '@oyster/utils';
+} from '@hackcommunity/core/member-profile/ui';
+import { db } from '@hackcommunity/db';
+import { toTitleCase } from '@hackcommunity/utils';
 
 // "educations"
 

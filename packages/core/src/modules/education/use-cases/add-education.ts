@@ -1,5 +1,5 @@
-import { db } from '@oyster/db';
-import { id } from '@oyster/utils';
+import { db } from '@hackcommunity/db';
+import { id } from '@hackcommunity/utils';
 
 import { job } from '@/infrastructure/bull';
 import { checkMostRecentEducation } from './check-most-recent-education';

@@ -7,7 +7,7 @@ import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import { Edit, Menu, Plus, Trash } from 'react-feather';
 import { generatePath } from 'react-router';
 
-import { listActivities } from '@oyster/core/gamification';
+import { listActivities } from '@hackcommunity/core/gamification';
 import {
   Dashboard,
   Dropdown,
@@ -15,8 +15,8 @@ import {
   Pill,
   Table,
   type TableColumnProps,
-} from '@oyster/ui';
-import { toTitleCase } from '@oyster/utils';
+} from '@hackcommunity/ui';
+import { toTitleCase } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

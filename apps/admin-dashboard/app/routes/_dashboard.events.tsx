@@ -8,9 +8,9 @@ import dayjs from 'dayjs';
 import { Camera, Menu, Plus, RefreshCw, Trash2, Upload } from 'react-feather';
 import { generatePath } from 'react-router';
 
-import { ListSearchParams } from '@oyster/core/admin-dashboard/ui';
-import { listEvents } from '@oyster/core/events';
-import { type Event, EventType } from '@oyster/types';
+import { ListSearchParams } from '@hackcommunity/core/admin-dashboard/ui';
+import { listEvents } from '@hackcommunity/core/events';
+import { type Event, EventType } from '@hackcommunity/types';
 import {
   Dashboard,
   Dropdown,
@@ -20,8 +20,8 @@ import {
   Table,
   type TableColumnProps,
   useSearchParams,
-} from '@oyster/ui';
-import { toTitleCase } from '@oyster/utils';
+} from '@hackcommunity/ui';
+import { toTitleCase } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
 import { getTimezone } from '@/shared/cookies.server';

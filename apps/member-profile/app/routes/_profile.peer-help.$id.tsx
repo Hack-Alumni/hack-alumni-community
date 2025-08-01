@@ -15,12 +15,12 @@ import {
 import dayjs from 'dayjs';
 import { ArrowDown, ArrowUp, Edit, User } from 'react-feather';
 
-import { track } from '@oyster/core/mixpanel';
+import { track } from '@hackcommunity/core/mixpanel';
 import {
   type HelpRequestStatus,
   type HelpRequestType,
-} from '@oyster/core/peer-help';
-import { db } from '@oyster/db';
+} from '@hackcommunity/core/peer-help';
+import { db } from '@hackcommunity/db';
 import {
   Button,
   Divider,
@@ -28,14 +28,14 @@ import {
   Modal,
   ProfilePicture,
   Text,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
-import { toTitleCase } from '@oyster/utils';
+} from '@hackcommunity/ui/tooltip';
+import { toTitleCase } from '@hackcommunity/utils';
 
 import {
   HelpRequestDescription,

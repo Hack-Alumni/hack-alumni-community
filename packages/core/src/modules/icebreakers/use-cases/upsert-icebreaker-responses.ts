@@ -1,6 +1,6 @@
 import { type Insertable, type Transaction } from 'kysely';
 
-import { type DB } from '@oyster/db';
+import { type DB } from '@hackcommunity/db';
 
 export async function upsertIcebreakerResponses(
   trx: Transaction<DB>,

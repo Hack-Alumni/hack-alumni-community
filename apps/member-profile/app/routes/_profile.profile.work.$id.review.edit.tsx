@@ -6,12 +6,12 @@ import {
 } from '@remix-run/node';
 import { useActionData, useLoaderData } from '@remix-run/react';
 
-import { EditCompanyReviewInput } from '@oyster/core/employment';
+import { EditCompanyReviewInput } from '@hackcommunity/core/employment';
 import {
   editCompanyReview,
   getCompanyReview,
-} from '@oyster/core/employment/server';
-import { getErrors, Modal, validateForm } from '@oyster/ui';
+} from '@hackcommunity/core/employment/server';
+import { getErrors, Modal, validateForm } from '@hackcommunity/ui';
 
 import { EditReviewForm } from '@/shared/components/review-form';
 import { Route } from '@/shared/constants';

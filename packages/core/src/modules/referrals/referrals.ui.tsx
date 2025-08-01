@@ -1,6 +1,6 @@
 import { Form } from '@remix-run/react';
 
-import { Button, ErrorMessage, Field, Input } from '@oyster/ui';
+import { Button, ErrorMessage, Field, Input } from '@hackcommunity/ui';
 
 import { ReferFriendInput } from '@/modules/referrals/referrals.types';
 

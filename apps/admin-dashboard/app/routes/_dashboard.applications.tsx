@@ -16,11 +16,11 @@ import { generatePath } from 'react-router';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { ListSearchParams } from '@oyster/core/admin-dashboard/ui';
-import { listApplications } from '@oyster/core/applications';
-import { type ApplicationRejectionReason } from '@oyster/core/applications/types';
-import { ApplicationStatus } from '@oyster/core/applications/ui';
-import { Application } from '@oyster/types';
+import { ListSearchParams } from '@hackcommunity/core/admin-dashboard/ui';
+import { listApplications } from '@hackcommunity/core/applications';
+import { type ApplicationRejectionReason } from '@hackcommunity/core/applications/types';
+import { ApplicationStatus } from '@hackcommunity/core/applications/ui';
+import { Application } from '@hackcommunity/types';
 import {
   type AccentColor,
   Dashboard,
@@ -33,8 +33,8 @@ import {
   Table,
   type TableColumnProps,
   useSearchParams,
-} from '@oyster/ui';
-import { toTitleCase } from '@oyster/utils';
+} from '@hackcommunity/ui';
+import { toTitleCase } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
 import { getTimezone } from '@/shared/cookies.server';
