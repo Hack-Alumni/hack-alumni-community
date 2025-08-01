@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { type EditFeatureFlagInput } from '@/modules/feature-flags/feature-flags.types';
 

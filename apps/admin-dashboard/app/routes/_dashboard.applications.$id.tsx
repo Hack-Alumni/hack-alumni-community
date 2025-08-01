@@ -1,7 +1,7 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { Outlet, useLocation } from '@remix-run/react';
 
-import { Modal } from '@oyster/ui';
+import { Modal } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

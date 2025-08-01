@@ -6,9 +6,9 @@ import {
 import { Form, Link, useActionData, useLoaderData } from '@remix-run/react';
 import { z } from 'zod';
 
-import { updateMember } from '@oyster/core/member-profile/server';
-import { nullableField, Student } from '@oyster/types';
-import { Button, getErrors, InputField, Text, validateForm } from '@oyster/ui';
+import { updateMember } from '@hack/core/member-profile/server';
+import { nullableField, Student } from '@hack/types';
+import { Button, getErrors, InputField, Text, validateForm } from '@hack/ui';
 
 import {
   ProfileHeader,

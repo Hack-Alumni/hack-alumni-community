@@ -7,7 +7,7 @@ import {
 import { Form, useActionData } from '@remix-run/react';
 import { z } from 'zod';
 
-import { job } from '@oyster/core/bull';
+import { job } from '@hack/core/bull';
 import {
   Button,
   ErrorMessage,
@@ -16,7 +16,7 @@ import {
   Input,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import {

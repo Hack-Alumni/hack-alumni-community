@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react';
 
-import { cx, Text } from '@oyster/ui';
+import { cx, Text } from '@hack/ui';
 
 type CardProps = PropsWithChildren<{
   className?: string;

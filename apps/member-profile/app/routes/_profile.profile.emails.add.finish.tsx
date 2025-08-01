@@ -7,13 +7,10 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { type z } from 'zod';
 
-import { job } from '@oyster/core/bull';
-import {
-  OneTimeCode,
-  OneTimeCodePurpose,
-} from '@oyster/core/member-profile/ui';
-import { db } from '@oyster/db';
-import { StudentEmail } from '@oyster/types';
+import { job } from '@hack/core/bull';
+import { OneTimeCode, OneTimeCodePurpose } from '@hack/core/member-profile/ui';
+import { db } from '@hack/db';
+import { StudentEmail } from '@hack/types';
 import {
   Button,
   ErrorMessage,
@@ -22,7 +19,7 @@ import {
   Input,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { addEmailCookie } from '@/shared/cookies.server';

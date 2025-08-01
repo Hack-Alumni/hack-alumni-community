@@ -15,9 +15,9 @@ import {
   Users,
 } from 'react-feather';
 
-import { isFeatureFlagEnabled } from '@oyster/core/member-profile/server';
-import { getResumeBook } from '@oyster/core/resume-books';
-import { Dashboard, Divider } from '@oyster/ui';
+import { isFeatureFlagEnabled } from '@hack/core/member-profile/server';
+import { getResumeBook } from '@hack/core/resume-books';
+import { Dashboard, Divider } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

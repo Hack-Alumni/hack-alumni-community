@@ -10,9 +10,9 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useSearchParams } from '@remix-run/react';
 
-import { track } from '@oyster/core/mixpanel';
-import { AddResourceInput } from '@oyster/core/resources';
-import { addResource } from '@oyster/core/resources/server';
+import { track } from '@hack/core/mixpanel';
+import { AddResourceInput } from '@hack/core/resources';
+import { addResource } from '@hack/core/resources/server';
 import {
   Button,
   Divider,
@@ -21,7 +21,7 @@ import {
   MB_IN_BYTES,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import {
   ResourceAttachmentField,

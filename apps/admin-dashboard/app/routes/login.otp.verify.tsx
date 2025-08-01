@@ -6,12 +6,12 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 
-import { verifyOneTimeCode } from '@oyster/core/admin-dashboard/server';
+import { verifyOneTimeCode } from '@hack/core/admin-dashboard/server';
 import {
   OneTimeCodeForm,
   VerifyOneTimeCodeInput,
-} from '@oyster/core/admin-dashboard/ui';
-import { Button, ErrorMessage, getErrors, validateForm } from '@oyster/ui';
+} from '@hack/core/admin-dashboard/ui';
+import { Button, ErrorMessage, getErrors, validateForm } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

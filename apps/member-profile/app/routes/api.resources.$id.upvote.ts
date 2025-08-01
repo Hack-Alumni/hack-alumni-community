@@ -1,7 +1,7 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-import { track } from '@oyster/core/mixpanel';
-import { upvoteResource } from '@oyster/core/resources/server';
+import { track } from '@hack/core/mixpanel';
+import { upvoteResource } from '@hack/core/resources/server';
 
 import { ensureUserAuthenticated, user } from '@/shared/session.server';
 

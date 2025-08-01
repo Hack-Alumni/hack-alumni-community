@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { getMemberByEmail } from '@/modules/members/queries/get-member-by-email';

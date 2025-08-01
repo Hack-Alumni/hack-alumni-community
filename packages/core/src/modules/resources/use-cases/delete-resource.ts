@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { deleteObject } from '@/infrastructure/s3';
 

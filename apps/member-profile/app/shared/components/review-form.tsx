@@ -6,7 +6,7 @@ import { Star } from 'react-feather';
 import {
   AddCompanyReviewInput,
   type EditCompanyReviewInput,
-} from '@oyster/core/employment';
+} from '@hack/core/employment';
 import {
   Button,
   Checkbox,
@@ -19,7 +19,7 @@ import {
   Select,
   Text,
   Textarea,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { type GetWorkExperiencesResult } from '@/routes/api.me.work-experiences';
 import { Route } from '@/shared/constants';

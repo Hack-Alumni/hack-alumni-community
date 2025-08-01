@@ -6,8 +6,8 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
 
-import { createFeatureFlag } from '@oyster/core/admin-dashboard/server';
-import { CreateFeatureFlagInput } from '@oyster/core/admin-dashboard/ui';
+import { createFeatureFlag } from '@hack/core/admin-dashboard/server';
+import { CreateFeatureFlagInput } from '@hack/core/admin-dashboard/ui';
 import {
   Button,
   Checkbox,
@@ -18,7 +18,7 @@ import {
   Modal,
   Textarea,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import {

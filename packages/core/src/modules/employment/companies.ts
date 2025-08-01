@@ -3,7 +3,7 @@
 
 import { type Transaction } from 'kysely';
 
-import { type DB } from '@oyster/db';
+import { type DB } from '@hack/db';
 
 import { searchCrunchbaseOrganizations } from '@/modules/employment/queries/search-crunchbase-organizations';
 import { saveCompanyIfNecessary } from '@/modules/employment/use-cases/save-company-if-necessary';

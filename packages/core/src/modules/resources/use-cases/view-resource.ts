@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { type ViewResourceInput } from '@/modules/resources/resources.types';
 

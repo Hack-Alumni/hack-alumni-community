@@ -18,13 +18,13 @@ import { z } from 'zod';
 import {
   editWorkExperience,
   getWorkExperience,
-} from '@oyster/core/member-profile/server';
+} from '@hack/core/member-profile/server';
 import {
   EditWorkExperienceInput,
   type EmploymentType,
   type LocationType,
   WorkForm,
-} from '@oyster/core/member-profile/ui';
+} from '@hack/core/member-profile/ui';
 import {
   Address,
   Button,
@@ -32,7 +32,7 @@ import {
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import {

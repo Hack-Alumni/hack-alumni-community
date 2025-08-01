@@ -1,6 +1,6 @@
 import type { SelectExpression } from 'kysely';
 
-import { type DB, db } from '@oyster/db';
+import { type DB, db } from '@hack/db';
 
 export async function getIcebreakerResponses<
   Selection extends SelectExpression<DB, 'icebreakerResponses'>,

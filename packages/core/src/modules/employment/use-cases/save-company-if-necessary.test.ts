@@ -1,5 +1,5 @@
-import { db } from '@oyster/db';
-import { company1, company4 } from '@oyster/db/test/constants';
+import { db } from '@hack/db';
+import { company1, company4 } from '@hack/db/test/constants';
 
 import { saveCompanyIfNecessary } from './save-company-if-necessary';
 import * as module from '../queries/get-crunchbase-organization';

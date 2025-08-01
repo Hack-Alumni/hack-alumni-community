@@ -2,9 +2,9 @@ import dayjs from 'dayjs';
 import { type SelectExpression, sql } from 'kysely';
 import { match } from 'ts-pattern';
 
-import { type DB, db } from '@oyster/db';
-import { type Application, OtherDemographic } from '@oyster/types';
-import { id, run } from '@oyster/utils';
+import { type DB, db } from '@hack/db';
+import { type Application, OtherDemographic } from '@hack/types';
+import { id, run } from '@hack/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
 import {

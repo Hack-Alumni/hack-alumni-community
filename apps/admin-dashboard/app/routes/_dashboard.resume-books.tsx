@@ -7,7 +7,7 @@ import { generatePath, Link, Outlet, useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
 import { Clipboard, Edit, ExternalLink, Menu, Plus } from 'react-feather';
 
-import { listResumeBooks } from '@oyster/core/resume-books';
+import { listResumeBooks } from '@hack/core/resume-books';
 import {
   Dashboard,
   Dropdown,
@@ -15,7 +15,7 @@ import {
   Pill,
   Table,
   type TableColumnProps,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

@@ -1,6 +1,6 @@
 import { useFetcher } from '@remix-run/react';
 
-import { type MixpanelEvent, type TrackInput } from '@oyster/core/mixpanel';
+import { type MixpanelEvent, type TrackInput } from '@hack/core/mixpanel';
 
 export function useMixpanelTracker() {
   const fetcher = useFetcher();

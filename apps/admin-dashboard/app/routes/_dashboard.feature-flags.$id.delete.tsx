@@ -9,8 +9,8 @@ import { Form, useLoaderData } from '@remix-run/react';
 import {
   deleteFeatureFlag,
   getFeatureFlag,
-} from '@oyster/core/admin-dashboard/server';
-import { Button, Modal } from '@oyster/ui';
+} from '@hack/core/admin-dashboard/server';
+import { Button, Modal } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import {

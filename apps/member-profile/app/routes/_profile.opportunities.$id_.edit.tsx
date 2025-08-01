@@ -18,7 +18,7 @@ import {
   editOpportunity,
   EditOpportunityInput,
   getOpportunityDetails,
-} from '@oyster/core/opportunities';
+} from '@hack/core/opportunities';
 import {
   Button,
   DatePicker,
@@ -29,7 +29,7 @@ import {
   Modal,
   Textarea,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { OpportunityTagsField } from '@/routes/_profile.opportunities.tags';
 import { CompanyCombobox } from '@/shared/components/company-combobox';

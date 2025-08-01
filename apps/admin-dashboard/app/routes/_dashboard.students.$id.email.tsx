@@ -7,9 +7,9 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { type z } from 'zod';
 
-import { updateMemberEmail } from '@oyster/core/admin-dashboard/server';
-import { db } from '@oyster/db';
-import { Student } from '@oyster/types';
+import { updateMemberEmail } from '@hack/core/admin-dashboard/server';
+import { db } from '@hack/db';
+import { Student } from '@hack/types';
 import {
   Button,
   ErrorMessage,
@@ -18,7 +18,7 @@ import {
   Input,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import {

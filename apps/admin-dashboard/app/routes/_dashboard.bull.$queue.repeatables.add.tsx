@@ -15,7 +15,7 @@ import {
   Input,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import { validateQueue } from '@/shared/bull';
 import { Route } from '@/shared/constants';

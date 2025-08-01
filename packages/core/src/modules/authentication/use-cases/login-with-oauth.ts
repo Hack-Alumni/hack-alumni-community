@@ -1,6 +1,6 @@
 import { match } from 'ts-pattern';
 
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { getMemberByEmail } from '@/modules/members/queries/get-member-by-email';
 import { signToken } from '@/shared/utils/auth';

@@ -3,7 +3,7 @@ import dayOfYear from 'dayjs/plugin/dayOfYear';
 import dedent from 'dedent';
 import { match } from 'ts-pattern';
 
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 
 import { job, registerWorker } from '@/infrastructure/bull';
 import { FeedBullJob, type GetBullJobData } from '@/infrastructure/bull.types';

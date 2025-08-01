@@ -1,8 +1,8 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 
-import { getGoogleAuthUri } from '@oyster/core/admin-dashboard/server';
-import { ErrorMessage, Login } from '@oyster/ui';
+import { getGoogleAuthUri } from '@hack/core/admin-dashboard/server';
+import { ErrorMessage, Login } from '@hack/ui';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

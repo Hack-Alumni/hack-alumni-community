@@ -2,15 +2,12 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
 
-import {
-  type EmploymentType,
-  type LocationType,
-} from '@oyster/core/employment';
+import { type EmploymentType, type LocationType } from '@hack/core/employment';
 import {
   hasReviewAccess,
   listCompanyReviews,
-} from '@oyster/core/employment/server';
-import { Text } from '@oyster/ui';
+} from '@hack/core/employment/server';
+import { Text } from '@hack/ui';
 
 import { CompanyReview } from '@/shared/components/company-review';
 import { ensureUserAuthenticated, user } from '@/shared/session.server';

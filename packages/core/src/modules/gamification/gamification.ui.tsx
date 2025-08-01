@@ -1,14 +1,7 @@
 import { Form } from '@remix-run/react';
 
-import {
-  Button,
-  ErrorMessage,
-  Field,
-  Input,
-  Select,
-  Textarea,
-} from '@oyster/ui';
-import { toTitleCase } from '@oyster/utils';
+import { Button, ErrorMessage, Field, Input, Select, Textarea } from '@hack/ui';
+import { toTitleCase } from '@hack/utils';
 
 import {
   ActivityPeriod,

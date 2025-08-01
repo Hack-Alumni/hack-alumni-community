@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import { z } from 'zod';
 
-import { BooleanInput, Entity, Student } from '@oyster/types';
+import { BooleanInput, Entity, Student } from '@hack/types';
 
 import { FileLike } from '@/shared/utils/zod';
 

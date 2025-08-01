@@ -1,7 +1,7 @@
 import { useFetcher } from '@remix-run/react';
 import { useEffect, useState } from 'react';
 
-import { type Company } from '@oyster/core/member-profile/ui';
+import { type Company } from '@hack/core/member-profile/ui';
 import {
   Combobox,
   ComboboxInput,
@@ -9,7 +9,7 @@ import {
   ComboboxPopover,
   type FieldProps,
   useDelayedValue,
-} from '@oyster/ui';
+} from '@hack/ui';
 
 import type { SearchCompaniesResult } from '@/routes/api.companies';
 

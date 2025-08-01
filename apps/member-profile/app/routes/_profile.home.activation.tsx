@@ -5,13 +5,13 @@ import React, { type PropsWithChildren, useState } from 'react';
 import { CheckCircle, ChevronDown, ChevronUp, XCircle } from 'react-feather';
 import { match } from 'ts-pattern';
 
-import { db } from '@oyster/db';
+import { db } from '@hack/db';
 import {
   ACTIVATION_REQUIREMENTS,
   type ActivationRequirement,
-} from '@oyster/types';
-import { Modal, Pill, Text } from '@oyster/ui';
-import { run } from '@oyster/utils';
+} from '@hack/types';
+import { Modal, Pill, Text } from '@hack/ui';
+import { run } from '@hack/utils';
 
 import { Route } from '@/shared/constants';
 import { getTimezone } from '@/shared/cookies.server';

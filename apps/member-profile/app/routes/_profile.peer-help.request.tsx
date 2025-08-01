@@ -12,14 +12,8 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { requestHelp, RequestHelpInput } from '@oyster/core/peer-help';
-import {
-  Button,
-  ErrorMessage,
-  getErrors,
-  Modal,
-  validateForm,
-} from '@oyster/ui';
+import { requestHelp, RequestHelpInput } from '@hack/core/peer-help';
+import { Button, ErrorMessage, getErrors, Modal, validateForm } from '@hack/ui';
 
 import {
   HelpRequestDescriptionField,

@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Student } from '@oyster/types';
+import { Student } from '@hack/types';
 
 import { Company } from '@/modules/employment/employment.types';
 import { Country } from '@/modules/location/location.types';
