@@ -1,7 +1,7 @@
 import { type ExpressionBuilder, sql } from 'kysely';
 import { jsonBuildObject } from 'kysely/helpers/postgres';
 
-import { type DB } from '@oyster/db';
+import { type DB } from '@hackcommunity/db';
 
 /**
  * When querying from the "resources" table, we often need to include the

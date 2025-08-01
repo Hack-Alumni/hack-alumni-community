@@ -15,14 +15,14 @@ import { type ExpressionBuilder, sql } from 'kysely';
 import { BookOpen, Briefcase, Calendar, Globe, MapPin } from 'react-feather';
 import { z } from 'zod';
 
-import { listMembersInDirectory } from '@oyster/core/member-profile/server';
+import { listMembersInDirectory } from '@hackcommunity/core/member-profile/server';
 import {
   ListMembersInDirectoryWhere,
   ListSearchParams,
-} from '@oyster/core/member-profile/ui';
-import { type DB, db } from '@oyster/db';
-import { ISO8601Date } from '@oyster/types';
-import { Dashboard, Pagination, ProfilePicture, Text } from '@oyster/ui';
+} from '@hackcommunity/core/member-profile/ui';
+import { type DB, db } from '@hackcommunity/db';
+import { ISO8601Date } from '@hackcommunity/types';
+import { Dashboard, Pagination, ProfilePicture, Text } from '@hackcommunity/ui';
 import {
   FilterEmptyMessage,
   FilterItem,
@@ -34,8 +34,8 @@ import {
   type FilterValue,
   ResetFiltersButton,
   useFilterContext,
-} from '@oyster/ui/filter';
-import { run, toEscapedString } from '@oyster/utils';
+} from '@hackcommunity/ui/filter';
+import { run, toEscapedString } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
 import { useMixpanelTracker } from '@/shared/hooks/use-mixpanel-tracker';

@@ -6,13 +6,13 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 
-import { verifyOneTimeCode } from '@oyster/core/member-profile/server';
+import { verifyOneTimeCode } from '@hackcommunity/core/member-profile/server';
 import {
   OneTimeCodeForm,
   VerifyOneTimeCodeInput,
-} from '@oyster/core/member-profile/ui';
-import { track } from '@oyster/core/mixpanel';
-import { Button, ErrorMessage, getErrors, validateForm } from '@oyster/ui';
+} from '@hackcommunity/core/member-profile/ui';
+import { track } from '@hackcommunity/core/mixpanel';
+import { Button, ErrorMessage, getErrors, validateForm } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';

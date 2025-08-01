@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 import dedent from 'dedent';
 
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 import { job } from '@/infrastructure/bull';
 import { STUDENT_PROFILE_URL } from '@/shared/env';

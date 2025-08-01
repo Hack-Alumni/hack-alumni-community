@@ -1,6 +1,6 @@
 import { type Transaction } from 'kysely';
 
-import { type DB } from '@oyster/db';
+import { type DB } from '@hackcommunity/db';
 
 import { job } from '@/infrastructure/bull';
 

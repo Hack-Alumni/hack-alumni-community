@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Email, Entity, type ExtractValue, Student } from '@oyster/types';
+import { Email, Entity, type ExtractValue, Student } from '@hackcommunity/types';
 
 // Schemas
 

@@ -7,10 +7,10 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 
-import { apply } from '@oyster/core/applications';
-import { Application, ApplyInput } from '@oyster/core/applications/ui';
-import { getReferral } from '@oyster/core/referrals';
-import { buildMeta } from '@oyster/core/remix';
+import { apply } from '@hackcommunity/core/applications';
+import { Application, ApplyInput } from '@hackcommunity/core/applications/ui';
+import { getReferral } from '@hackcommunity/core/referrals';
+import { buildMeta } from '@hackcommunity/core/remix';
 import {
   Button,
   Checkbox,
@@ -21,7 +21,7 @@ import {
   Text,
   type TextProps,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { commitSession, getSession } from '@/shared/session.server';

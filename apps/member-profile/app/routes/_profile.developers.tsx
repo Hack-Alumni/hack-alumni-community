@@ -1,7 +1,7 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 
-import { Dashboard, ProfilePicture, Text } from '@oyster/ui';
+import { Dashboard, ProfilePicture, Text } from '@hackcommunity/ui';
 
 import { ensureUserAuthenticated, user } from '@/shared/session.server';
 

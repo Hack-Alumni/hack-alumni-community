@@ -6,15 +6,15 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
 
-import { createSchool } from '@oyster/core/education';
-import { CreateSchoolInput } from '@oyster/core/education/types';
+import { createSchool } from '@hackcommunity/core/education';
+import { CreateSchoolInput } from '@hackcommunity/core/education/types';
 import {
   SchoolCityField,
   SchoolNameField,
   SchoolStateField,
   SchoolZipField,
-} from '@oyster/core/education/ui';
-import { Button, getErrors, Modal, validateForm } from '@oyster/ui';
+} from '@hackcommunity/core/education/ui';
+import { Button, getErrors, Modal, validateForm } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

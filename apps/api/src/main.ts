@@ -5,7 +5,7 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 
-import { startBullWorkers } from '@oyster/core/api';
+import { startBullWorkers } from '@hackcommunity/core/api';
 
 import { healthRouter } from './routers/health.router';
 import { oauthRouter } from './routers/oauth.router';

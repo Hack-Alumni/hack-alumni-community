@@ -13,7 +13,7 @@ import {
   type MultiComboboxProps,
   MultiComboboxSearch,
   MultiComboboxValues,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import type { SearchCountriesResult } from '@/routes/api.countries.search';
 

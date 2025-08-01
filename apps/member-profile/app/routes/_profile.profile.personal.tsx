@@ -7,15 +7,15 @@ import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { sql } from 'kysely';
 import { z } from 'zod';
 
-import { updateMember } from '@oyster/core/member-profile/server';
-import { ISO8601Date, nullableField, Student } from '@oyster/types';
+import { updateMember } from '@hackcommunity/core/member-profile/server';
+import { ISO8601Date, nullableField, Student } from '@hackcommunity/types';
 import {
   Button,
   Divider,
   getErrors,
   InputField,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import {
   ProfileHeader,

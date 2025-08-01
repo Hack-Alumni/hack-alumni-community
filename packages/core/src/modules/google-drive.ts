@@ -194,7 +194,7 @@ export async function saveGoogleDriveCredentials(code: string) {
 
   await Promise.all([
     redis.set(ACCESS_TOKEN_KEY, data.access_token),
-    redis.set(EXPIRES_AT_KEY, expiresAt),
+    redis.set(EXPIRES_AT_KEY, expiresAt.toString()),
     redis.set(REFRESH_TOKEN_KEY, data.refresh_token),
   ]);
 }
@@ -271,7 +271,7 @@ async function refreshCredentials(refreshToken: string) {
 
   await Promise.all([
     redis.set(ACCESS_TOKEN_KEY, data.access_token),
-    redis.set(EXPIRES_AT_KEY, expiresAt),
+    redis.set(EXPIRES_AT_KEY, expiresAt.toString()),
   ]);
 
   return data.access_token;

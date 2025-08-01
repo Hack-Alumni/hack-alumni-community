@@ -1,7 +1,7 @@
 import dayjs from 'dayjs';
 
-import { db } from '@oyster/db';
-import { type StudentActiveStatus } from '@oyster/types';
+import { db } from '@hackcommunity/db';
+import { type StudentActiveStatus } from '@hackcommunity/types';
 
 import { type GetBullJobData } from '@/infrastructure/bull.types';
 

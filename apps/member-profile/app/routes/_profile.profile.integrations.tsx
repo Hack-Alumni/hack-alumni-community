@@ -2,8 +2,8 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import { ExternalLink } from 'react-feather';
 
-import { Pill, Text } from '@oyster/ui';
-import { run } from '@oyster/utils';
+import { Pill, Text } from '@hackcommunity/ui';
+import { run } from '@hackcommunity/utils';
 
 import {
   ProfileHeader,

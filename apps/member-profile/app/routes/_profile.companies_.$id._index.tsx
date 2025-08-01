@@ -1,7 +1,7 @@
 import { type LoaderFunctionArgs, redirect } from '@remix-run/node';
 import { generatePath } from '@remix-run/react';
 
-import { getCompany } from '@oyster/core/employment/server';
+import { getCompany } from '@hackcommunity/core/employment/server';
 
 import { Route } from '@/shared/constants';
 

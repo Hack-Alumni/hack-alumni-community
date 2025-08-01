@@ -14,21 +14,21 @@ import dayjs from 'dayjs';
 import { generatePath } from 'react-router';
 import { type z } from 'zod';
 
-import { editEducation } from '@oyster/core/member-profile/server';
+import { editEducation } from '@hackcommunity/core/member-profile/server';
 import {
   type DegreeType,
   Education,
   type School,
-} from '@oyster/core/member-profile/ui';
-import { db } from '@oyster/db';
-import { type Major } from '@oyster/types';
+} from '@hackcommunity/core/member-profile/ui';
+import { db } from '@hackcommunity/db';
+import { type Major } from '@hackcommunity/types';
 import {
   Button,
   ErrorMessage,
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { EducationForm } from '@/shared/components/education-form';
 import { Route } from '@/shared/constants';

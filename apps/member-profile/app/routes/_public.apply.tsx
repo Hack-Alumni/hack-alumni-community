@@ -1,8 +1,8 @@
 import { json } from '@remix-run/node';
 import { Outlet, useLoaderData } from '@remix-run/react';
 
-import { isFeatureFlagEnabled } from '@oyster/core/member-profile/server';
-import { Public, Text } from '@oyster/ui';
+import { isFeatureFlagEnabled } from '@hackcommunity/core/member-profile/server';
+import { Public, Text } from '@hackcommunity/ui';
 
 export async function loader() {
   const isApplicationOpen = await isFeatureFlagEnabled('family_application');

@@ -7,9 +7,9 @@ import {
 import { Form, useLoaderData } from '@remix-run/react';
 import { Calendar, Check, ExternalLink } from 'react-feather';
 
-import { formatEventDate, getEvent } from '@oyster/core/events';
-import { registerForEvent } from '@oyster/core/events/registrations';
-import { Button, Modal, Text } from '@oyster/ui';
+import { formatEventDate, getEvent } from '@hackcommunity/core/events';
+import { registerForEvent } from '@hackcommunity/core/events/registrations';
+import { Button, Modal, Text } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { getTimezone } from '@/shared/cookies.server';

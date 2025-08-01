@@ -4,9 +4,9 @@ import { sql } from 'kysely';
 import { match } from 'ts-pattern';
 import { z } from 'zod';
 
-import { db } from '@oyster/db';
-import { Student } from '@oyster/types';
-import { id } from '@oyster/utils';
+import { db } from '@hackcommunity/db';
+import { Student } from '@hackcommunity/types';
+import { id } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
 import {

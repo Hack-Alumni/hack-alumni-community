@@ -7,7 +7,7 @@ import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import { Edit, Plus, Trash } from 'react-feather';
 import { generatePath } from 'react-router';
 
-import { listFeatureFlags } from '@oyster/core/admin-dashboard/server';
+import { listFeatureFlags } from '@hackcommunity/core/admin-dashboard/server';
 import {
   Button,
   Dashboard,
@@ -15,7 +15,7 @@ import {
   Pill,
   Table,
   type TableColumnProps,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

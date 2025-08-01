@@ -20,7 +20,7 @@ const UPSTASH_REDIS_REST_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN as string;
 // Instead of instantiating a new queue at the top-level which would produce
 // a side-effect, we'll use a global variable to store the queue instances which
 // will be created lazily.
-const _queues: Record<string, Queue> = {};
+const _queues: Record<string, any> = {};
 
 // Core
 
@@ -34,7 +34,7 @@ const _queues: Record<string, Queue> = {};
  * @param name - The name of the queue to retrieve/create.
  * @returns A Bull queue instance for the specified name.
  */
-export function getQueue(name: string) {
+export function getQueue(name: string): any {
   if (!_queues[name]) {
     // For Upstash Redis, we need to use a different approach since BullMQ requires traditional Redis
     // We'll use a simple in-memory queue for now, or you can set up a separate Redis instance for BullMQ
@@ -92,9 +92,9 @@ export function job<JobName extends BullJob['name']>(
   const job = result.data;
 
   const queueName = job.name.split('.')[0];
-  const queue = getQueue(queueName);
+  const queue = (getQueue as any)(queueName);
 
-  queue.add(job.name, job.data, options).catch((e) => reportException(e));
+  queue.add(job.name, job.data, options).catch((e: any) => reportException(e));
 }
 
 /**

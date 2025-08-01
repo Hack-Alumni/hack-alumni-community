@@ -1,12 +1,12 @@
 import { type ActionFunctionArgs, json, redirect } from '@remix-run/node';
 import { Form, useActionData } from '@remix-run/react';
 
-import { sendOneTimeCode } from '@oyster/core/admin-dashboard/server';
+import { sendOneTimeCode } from '@hackcommunity/core/admin-dashboard/server';
 import {
   OneTimeCodeForm,
   SendOneTimeCodeInput,
-} from '@oyster/core/admin-dashboard/ui';
-import { Button, ErrorMessage, getErrors, validateForm } from '@oyster/ui';
+} from '@hackcommunity/core/admin-dashboard/ui';
+import { Button, ErrorMessage, getErrors, validateForm } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { oneTimeCodeIdCookie } from '@/shared/cookies.server';

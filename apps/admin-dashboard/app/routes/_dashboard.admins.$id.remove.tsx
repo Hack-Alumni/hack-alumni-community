@@ -6,8 +6,8 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 
-import { getAdmin, removeAdmin } from '@oyster/core/admins';
-import { Button, ErrorMessage, Modal } from '@oyster/ui';
+import { getAdmin, removeAdmin } from '@hackcommunity/core/admins';
+import { Button, ErrorMessage, Modal } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

@@ -1,6 +1,6 @@
 import { type PropsWithChildren } from 'react';
 
-import { Divider, Text } from '@oyster/ui';
+import { Divider, Text } from '@hackcommunity/ui';
 
 // Profile
 

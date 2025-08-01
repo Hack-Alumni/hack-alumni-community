@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Entity, Student } from '@oyster/types';
+import { Entity, Student } from '@hackcommunity/types';
 
 const SlackChannelType = {
   DIRECT_MESSAGE: 'direct_message',

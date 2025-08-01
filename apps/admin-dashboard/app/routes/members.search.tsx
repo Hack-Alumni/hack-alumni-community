@@ -5,7 +5,7 @@ import {
 } from '@remix-run/node';
 import { sql } from 'kysely';
 
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 import { ensureUserAuthenticated } from '@/shared/session.server';
 
