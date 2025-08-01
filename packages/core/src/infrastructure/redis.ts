@@ -15,6 +15,7 @@ async function initializeRedis() {
     // Use Upstash Redis
     try {
       const { Redis: UpstashRedis } = await import('@upstash/redis');
+
       redisClient = new UpstashRedis({
         url: UPSTASH_REDIS_REST_URL,
         token: UPSTASH_REDIS_REST_TOKEN,
@@ -27,13 +28,16 @@ async function initializeRedis() {
     // Use local Redis
     try {
       const { default: Redis } = await import('ioredis');
+
       redisClient = new Redis(REDIS_URL);
     } catch (error) {
       console.error('Failed to initialize local Redis:', error);
       throw new Error('Local Redis is required but failed to initialize');
     }
   } else {
-    throw new Error('Either UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN, or REDIS_URL are required');
+    throw new Error(
+      'Either UPSTASH_REDIS_REST_URL and UPSTASH_REDIS_REST_TOKEN, or REDIS_URL are required'
+    );
   }
 }
 
@@ -69,81 +73,96 @@ export const redis = {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.get(key);
   },
   set: async (key: string, value: string, ...args: any[]) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     // Handle expiration if provided
     if (args.length >= 2 && args[0] === 'EX') {
       const expires = args[1];
+
       // For local Redis (ioredis), use the correct syntax
       return await redisClient.set(key, value, 'EX', expires);
     }
+
     return await redisClient.set(key, value);
   },
   del: async (key: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.del(key);
   },
   keys: async (pattern: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     // Note: Upstash Redis doesn't support KEYS command for security reasons
     // This is a limitation - you may need to track keys differently
     console.warn('KEYS command not supported in Upstash Redis');
+
     return [];
   },
   incr: async (key: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.incr(key);
   },
   decr: async (key: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.decr(key);
   },
   expire: async (key: string, seconds: number) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.expire(key, seconds);
   },
   ttl: async (key: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.ttl(key);
   },
   smembers: async (key: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.smembers(key);
   },
   sismember: async (key: string, member: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.sismember(key, member);
   },
   sadd: async (key: string, ...members: string[]) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.sadd(key, ...members);
   },
   srem: async (key: string, ...members: string[]) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }
+
     return await redisClient.srem(key, ...members);
   },
 };

@@ -38,13 +38,19 @@ export function getQueue(name: string): any {
   if (!_queues[name]) {
     // For Upstash Redis, we need to use a different approach since BullMQ requires traditional Redis
     // We'll use a simple in-memory queue for now, or you can set up a separate Redis instance for BullMQ
-    console.warn('BullMQ requires traditional Redis. Consider setting up a separate Redis instance for job processing.');
+    console.warn(
+      'BullMQ requires traditional Redis. Consider setting up a separate Redis instance for job processing.'
+    );
 
     // For now, we'll create a mock queue that doesn't actually process jobs
     // In production, you should set up a separate Redis instance for BullMQ
     _queues[name] = {
       add: async (jobName: string, data: any, options?: any) => {
-        console.log(`Job ${jobName} would be added to queue ${name} with data:`, data);
+        console.log(
+          `Job ${jobName} would be added to queue ${name} with data:`,
+          data
+        );
+
         // In a real implementation, you would add the job to a proper queue
         return { id: 'mock-job-id' };
       },
@@ -130,7 +136,9 @@ export function registerWorker<Schema extends ZodType>(
   processor: (job: z.infer<Schema>) => Promise<unknown>,
   options: WorkerOptions = {}
 ) {
-  console.warn('BullMQ workers are not supported with Upstash Redis. Consider using a separate Redis instance for job processing.');
+  console.warn(
+    'BullMQ workers are not supported with Upstash Redis. Consider using a separate Redis instance for job processing.'
+  );
 
   // Return a mock worker for compatibility
   return {
