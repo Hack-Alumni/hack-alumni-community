@@ -1,24 +1,30 @@
-<h1 align="center" href="https://github.com/colorstackorg/oyster">
-    <img width="360" src="./apps/member-profile/public/images/colorstack-wordmark.png" />
+<h1 align="center" href="https://github.com/Hack-Alumni/hack-alumni-community">
+    <img width="360" src="./apps/member-profile/public/images/hack-wordmark.png" />
 </h1>
 
-<p align="center"><b>Oyster</b>: The open-source software that powers the ColorStack community experience. ✊🏿✊🏾✊🏽✊🏼</p>
+<p align="center"><b>Hack Alumni Community</b>: A fork of Oyster, the open-source software that powers the Hack.Diversity community experience. 🚀</p>
 
 <h4 align="center">
-  <a href="https://github.com/colorstackorg/oyster/blob/main/CONTRIBUTING.md">How to Contribute</a> |
-  <a href="https://colorstack.org">Website</a> |
-  <a href="https://app.colorstack.io/apply">Family Application</a>
+  <a href="https://github.com/Hack-Alumni/hack-alumni-community/blob/main/CONTRIBUTING.md">How to Contribute</a> |
+  <a href="https://hackalumni.org">Website</a> |
+  <a href="https://app.hackalumni.org/apply">Community Application</a>
 </h4>
 
 <img src="./apps/member-profile/public/images/member-profile-home.png" width="100%" alt="Member Profile" style="border-radius: 8px;" />
 
+## About This Fork
+
+This repository is a fork of the original [Oyster project](https://github.com/colorstackorg/oyster) created by ColorStack. We've adapted it to serve the Hack.Diversity community while maintaining the core functionality and architecture of the original platform.
+
+**Original Project**: [ColorStack Oyster](https://github.com/colorstackorg/oyster) - The open-source software that powers the ColorStack community experience.
+
 ## Applications
 
 - [**Member Profile**](./apps/member-profile/package.json) - Serves as the home
-  for a ColorStack member, allowing them to manage their information, find and
+  for a Hack.Diversity member, allowing them to manage their information, find and
   connect with other members, as well as events and gamification.
 - [**Admin Dashboard**](./apps/admin-dashboard/package.json) - An internal
-  dashboard that the ColorStack team uses to manage important workflows like
+  dashboard that the Hack.Diversity team uses to manage important workflows like
   application review.
 - [**API**](./apps/api/package.json) - Handles all background jobs as well as
   any webhook integrations that we have with external services.
@@ -27,7 +33,7 @@
 
 ### Important Tools & Technologies
 
-Here is a list of important tools and technologies that power the ColorStack
+Here is a list of important tools and technologies that power the Hack.Diversity
 codebase:
 
 - [BullMQ](https://docs.bullmq.io) to queue and process jobs asynchronously (in
@@ -107,11 +113,3 @@ list on what we can configure, see
 ## Contributing
 
 Please see our [contributing guide](./CONTRIBUTING.md)! 👋
-
-A heartfelt thanks to our ColorStack members for their contributions! 🙏
-
-<a href="https://github.com/colorstackorg/oyster/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=colorstackorg/oyster" />
-</a>
-
-Made with [contrib.rocks](https://contrib.rocks).
