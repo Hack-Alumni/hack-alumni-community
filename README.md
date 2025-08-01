@@ -29,6 +29,18 @@ This repository is a fork of the original [Oyster project](https://github.com/co
 - [**API**](./apps/api/package.json) - Handles all background jobs as well as
   any webhook integrations that we have with external services.
 
+## Deployment
+
+This project can be deployed in multiple ways:
+
+### Vercel Deployment (Recommended)
+
+For easy deployment as a single project, see our [Vercel Deployment Guide](./VERCEL_DEPLOYMENT.md).
+
+### Traditional Deployment
+
+For traditional deployment with Docker containers, follow the original setup instructions in the [Contributing Guide](./CONTRIBUTING.md).
+
 ## Understanding the Codebase
 
 ### Important Tools & Technologies

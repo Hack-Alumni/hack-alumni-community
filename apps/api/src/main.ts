@@ -13,42 +13,46 @@ import { slackEventRouter, slackShortcutsRouter } from './routers/slack.router';
 import { ENV } from './shared/env';
 import { type RawBodyRequest } from './shared/types';
 
-bootstrap();
+// Create the Express app
+const app = express();
 
-async function bootstrap() {
-  const app = express();
+// Initialize Sentry
+Sentry.init({
+  dsn: ENV.SENTRY_DSN,
+  enabled: ENV.ENVIRONMENT === 'production',
+  environment: ENV.ENVIRONMENT,
+  integrations: [
+    new Sentry.Integrations.Http({ tracing: true }),
+    new Tracing.Integrations.Express({ app }),
+  ],
+  tracesSampleRate: 0.25,
+});
 
-  Sentry.init({
-    dsn: ENV.SENTRY_DSN,
-    enabled: ENV.ENVIRONMENT === 'production',
-    environment: ENV.ENVIRONMENT,
-    integrations: [
-      new Sentry.Integrations.Http({ tracing: true }),
-      new Tracing.Integrations.Express({ app }),
-    ],
-    tracesSampleRate: 0.25,
-  });
+// According to the Sentry documentation, the request + tracing handlers need
+// to be applied before any other middleware.
+app.use(Sentry.Handlers.requestHandler());
+app.use(Sentry.Handlers.tracingHandler());
 
-  // According to the Sentry documentation, the request + tracing handlers need
-  // to be applied before any other middleware.
-  app.use(Sentry.Handlers.requestHandler());
-  app.use(Sentry.Handlers.tracingHandler());
+app.use(cors({ credentials: true, origin: true }));
+app.use(helmet());
 
-  app.use(cors({ credentials: true, origin: true }));
-  app.use(helmet());
+app.use(express.json({ verify: populateRawBody }));
+app.use(bodyParser.urlencoded({ extended: true, verify: populateRawBody }));
 
-  app.use(express.json({ verify: populateRawBody }));
-  app.use(bodyParser.urlencoded({ extended: true, verify: populateRawBody }));
+app.use(healthRouter);
+app.use(oauthRouter);
+app.use(slackEventRouter);
+app.use(slackShortcutsRouter);
 
-  app.use(healthRouter);
-  app.use(oauthRouter);
-  app.use(slackEventRouter);
-  app.use(slackShortcutsRouter);
+app.use(Sentry.Handlers.errorHandler());
 
-  app.use(Sentry.Handlers.errorHandler());
-
+// Start Bull workers only in production or when explicitly started
+if (process.env.NODE_ENV === 'production' || process.env.START_BULL_WORKERS === 'true') {
   startBullWorkers();
+}
 
+// Only start the server if this file is run directly
+if (require.main === module) {
   app.listen(ENV.PORT, () => {
     console.log('API is up and running! 🚀');
   });
@@ -76,3 +80,5 @@ function populateRawBody(
     req.rawBody = buffer;
   }
 }
+
+export { app };

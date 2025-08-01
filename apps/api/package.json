@@ -4,6 +4,7 @@
   "private": true,
   "license": "MIT",
   "scripts": {
+    "build": "tsc",
     "dev": "tsx watch ./src/main.ts",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
