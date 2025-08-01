@@ -79,7 +79,7 @@ From Google's [documentation](https://support.google.com/mail/answer/185833):
 8. Select **Done**.
 
 Note: For Step 5, we recommend that you name your app password
-`Oyster (ColorStack)`.
+`Hack Alumni Community`.
 
 ### Step 3: Update Environment Variables
 
