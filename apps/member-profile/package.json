@@ -26,7 +26,6 @@
     "@remix-run/serve": "^2.8.1",
     "@sentry/remix": "^7.37.1",
     "dayjs": "^1.11.5",
-    "ioredis": "^5.3.2",
     "is-ip": "^5.0.1",
     "isbot": "^3.6.5",
     "mixpanel": "^0.18.0",

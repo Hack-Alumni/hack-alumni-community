@@ -55,7 +55,7 @@ codebase:
 - [PostgreSQL](https://www.postgresql.org/docs/15/index.html) to store all of
   our data.
 - [Railway](https://railway.app) to host our applications and databases.
-- [Redis](https://redis.io) to store simple key/value based data.
+- [Upstash Redis](https://upstash.com/docs/redis) for serverless Redis caching and data storage.
 - [Remix](https://remix.run)/[React](https://react.dev) to build fast,
   accessible and delightful UI experiences.
 - [Tailwind](https://tailwindcss.com) because scaling CSS is hard.

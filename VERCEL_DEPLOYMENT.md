@@ -32,9 +32,18 @@ yarn build:api     # Builds the API specifically
 
 You'll need to set up the following environment variables in your Vercel project:
 
+#### Redis Configuration (Upstash Redis Only)
+- `UPSTASH_REDIS_REST_URL` - Upstash Redis REST API URL
+- `UPSTASH_REDIS_REST_TOKEN` - Upstash Redis REST API token
+
+**Upstash Redis Credentials (Free Tier):**
+```
+UPSTASH_REDIS_REST_URL=https://teaching-lamprey-6001.upstash.io
+UPSTASH_REDIS_REST_TOKEN=ARdxAAIjcDEyNmE0OGM0ZDc2YjM0NTVjOWViMTY5MTE3YjQ4M2UyN3AxMA
+```
+
 #### Database
 - `DATABASE_URL` - PostgreSQL connection string
-- `REDIS_URL` - Redis connection string
 
 #### Authentication
 - `GOOGLE_CLIENT_ID` - Google OAuth client ID
@@ -71,9 +80,34 @@ You'll need to set up the following environment variables in your Vercel project
 Set all required environment variables in your Vercel project dashboard or via CLI:
 
 ```bash
+# Redis Configuration (Upstash Redis Only)
+vercel env add UPSTASH_REDIS_REST_URL "https://teaching-lamprey-6001.upstash.io"
+vercel env add UPSTASH_REDIS_REST_TOKEN "ARdxAAIjcDEyNmE0OGM0ZDc2YjM0NTVjOWViMTY5MTE3YjQ4M2UyN3AxMA"
+
+# Database
 vercel env add DATABASE_URL
-vercel env add REDIS_URL
-# ... add all other required variables
+
+# Authentication
+vercel env add GOOGLE_CLIENT_ID
+vercel env add GOOGLE_CLIENT_SECRET
+vercel env add GITHUB_CLIENT_ID
+vercel env add GITHUB_CLIENT_SECRET
+
+# External Services
+vercel env add SENTRY_DSN
+vercel env add MIXPANEL_TOKEN
+vercel env add AWS_ACCESS_KEY_ID
+vercel env add AWS_SECRET_ACCESS_KEY
+vercel env add AWS_REGION
+
+# Slack Integration
+vercel env add SLACK_BOT_TOKEN
+vercel env add SLACK_SIGNING_SECRET
+
+# Email
+vercel env add SMTP_HOST
+vercel env add SMTP_USERNAME
+vercel env add SMTP_PASSWORD
 ```
 
 ### 3. Deploy
@@ -113,15 +147,24 @@ yarn db:migrate
 
 ### Background Jobs
 
-The API includes background job processing (BullMQ). In Vercel's serverless environment, these jobs will run when the API is invoked, but for production use, you may want to consider:
+The API includes background job processing (BullMQ). Since we're using only Upstash Redis, which doesn't support BullMQ's requirements, background jobs are currently mocked. For production use, you may want to consider:
 
-1. Using a separate service for background jobs
+1. Using a separate traditional Redis instance for BullMQ
 2. Using Vercel Cron Jobs for scheduled tasks
 3. Using external job processing services
+4. Implementing a custom job queue system
 
 ### File Uploads
 
 For file uploads (resumes, profile pictures, etc.), the app uses AWS S3. Make sure your S3 bucket is properly configured and accessible.
+
+### Redis Configuration
+
+This project now uses **only Upstash Redis**:
+
+- **Upstash Redis** (`UPSTASH_REDIS_REST_URL` + `UPSTASH_REDIS_REST_TOKEN`) - Used for all Redis operations including caching, session storage, and general Redis operations
+
+**Note**: BullMQ background jobs are currently mocked since BullMQ requires traditional Redis. For full background job support, consider setting up a separate Redis instance for job processing.
 
 ## Troubleshooting
 
@@ -139,7 +182,7 @@ For runtime issues:
 
 1. Check Vercel function logs
 2. Verify database connectivity
-3. Ensure Redis is accessible
+3. Ensure Upstash Redis is accessible
 4. Check external service configurations
 
 ## Support
