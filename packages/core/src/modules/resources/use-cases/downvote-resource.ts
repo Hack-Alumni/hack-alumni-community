@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 import { job } from '@/infrastructure/bull';
 import { type DownvoteResourceInput } from '@/modules/resources/resources.types';

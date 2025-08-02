@@ -1,5 +1,5 @@
 {
-  "extends": "@oyster/tsconfig/base.json",
+  "extends": "@hackcommunity/tsconfig/base.json",
   "include": ["src", "kysely-patch.d.ts", "./dist/db.d.ts"],
   "compilerOptions": {
     "jsx": "react-jsx",

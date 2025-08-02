@@ -1,6 +1,6 @@
 import { match } from 'ts-pattern';
 
-import { sleep } from '@oyster/utils';
+import { sleep } from '@hackcommunity/utils';
 
 import { registerWorker } from '@/infrastructure/bull';
 import { MailchimpBullJob } from '@/infrastructure/bull.types';

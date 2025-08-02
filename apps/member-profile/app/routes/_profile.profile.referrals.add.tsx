@@ -6,9 +6,9 @@ import {
 } from '@remix-run/node';
 import { useActionData } from '@remix-run/react';
 
-import { referFriend, ReferFriendInput } from '@oyster/core/referrals';
-import { ReferFriendForm } from '@oyster/core/referrals/ui';
-import { getErrors, Modal, validateForm } from '@oyster/ui';
+import { referFriend, ReferFriendInput } from '@hackcommunity/core/referrals';
+import { ReferFriendForm } from '@hackcommunity/core/referrals/ui';
+import { getErrors, Modal, validateForm } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

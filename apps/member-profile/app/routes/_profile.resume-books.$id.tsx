@@ -23,21 +23,21 @@ import { match } from 'ts-pattern';
 import {
   type DegreeType,
   FORMATTED_DEGREEE_TYPE,
-} from '@oyster/core/member-profile/ui';
+} from '@hackcommunity/core/member-profile/ui';
 import {
   getResumeBook,
   getResumeBookSubmission,
   listResumeBookSponsors,
   submitResume,
-} from '@oyster/core/resume-books';
+} from '@hackcommunity/core/resume-books';
 import {
   RESUME_BOOK_CODING_LANGUAGES,
   RESUME_BOOK_JOB_SEARCH_STATUSES,
   RESUME_BOOK_ROLES,
   SubmitResumeInput,
-} from '@oyster/core/resume-books/types';
-import { db } from '@oyster/db';
-import { FORMATTED_RACE, Race, WorkAuthorizationStatus } from '@oyster/types';
+} from '@hackcommunity/core/resume-books/types';
+import { db } from '@hackcommunity/db';
+import { FORMATTED_RACE, Race, WorkAuthorizationStatus } from '@hackcommunity/types';
 import {
   Button,
   Checkbox,
@@ -53,14 +53,14 @@ import {
   Text,
   useRevalidateOnFocus,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
-import { run } from '@oyster/utils';
+} from '@hackcommunity/ui/tooltip';
+import { run } from '@hackcommunity/utils';
 
 import { HometownField } from '@/shared/components/profile.personal';
 import { Route } from '@/shared/constants';

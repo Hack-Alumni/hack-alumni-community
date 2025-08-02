@@ -1,5 +1,5 @@
-import { db } from '@oyster/db';
-import { type Student } from '@oyster/types';
+import { db } from '@hackcommunity/db';
+import { type Student } from '@hackcommunity/types';
 
 import { job } from '@/infrastructure/bull';
 

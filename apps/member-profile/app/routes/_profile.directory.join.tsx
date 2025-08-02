@@ -4,7 +4,7 @@ import { type PropsWithChildren } from 'react';
 import { ArrowLeft, ArrowRight, Check } from 'react-feather';
 import { match } from 'ts-pattern';
 
-import { Button, cx, Modal, Text } from '@oyster/ui';
+import { Button, cx, Modal, Text } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

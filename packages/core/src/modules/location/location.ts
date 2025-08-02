@@ -1,7 +1,7 @@
 import { type SelectExpression, sql } from 'kysely';
 import { z } from 'zod';
 
-import { type DB, db } from '@oyster/db';
+import { type DB, db } from '@hackcommunity/db';
 
 import { withCache } from '@/infrastructure/redis';
 import { ColorStackError } from '@/shared/errors';

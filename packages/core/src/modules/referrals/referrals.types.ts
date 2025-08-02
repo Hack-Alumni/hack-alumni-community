@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-import { Email, type ExtractValue } from '@oyster/types';
+import { Email, type ExtractValue } from '@hackcommunity/types';
 
 // Enums
 

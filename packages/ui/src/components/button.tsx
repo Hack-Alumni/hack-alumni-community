@@ -50,7 +50,7 @@ export const Button = ({
 
 type ButtonSlotProps = Pick<
   ButtonProps,
-  'children' | 'color' | 'fill' | 'size' | 'variant'
+  'children' | 'fill' | 'size' | 'variant'
 > & {
   className?: ClassName;
 };
@@ -58,7 +58,6 @@ type ButtonSlotProps = Pick<
 Button.Slot = function ButtonSlot({
   children,
   className,
-  color = 'primary',
   fill,
   size,
   variant = 'primary',

@@ -14,9 +14,9 @@ import {
 import { type PropsWithChildren } from 'react';
 import { Check } from 'react-feather';
 
-import { offerHelp } from '@oyster/core/peer-help';
-import { getColorStackBotDeepLink } from '@oyster/core/slack/utils';
-import { Button, ErrorMessage, Text } from '@oyster/ui';
+import { offerHelp } from '@hackcommunity/core/peer-help';
+import { getColorStackBotDeepLink } from '@hackcommunity/core/slack/utils';
+import { Button, ErrorMessage, Text } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

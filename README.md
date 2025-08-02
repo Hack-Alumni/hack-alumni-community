@@ -29,6 +29,18 @@ This repository is a fork of the original [Oyster project](https://github.com/co
 - [**API**](./apps/api/package.json) - Handles all background jobs as well as
   any webhook integrations that we have with external services.
 
+## Deployment
+
+This project can be deployed in multiple ways:
+
+### Vercel Deployment (Recommended)
+
+For easy deployment as a single project, see our [Vercel Deployment Guide](./VERCEL_DEPLOYMENT.md).
+
+### Traditional Deployment
+
+For traditional deployment with Docker containers, follow the original setup instructions in the [Contributing Guide](./CONTRIBUTING.md).
+
 ## Understanding the Codebase
 
 ### Important Tools & Technologies
@@ -43,7 +55,7 @@ codebase:
 - [PostgreSQL](https://www.postgresql.org/docs/15/index.html) to store all of
   our data.
 - [Railway](https://railway.app) to host our applications and databases.
-- [Redis](https://redis.io) to store simple key/value based data.
+- [Upstash Redis](https://upstash.com/docs/redis) for serverless Redis caching and data storage.
 - [Remix](https://remix.run)/[React](https://react.dev) to build fast,
   accessible and delightful UI experiences.
 - [Tailwind](https://tailwindcss.com) because scaling CSS is hard.

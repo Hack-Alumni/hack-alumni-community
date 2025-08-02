@@ -18,8 +18,8 @@ import { Plus } from 'react-feather';
 import {
   refineOpportunity,
   RefineOpportunityInput,
-} from '@oyster/core/opportunities';
-import { db } from '@oyster/db';
+} from '@hackcommunity/core/opportunities';
+import { db } from '@hackcommunity/db';
 import {
   Button,
   ErrorMessage,
@@ -28,7 +28,7 @@ import {
   Modal,
   Textarea,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { ensureUserAuthenticated } from '@/shared/session.server';

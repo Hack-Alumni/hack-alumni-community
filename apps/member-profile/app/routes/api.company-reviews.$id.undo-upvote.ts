@@ -1,6 +1,6 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-import { undoUpvoteCompanyReview } from '@oyster/core/employment/server';
+import { undoUpvoteCompanyReview } from '@hackcommunity/core/employment/server';
 
 import { ensureUserAuthenticated, user } from '@/shared/session.server';
 

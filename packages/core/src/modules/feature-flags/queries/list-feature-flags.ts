@@ -1,4 +1,4 @@
-import { db } from '@oyster/db';
+import { db } from '@hackcommunity/db';
 
 export async function listFeatureFlags() {
   const flags = await db

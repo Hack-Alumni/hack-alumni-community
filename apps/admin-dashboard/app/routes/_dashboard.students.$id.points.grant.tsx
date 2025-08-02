@@ -6,9 +6,9 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 
-import { grantPoints } from '@oyster/core/gamification';
-import { GrantPointsInput } from '@oyster/core/gamification/types';
-import { db } from '@oyster/db';
+import { grantPoints } from '@hackcommunity/core/gamification';
+import { GrantPointsInput } from '@hackcommunity/core/gamification/types';
+import { db } from '@hackcommunity/db';
 import {
   Button,
   ErrorMessage,
@@ -18,7 +18,7 @@ import {
   Modal,
   Textarea,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

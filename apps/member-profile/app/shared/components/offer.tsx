@@ -2,13 +2,13 @@ import { Link, useLocation, useSearchParams } from '@remix-run/react';
 import { type PropsWithChildren } from 'react';
 import { Edit, Info, Plus } from 'react-feather';
 
-import { Button, getIconButtonCn, Text } from '@oyster/ui';
+import { Button, getIconButtonCn, Text } from '@hackcommunity/ui';
 import {
   Tooltip,
   TooltipContent,
   TooltipText,
   TooltipTrigger,
-} from '@oyster/ui/tooltip';
+} from '@hackcommunity/ui/tooltip';
 
 import { Card } from '@/shared/components/card';
 import { Route } from '@/shared/constants';

@@ -86,7 +86,10 @@ function getPillStyle(color: PillProps['color']): React.CSSProperties {
     .exhaustive();
 }
 
-export function getPillCn({ color, onCloseHref }: Omit<PillProps, 'children'>) {
+export function getPillCn({
+  _color,
+  onCloseHref,
+}: Omit<PillProps, 'children'>) {
   return cx(
     'w-max rounded-full px-2 text-sm',
 

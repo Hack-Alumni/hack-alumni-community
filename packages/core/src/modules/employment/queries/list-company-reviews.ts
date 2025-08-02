@@ -1,6 +1,6 @@
 import { type SelectExpression } from 'kysely';
 
-import { db, type DB } from '@oyster/db';
+import { db, type DB } from '@hackcommunity/db';
 
 import { type ListCompanyReviewsWhere } from '@/modules/employment/employment.types';
 

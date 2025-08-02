@@ -16,7 +16,7 @@ import {
 import {
   editInternshipOffer,
   EditInternshipOfferInput,
-} from '@oyster/core/offers';
+} from '@hackcommunity/core/offers';
 import {
   OfferAdditionalNotesField,
   OfferBenefitsField,
@@ -27,8 +27,8 @@ import {
   OfferPastExperienceField,
   OfferRelocationField,
   OfferRoleField,
-} from '@oyster/core/offers/ui';
-import { db } from '@oyster/db';
+} from '@hackcommunity/core/offers/ui';
+import { db } from '@hackcommunity/db';
 import {
   Button,
   Divider,
@@ -36,7 +36,7 @@ import {
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {

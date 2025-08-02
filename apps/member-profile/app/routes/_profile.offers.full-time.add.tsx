@@ -11,7 +11,7 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { addFullTimeOffer, AddFullTimeOfferInput } from '@oyster/core/offers';
+import { addFullTimeOffer, AddFullTimeOfferInput } from '@hackcommunity/core/offers';
 import {
   OfferAdditionalNotesField,
   OfferBaseSalaryField,
@@ -25,7 +25,7 @@ import {
   OfferRoleField,
   OfferSignOnBonusField,
   OfferTotalStockField,
-} from '@oyster/core/offers/ui';
+} from '@hackcommunity/core/offers/ui';
 import {
   Button,
   Divider,
@@ -33,7 +33,7 @@ import {
   getErrors,
   Modal,
   validateForm,
-} from '@oyster/ui';
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import {
