@@ -109,13 +109,6 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     return `${startRange} - ${endRange}`;
   });
 
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Last Week in ColorStack' },
-    request,
-    user: user(session),
-  });
-
   return json({
     dateRange,
     totalAnnouncements: announcements.length,

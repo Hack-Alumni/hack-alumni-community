@@ -34,12 +34,7 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     });
   }
 
-  track({
-    event: 'Offer Viewed',
-    properties: { Company: offer.companyName as string, Type: 'Internship' },
-    request,
-    user: memberId,
-  });
+  // Track event removed
 
   return json(offer);
 }

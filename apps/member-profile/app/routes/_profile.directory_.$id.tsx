@@ -14,7 +14,13 @@ import {
   listWorkExperiences,
 } from '@hackcommunity/core/member-profile/server';
 import { WorkExperienceItem } from '@hackcommunity/core/member-profile/ui';
-import { Button, cx, ProfilePicture, Text, type TextProps } from '@hackcommunity/ui';
+import {
+  Button,
+  cx,
+  ProfilePicture,
+  Text,
+  type TextProps,
+} from '@hackcommunity/ui';
 
 import { Card } from '@/shared/components/card';
 import { EducationExperienceItem } from '@/shared/components/education-experience';

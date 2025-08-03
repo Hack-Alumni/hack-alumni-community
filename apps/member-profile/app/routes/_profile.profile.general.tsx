@@ -54,13 +54,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
     ])
     .executeTakeFirstOrThrow();
 
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Profile' },
-    request,
-    user: id,
-  });
-
   return json({
     student,
   });

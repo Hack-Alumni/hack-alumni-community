@@ -34,13 +34,6 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     });
   }
 
-  track({
-    event: 'Offer Viewed',
-    properties: { Company: offer.companyName as string, Type: 'Full-Time' },
-    request,
-    user: memberId,
-  });
-
   return json(offer);
 }
 

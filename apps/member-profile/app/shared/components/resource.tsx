@@ -278,7 +278,6 @@ function ResourceActionGroup({
 }: Pick<ResourceProps, 'editable' | 'id' | 'shareableUri'>) {
   const [searchParams] = useSearchParams();
   const toast = useToast();
-  // Track event removed
 
   const buttonClassName = getIconButtonCn({
     backgroundColor: 'gray-100',

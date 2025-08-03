@@ -29,7 +29,11 @@ import {
   Text,
 } from '@hackcommunity/ui';
 import { FilterList } from '@hackcommunity/ui/filter';
-import { FilterPopover, FilterRoot, FilterTrigger } from '@hackcommunity/ui/filter';
+import {
+  FilterPopover,
+  FilterRoot,
+  FilterTrigger,
+} from '@hackcommunity/ui/filter';
 import { type FilterValue } from '@hackcommunity/ui/filter';
 import { FilterItem } from '@hackcommunity/ui/filter';
 import {
@@ -102,13 +106,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
     if (view === 'me') {
       filters.push('My Requests');
     }
-
-    track({
-      event: 'Help Request List Viewed',
-      properties: { Filter: filters },
-      request,
-      user: memberId,
-    });
   }
 
   return json({

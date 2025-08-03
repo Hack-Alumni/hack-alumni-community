@@ -42,12 +42,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   session.set(SESSION.USER_ID, id);
 
-  track({
-    event: 'Logged In',
-    properties: { Method: toTitleCase(method) as 'Google' | 'Slack' },
-    user: id,
-  });
-
   const redirectUrl = session.get(SESSION.REDIRECT_URL) || Route['/home'];
 
   return redirect(redirectUrl, {

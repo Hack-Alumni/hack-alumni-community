@@ -68,13 +68,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
     where: { search: searchParams.search },
   });
 
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Companies' },
-    request,
-    user: user(session),
-  });
-
   return json({
     companies,
     limit: searchParams.limit,

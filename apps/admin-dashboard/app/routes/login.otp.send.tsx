@@ -6,7 +6,12 @@ import {
   OneTimeCodeForm,
   SendOneTimeCodeInput,
 } from '@hackcommunity/core/admin-dashboard/ui';
-import { Button, ErrorMessage, getErrors, validateForm } from '@hackcommunity/ui';
+import {
+  Button,
+  ErrorMessage,
+  getErrors,
+  validateForm,
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { oneTimeCodeIdCookie } from '@/shared/cookies.server';

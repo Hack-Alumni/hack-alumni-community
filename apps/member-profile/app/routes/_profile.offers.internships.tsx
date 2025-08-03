@@ -14,7 +14,12 @@ import { DollarSign, MapPin } from 'react-feather';
 
 import { hourlyToMonthlyRate } from '@hackcommunity/core/offers';
 import { db } from '@hackcommunity/db';
-import { Pagination, Table, type TableColumnProps, Text } from '@hackcommunity/ui';
+import {
+  Pagination,
+  Table,
+  type TableColumnProps,
+  Text,
+} from '@hackcommunity/ui';
 import {
   FilterEmptyMessage,
   FilterItem,
@@ -65,15 +70,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
       page,
     }),
   ]);
-
-  if (pathname === Route['/offers/internships']) {
-    track({
-      event: 'Page Viewed',
-      properties: { Page: 'Compensation' },
-      request,
-      user: user(session),
-    });
-  }
 
   return json({
     allCompanies,

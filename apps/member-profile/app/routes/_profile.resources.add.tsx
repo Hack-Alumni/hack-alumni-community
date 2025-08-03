@@ -87,13 +87,6 @@ export async function action({ request }: ActionFunctionArgs) {
     );
   }
 
-  track({
-    event: 'Resource Added',
-    properties: undefined,
-    request,
-    user: user(session),
-  });
-
   toast(session, {
     message: 'Added resource!',
     type: 'success',

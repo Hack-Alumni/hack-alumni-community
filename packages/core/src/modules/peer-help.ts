@@ -216,8 +216,6 @@ export async function finishHelpRequest(
     type: 'help_peer',
   });
 
-  // Track event removed
-
   return success({});
 }
 
@@ -320,8 +318,6 @@ export async function offerHelp(
       .executeTakeFirstOrThrow();
   });
 
-  // Track event removed
-
   return success({});
 }
 
@@ -414,8 +410,6 @@ export async function requestHelp({
       .executeTakeFirstOrThrow();
   });
 
-  // Track event removed
-
   job('notification.slack.send', {
     channel: process.env.SLACK_FEED_CHANNEL_ID!,
     message: `🚨 A new <${STUDENT_PROFILE_URL}/peer-help/${helpRequest.id}|help request> was posted!\n\n>${description}`,
@@ -498,8 +492,6 @@ async function sendFinishReminder(
       message,
       workspace: 'regular',
     });
-
-    // Track event removed
   }
 
   const ids = helpRequests.map((helpRequest) => {

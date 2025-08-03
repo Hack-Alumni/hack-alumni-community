@@ -13,7 +13,12 @@ import dayjs from 'dayjs';
 import { DollarSign, MapPin } from 'react-feather';
 
 import { db } from '@hackcommunity/db';
-import { Pagination, Table, type TableColumnProps, Text } from '@hackcommunity/ui';
+import {
+  Pagination,
+  Table,
+  type TableColumnProps,
+  Text,
+} from '@hackcommunity/ui';
 import {
   FilterEmptyMessage,
   FilterItem,
@@ -67,15 +72,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
       totalCompensation: searchParams.getAll('totalCompensation'),
     }),
   ]);
-
-  if (pathname === Route['/offers/full-time']) {
-    track({
-      event: 'Page Viewed',
-      properties: { Page: 'Compensation' },
-      request,
-      user: user(session),
-    });
-  }
 
   return json({
     allCompanies,

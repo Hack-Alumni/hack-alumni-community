@@ -74,10 +74,6 @@ export async function bookmarkOpportunity({
       .where('opportunities.id', '=', opportunityId)
       .executeTakeFirst();
 
-    if (opportunity && opportunity.companyName) {
-      // Track event removed
-    }
-
     if (opportunity && opportunity.postedBy) {
       job('gamification.activity.completed', {
         opportunityBookmarkedBy: memberId,

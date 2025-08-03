@@ -23,6 +23,7 @@ export async function action(request: Request) {
     });
   } catch (error) {
     console.error('Immediate job processing failed:', error);
+
     return new Response(
       JSON.stringify({
         success: false,

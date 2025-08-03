@@ -176,8 +176,6 @@ export async function reviewResume({
     return completionResult;
   }
 
-  // Track event removed
-
   try {
     const object = JSON.parse(completionResult.data);
     const feedback = ResumeFeedback.parse(object);

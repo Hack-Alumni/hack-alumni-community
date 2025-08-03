@@ -83,18 +83,6 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
 
   const { pathname } = new URL(request.url);
 
-  if (pathname === generatePath(Route['/peer-help/:id'], { id })) {
-    track({
-      event: 'Help Request Viewed',
-      properties: {
-        Status: toTitleCase(helpRequest.status),
-        Type: toTitleCase(helpRequest.type),
-      },
-      request,
-      user: memberId,
-    });
-  }
-
   const createdAtObject = dayjs(helpRequest.createdAt);
 
   return json({

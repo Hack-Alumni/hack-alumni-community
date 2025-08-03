@@ -71,12 +71,7 @@ export async function answerChatbotQuestion({
   db.selectFrom('students')
     .select(['id'])
     .where('slackId', '=', userId)
-    .executeTakeFirst()
-    .then((member) => {
-      if (member) {
-        // Track event removed
-      }
-    });
+    .executeTakeFirst();
 
   const questionResult = await isQuestion(text);
 
@@ -228,8 +223,6 @@ export async function answerPublicQuestionInPrivate({
     workspace: 'regular',
   });
 
-  // Track event removed
-
   return success({});
 }
 
@@ -275,12 +268,7 @@ export async function answerPublicQuestion({
   db.selectFrom('students')
     .select(['id'])
     .where('slackId', '=', userId)
-    .executeTakeFirst()
-    .then((member) => {
-      if (member) {
-        // Track event removed
-      }
-    });
+    .executeTakeFirst();
 
   const slackMessage = await db
     .selectFrom('slackMessages')
@@ -588,8 +576,6 @@ export async function answerMemberProfileQuestion({
     parsedAnswer,
     ONE_HOUR_IN_SECONDS
   );
-
-  // Track event removed
 
   return success(parsedAnswer);
 }

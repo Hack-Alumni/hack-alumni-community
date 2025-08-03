@@ -102,12 +102,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     listActivities(),
   ]);
 
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Points' },
-    request,
-    user: id,
-  });
+  // Track event removed
 
   const completedActivities = _completedActivities.map((activity) => {
     if (activity.messageReactedToText) {

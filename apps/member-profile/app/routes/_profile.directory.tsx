@@ -406,8 +406,7 @@ function MembersGrid() {
 type MemberInView = SerializeFrom<typeof loader>['members'][number];
 
 function MemberItem({ member }: { member: MemberInView }) {
-  // Track event removed
-
+  
   return (
     <li>
       <Link

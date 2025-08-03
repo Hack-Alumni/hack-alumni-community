@@ -13,7 +13,10 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { editHelpRequest, EditHelpRequestInput } from '@hackcommunity/core/peer-help';
+import {
+  editHelpRequest,
+  EditHelpRequestInput,
+} from '@hackcommunity/core/peer-help';
 import { db } from '@hackcommunity/db';
 import {
   Button,

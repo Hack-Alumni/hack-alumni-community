@@ -195,12 +195,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     return result;
   });
 
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Resources' },
-    request,
-    user: user(session),
-  });
+  // Track event removed
 
   return json({
     limit: searchParams.limit,
