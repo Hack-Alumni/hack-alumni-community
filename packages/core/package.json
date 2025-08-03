@@ -79,8 +79,8 @@
     "@upstash/redis": "^1.28.4",
     "bullmq": "^4.12.2",
     "@supabase/supabase-js": "^2.39.0",
-    "@upstash/qstash": "^1.0.0",
-    "canvas": "^2.11.2",
+    "@upstash/qstash": "^2.8.2",
+
     "dayjs": "^1.11.5",
     "dedent": "^0.7.0",
     "googleapis": "^126.0.1",
