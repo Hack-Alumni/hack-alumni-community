@@ -12,17 +12,17 @@ import {
   StudentEmail,
 } from '@hackcommunity/types';
 
-import { OneTimeCode } from '@/modules/authentication/authentication.types';
+import { OneTimeCode } from '../modules/authentication/authentication.types';
 import {
   ActivityType,
   CompletedActivity,
-} from '@/modules/gamification/gamification.types';
-import { OnboardingSession } from '@/modules/onboarding-sessions/onboarding-sessions.types';
+} from '../modules/gamification/gamification.types';
+import { OnboardingSession } from '../modules/onboarding-sessions/onboarding-sessions.types';
 import {
   SlackChannel,
   SlackMessage,
   SlackReaction,
-} from '@/modules/slack/slack.types';
+} from '../modules/slack/slack.types';
 
 export const BullQueue = {
   AIRTABLE: 'airtable',

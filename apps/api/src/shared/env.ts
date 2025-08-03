@@ -58,9 +58,15 @@ const BaseEnvironmentConfig = z.object({
   SLACK_INTRODUCTIONS_CHANNEL_ID: EnvironmentVariable,
   SLACK_SIGNING_SECRET: EnvironmentVariable,
   STUDENT_PROFILE_URL: EnvironmentVariable,
+  SUPABASE_URL: EnvironmentVariable,
+  SUPABASE_ANON_KEY: EnvironmentVariable,
   TWILIO_ACCOUNT_SID: EnvironmentVariable,
   TWILIO_AUTH_TOKEN: EnvironmentVariable,
   TWILIO_PHONE_NUMBER: EnvironmentVariable,
+  UPSTASH_QSTASH_TOKEN: EnvironmentVariable,
+  UPSTASH_QSTASH_CURRENT_SIGNING_KEY: EnvironmentVariable,
+  UPSTASH_QSTASH_NEXT_SIGNING_KEY: EnvironmentVariable,
+  CRON_SECRET: EnvironmentVariable.optional(),
 });
 
 const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
@@ -103,9 +109,15 @@ const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
     SLACK_FEED_CHANNEL_ID: true,
     SLACK_INTRODUCTIONS_CHANNEL_ID: true,
     SLACK_SIGNING_SECRET: true,
+    SUPABASE_URL: true,
+    SUPABASE_ANON_KEY: true,
     TWILIO_ACCOUNT_SID: true,
     TWILIO_AUTH_TOKEN: true,
     TWILIO_PHONE_NUMBER: true,
+    UPSTASH_QSTASH_TOKEN: true,
+    UPSTASH_QSTASH_CURRENT_SIGNING_KEY: true,
+    UPSTASH_QSTASH_NEXT_SIGNING_KEY: true,
+    CRON_SECRET: true,
   }).extend({
     ENVIRONMENT: z.literal(Environment.DEVELOPMENT),
     SMTP_HOST: EnvironmentVariable.optional(),
@@ -118,5 +130,5 @@ const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
 ]);
 
 // Parse the environment variables into a type-safe object - will throw an
-// error if it fails.
+// error if any required environment variables are missing.
 export const ENV = EnvironmentConfig.parse(process.env);

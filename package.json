@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo",
-    "build:vercel": "yarn build && yarn build:api",
+    "build:vercel": "yarn workspace @hackcommunity/member-profile build && yarn workspace @hackcommunity/admin-dashboard build && yarn build:api",
     "build:api": "cd apps/api && yarn build",
     "db:migrate": "yarn workspace @hackcommunity/db migrate",
     "db:migrate:down": "yarn workspace @hackcommunity/db migrate:down",

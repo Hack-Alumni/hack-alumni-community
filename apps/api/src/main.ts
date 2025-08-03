@@ -5,9 +5,10 @@ import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 
-import { startBullWorkers } from '@hackcommunity/core/api';
+import { startHybridJobProcessors } from '@hackcommunity/core/api';
 
 import { healthRouter } from './routers/health.router';
+import { jobsRouter } from './routers/jobs.router';
 import { oauthRouter } from './routers/oauth.router';
 import { slackEventRouter, slackShortcutsRouter } from './routers/slack.router';
 import { ENV } from './shared/env';
@@ -40,15 +41,19 @@ app.use(express.json({ verify: populateRawBody }));
 app.use(bodyParser.urlencoded({ extended: true, verify: populateRawBody }));
 
 app.use(healthRouter);
+app.use(jobsRouter);
 app.use(oauthRouter);
 app.use(slackEventRouter);
 app.use(slackShortcutsRouter);
 
 app.use(Sentry.Handlers.errorHandler());
 
-// Start Bull workers only in production or when explicitly started
-if (process.env.NODE_ENV === 'production' || process.env.START_BULL_WORKERS === 'true') {
-  startBullWorkers();
+// Start hybrid job processors only in production or when explicitly started
+if (
+  process.env.NODE_ENV === 'production' ||
+  process.env.START_JOB_PROCESSORS === 'true'
+) {
+  startHybridJobProcessors();
 }
 
 // Only start the server if this file is run directly
