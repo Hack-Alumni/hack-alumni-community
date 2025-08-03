@@ -12,18 +12,18 @@ jobs:
 
     services:
       postgres:
-        image: postgres
+        image: postgres:15
         env:
-          POSTGRES_DB: oyster
-          POSTGRES_PASSWORD: oyster
-          POSTGRES_USER: oyster
+          POSTGRES_DB: hackalumni
+          POSTGRES_PASSWORD: hackalumni
+          POSTGRES_USER: hackalumni
         ports:
           - 5432:5432
         options: >-
           --health-cmd pg_isready --health-interval 10s --health-timeout 5s
           --health-retries 5
       redis:
-        image: redis
+        image: redis:7-alpine
         ports:
           - 6379:6379
         options: >-
@@ -32,8 +32,8 @@ jobs:
 
     env:
       BASE_SHA: ${{ github.event.pull_request.base.sha }}
-      DATABASE_URL: postgres://oyster:oyster@localhost:5432/oyster
-      REDIS_URL: redis://localhost:6379
+      HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+      NODE_ENV: test
 
     steps:
       - name: Checkout repository code
@@ -56,14 +56,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-turbo-
 
-      - name: Setup Node.js 20
+      - name: Setup Node.js v22
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: 'yarn'
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+
+      - name: Setup environment
+        run: yarn env:setup
 
       - name: Run database migrations and generate types
         run: yarn db:migrate

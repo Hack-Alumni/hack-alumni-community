@@ -406,7 +406,6 @@ function MembersGrid() {
 type MemberInView = SerializeFrom<typeof loader>['members'][number];
 
 function MemberItem({ member }: { member: MemberInView }) {
-  
   return (
     <li>
       <Link
