@@ -1,6 +1,5 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { CreateTagInput } from '@hackcommunity/core/resources';
 import { createTag } from '@hackcommunity/core/resources/server';
 import { validateForm } from '@hackcommunity/ui';

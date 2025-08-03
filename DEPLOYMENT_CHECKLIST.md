@@ -17,7 +17,6 @@
 - [ ] **GitHub OAuth**: Create app at https://github.com/settings/developers
 - [ ] **Slack App**: Create at https://api.slack.com/apps
 - [ ] **Sentry Account** (error tracking): Create at https://sentry.io
-- [ ] **Mixpanel Account** (analytics): Create at https://mixpanel.com
 
 ### **3. Database & Infrastructure**
 
@@ -134,7 +133,7 @@ vercel env add ENVIRONMENT "production"
 
 # External Services
 vercel env add SENTRY_DSN "your_sentry_dsn"
-vercel env add MIXPANEL_TOKEN "your_mixpanel_token"
+
 
 # File Storage (Cloudflare R2)
 vercel env add R2_ACCESS_KEY_ID "your_r2_access_key"
@@ -287,7 +286,7 @@ ENVIRONMENT=production
 
 # External Services
 SENTRY_DSN=[YOUR-SENTRY-DSN]
-MIXPANEL_TOKEN=[YOUR-MIXPANEL-TOKEN]
+
 
 # File Storage (Cloudflare R2)
 R2_ACCESS_KEY_ID=[YOUR-R2-ACCESS-KEY]

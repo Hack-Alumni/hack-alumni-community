@@ -38,7 +38,6 @@ import {
 import { run, toEscapedString } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
-import { useMixpanelTracker } from '@/shared/hooks/use-mixpanel-tracker';
 import { ensureUserAuthenticated } from '@/shared/session.server';
 import { formatName } from '@/shared/utils/format.utils';
 
@@ -407,7 +406,7 @@ function MembersGrid() {
 type MemberInView = SerializeFrom<typeof loader>['members'][number];
 
 function MemberItem({ member }: { member: MemberInView }) {
-  const { trackFromClient } = useMixpanelTracker();
+  // Track event removed
 
   return (
     <li>

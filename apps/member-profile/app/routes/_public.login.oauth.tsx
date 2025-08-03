@@ -1,7 +1,6 @@
 import { type LoaderFunctionArgs, redirect } from '@remix-run/node';
 import jwt from 'jsonwebtoken';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { toTitleCase } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';

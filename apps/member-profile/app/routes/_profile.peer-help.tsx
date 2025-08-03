@@ -15,7 +15,6 @@ import { ArrowRight, Check, Edit, Info, User } from 'react-feather';
 import { z } from 'zod';
 
 import { ListSearchParams } from '@hackcommunity/core/member-profile/ui';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   type HelpRequestStatus,
   HelpRequestType,

@@ -19,7 +19,6 @@ import {
   countMessagesSent,
   getActiveStreakLeaderboard,
 } from '@hackcommunity/core/member-profile/server';
-import { getIpAddress, setMixpanelProfile, track } from '@hackcommunity/core/mixpanel';
 import { db } from '@hackcommunity/db';
 import {
   ACTIVATION_REQUIREMENTS,
@@ -65,12 +64,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
 
   const statuses = fillRecentStatuses(_statuses, timezone);
 
-  setMixpanelProfile(id, {
-    email: student.email,
-    firstName: student.firstName,
-    lastName: student.lastName,
-    ip: getIpAddress(request),
-  });
+  // Track event removed
 
   track({
     event: 'Page Viewed',

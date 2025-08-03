@@ -12,7 +12,6 @@ import {
   type GetBullJobData,
   ResumeReviewBullJob,
 } from '@/infrastructure/bull.types';
-import { track } from '@/infrastructure/mixpanel';
 import { STUDENT_PROFILE_URL } from '@/shared/env';
 import { ColorStackError } from '@/shared/errors';
 import { fail, type Result, success } from '@/shared/utils/core';
@@ -177,11 +176,7 @@ export async function reviewResume({
     return completionResult;
   }
 
-  track({
-    event: 'Resume Reviewed',
-    properties: undefined,
-    user: memberId,
-  });
+  // Track event removed
 
   try {
     const object = JSON.parse(completionResult.data);

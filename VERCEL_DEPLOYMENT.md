@@ -82,7 +82,7 @@ ENVIRONMENT=production
 
 # External Services
 SENTRY_DSN=your_sentry_dsn
-MIXPANEL_TOKEN=your_mixpanel_token
+
 
 # Job Processing (Optional)
 START_JOB_PROCESSORS=true
@@ -171,7 +171,7 @@ vercel env add ENVIRONMENT "production"
 
 # External Services
 vercel env add SENTRY_DSN "your_sentry_dsn"
-vercel env add MIXPANEL_TOKEN "your_mixpanel_token"
+
 
 # AWS/R2 Storage
 vercel env add R2_ACCESS_KEY_ID "your_r2_access_key"

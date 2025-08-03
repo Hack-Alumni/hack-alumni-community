@@ -7,7 +7,6 @@ import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { type z } from 'zod';
 
 import { updateMember } from '@hackcommunity/core/member-profile/server';
-import { track } from '@hackcommunity/core/mixpanel';
 import { Student } from '@hackcommunity/types';
 import {
   Button,

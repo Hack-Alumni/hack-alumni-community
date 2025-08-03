@@ -11,7 +11,6 @@ import {
   type GetBullJobData,
   PeerHelpBullJob,
 } from '@/infrastructure/bull.types';
-import { track } from '@/infrastructure/mixpanel';
 import { reportException } from '@/infrastructure/sentry';
 import { ActivityType } from '@/modules/gamification/gamification.types';
 import { slack } from '@/modules/slack/instances';
@@ -217,14 +216,7 @@ export async function finishHelpRequest(
     type: 'help_peer',
   });
 
-  track({
-    event: 'Help Request Finished',
-    properties: {
-      Status: toTitleCase(status),
-      Type: toTitleCase(helpRequest.type),
-    },
-    user: memberId,
-  });
+  // Track event removed
 
   return success({});
 }
@@ -328,11 +320,7 @@ export async function offerHelp(
       .executeTakeFirstOrThrow();
   });
 
-  track({
-    event: 'Help Request Offered',
-    properties: { Type: toTitleCase(helpRequest.type) },
-    user: memberId,
-  });
+  // Track event removed
 
   return success({});
 }
@@ -426,11 +414,7 @@ export async function requestHelp({
       .executeTakeFirstOrThrow();
   });
 
-  track({
-    event: 'Help Requested',
-    properties: { Type: toTitleCase(type) },
-    user: memberId,
-  });
+  // Track event removed
 
   job('notification.slack.send', {
     channel: process.env.SLACK_FEED_CHANNEL_ID!,
@@ -515,10 +499,7 @@ async function sendFinishReminder(
       workspace: 'regular',
     });
 
-    track({
-      event: 'Help Request Reminder Sent',
-      properties: { Type: toTitleCase(helpRequest.type) },
-    });
+    // Track event removed
   }
 
   const ids = helpRequests.map((helpRequest) => {

@@ -1,6 +1,5 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { upvoteResource } from '@hackcommunity/core/resources/server';
 
 import { ensureUserAuthenticated, user } from '@/shared/session.server';

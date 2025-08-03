@@ -34,7 +34,7 @@ const BaseEnvironmentConfig = z.object({
   MAILCHIMP_API_KEY: EnvironmentVariable,
   MAILCHIMP_AUDIENCE_ID: EnvironmentVariable,
   MAILCHIMP_SERVER_PREFIX: EnvironmentVariable,
-  MIXPANEL_TOKEN: EnvironmentVariable,
+
   OPENAI_API_KEY: EnvironmentVariable,
   PINECONE_API_KEY: EnvironmentVariable,
   PORT: z.coerce.number(),
@@ -88,7 +88,7 @@ const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
     MAILCHIMP_API_KEY: true,
     MAILCHIMP_AUDIENCE_ID: true,
     MAILCHIMP_SERVER_PREFIX: true,
-    MIXPANEL_TOKEN: true,
+
     OPENAI_API_KEY: true,
     PINECONE_API_KEY: true,
     POSTMARK_API_TOKEN: true,

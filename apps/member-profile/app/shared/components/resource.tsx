@@ -25,7 +25,6 @@ import {
 } from '@hackcommunity/ui/tooltip';
 
 import { Route } from '@/shared/constants';
-import { useMixpanelTracker } from '@/shared/hooks/use-mixpanel-tracker';
 import { useToast } from '@/shared/hooks/use-toast';
 
 type ResourceProps = {
@@ -279,7 +278,7 @@ function ResourceActionGroup({
 }: Pick<ResourceProps, 'editable' | 'id' | 'shareableUri'>) {
   const [searchParams] = useSearchParams();
   const toast = useToast();
-  const { trackFromClient } = useMixpanelTracker();
+  // Track event removed
 
   const buttonClassName = getIconButtonCn({
     backgroundColor: 'gray-100',

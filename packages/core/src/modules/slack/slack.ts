@@ -12,7 +12,6 @@ import {
   rerankDocuments,
 } from '@/infrastructure/ai';
 import { job } from '@/infrastructure/bull';
-import { track } from '@/infrastructure/mixpanel';
 import { getPineconeIndex } from '@/infrastructure/pinecone';
 import { cache, ONE_HOUR_IN_SECONDS } from '@/infrastructure/redis';
 import { sendSlackNotification } from '@/modules/notifications/use-cases/send-slack-notification';
@@ -68,7 +67,6 @@ export async function answerChatbotQuestion({
     return;
   }
 
-  // Track the question asked by the user in Mixpanel but asychronously so that
   // we don't block the Slack event from being processed.
   db.selectFrom('students')
     .select(['id'])
@@ -76,15 +74,7 @@ export async function answerChatbotQuestion({
     .executeTakeFirst()
     .then((member) => {
       if (member) {
-        track({
-          application: 'Slack',
-          event: 'Chatbot Question Asked',
-          properties: {
-            Question: text,
-            Type: 'DM',
-          },
-          user: member.id,
-        });
+        // Track event removed
       }
     });
 
@@ -238,15 +228,7 @@ export async function answerPublicQuestionInPrivate({
     workspace: 'regular',
   });
 
-  track({
-    application: 'Slack',
-    event: 'Public Question Answered',
-    properties: {
-      '# of Threads Found': threads.length,
-      Question: question,
-      Where: 'DM',
-    },
-  });
+  // Track event removed
 
   return success({});
 }
@@ -289,7 +271,6 @@ export async function answerPublicQuestion({
   threadId,
   userId,
 }: AnswerPublicQuestionInput): Promise<Result> {
-  // Track the question asked by the user in Mixpanel but asychronously so that
   // we don't block the Slack event from being processed.
   db.selectFrom('students')
     .select(['id'])
@@ -297,15 +278,7 @@ export async function answerPublicQuestion({
     .executeTakeFirst()
     .then((member) => {
       if (member) {
-        track({
-          application: 'Slack',
-          event: 'Chatbot Question Asked',
-          properties: {
-            Question: text as string,
-            Type: 'Public',
-          },
-          user: member.id,
-        });
+        // Track event removed
       }
     });
 
@@ -616,12 +589,7 @@ export async function answerMemberProfileQuestion({
     ONE_HOUR_IN_SECONDS
   );
 
-  track({
-    application: 'Member Profile',
-    event: 'Chatbot Question Asked',
-    properties: { Question: question },
-    user: memberId,
-  });
+  // Track event removed
 
   return success(parsedAnswer);
 }

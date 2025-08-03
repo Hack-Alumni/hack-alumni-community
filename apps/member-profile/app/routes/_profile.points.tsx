@@ -23,7 +23,6 @@ import {
   listActivities,
 } from '@hackcommunity/core/gamification';
 import { type CompletedActivity } from '@hackcommunity/core/gamification/types';
-import { track } from '@hackcommunity/core/mixpanel';
 import { db } from '@hackcommunity/db';
 import {
   Button,

@@ -15,7 +15,6 @@ import {
   type GetBullJobData,
   OpportunityBullJob,
 } from '@/infrastructure/bull.types';
-import { track } from '@/infrastructure/mixpanel';
 import { getPageContent } from '@/infrastructure/puppeteer';
 import { redis } from '@/infrastructure/redis';
 import { reportException } from '@/infrastructure/sentry';
@@ -76,11 +75,7 @@ export async function bookmarkOpportunity({
       .executeTakeFirst();
 
     if (opportunity && opportunity.companyName) {
-      track({
-        event: 'Opportunity Bookmarked',
-        properties: { Company: opportunity.companyName },
-        user: memberId,
-      });
+      // Track event removed
     }
 
     if (opportunity && opportunity.postedBy) {

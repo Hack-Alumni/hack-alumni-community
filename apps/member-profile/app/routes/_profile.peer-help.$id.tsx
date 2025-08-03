@@ -15,7 +15,6 @@ import {
 import dayjs from 'dayjs';
 import { ArrowDown, ArrowUp, Edit, User } from 'react-feather';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   type HelpRequestStatus,
   type HelpRequestType,

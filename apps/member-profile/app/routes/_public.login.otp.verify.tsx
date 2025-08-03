@@ -11,7 +11,6 @@ import {
   OneTimeCodeForm,
   VerifyOneTimeCodeInput,
 } from '@hackcommunity/core/member-profile/ui';
-import { track } from '@hackcommunity/core/mixpanel';
 import { Button, ErrorMessage, getErrors, validateForm } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';

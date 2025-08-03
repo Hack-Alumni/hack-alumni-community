@@ -19,7 +19,6 @@ import {
   ListCompaniesWhere,
 } from '@hackcommunity/core/employment';
 import { listCompanies } from '@hackcommunity/core/employment/server';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   Button,
   cx,

@@ -12,7 +12,6 @@ import {
 import dayjs from 'dayjs';
 import { DollarSign, MapPin } from 'react-feather';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { hourlyToMonthlyRate } from '@hackcommunity/core/offers';
 import { db } from '@hackcommunity/db';
 import { Pagination, Table, type TableColumnProps, Text } from '@hackcommunity/ui';

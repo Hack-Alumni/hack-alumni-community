@@ -15,7 +15,6 @@ import { emojify } from 'node-emoji';
 import { Edit, Flag } from 'react-feather';
 
 import { job } from '@hackcommunity/core/bull';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   getOpportunityDetails,
   reportOpportunity,

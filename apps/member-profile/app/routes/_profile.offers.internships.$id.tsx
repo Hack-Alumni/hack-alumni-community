@@ -2,7 +2,6 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { generatePath, useLoaderData, useSearchParams } from '@remix-run/react';
 import dayjs from 'dayjs';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { hourlyToMonthlyRate } from '@hackcommunity/core/offers';
 import { db } from '@hackcommunity/db';
 import { Divider, Modal } from '@hackcommunity/ui';

@@ -15,7 +15,6 @@ import { sql } from 'kysely';
 import { jsonBuildObject } from 'kysely/helpers/postgres';
 import { Bookmark, Calendar, Tag, Zap } from 'react-feather';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { db } from '@hackcommunity/db';
 import {
   type AccentColor,

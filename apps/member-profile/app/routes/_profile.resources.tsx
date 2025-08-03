@@ -12,7 +12,6 @@ import { Plus } from 'react-feather';
 
 import { isMemberAdmin } from '@hackcommunity/core/admins';
 import { ListSearchParams } from '@hackcommunity/core/member-profile/ui';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   ListResourcesOrderBy,
   ListResourcesWhere,
