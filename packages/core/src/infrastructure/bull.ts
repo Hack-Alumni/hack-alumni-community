@@ -25,20 +25,20 @@ export async function listQueueNames() {
   return [];
 }
 
-export async function isValidQueue(name: string) {
+export async function isValidQueue(_name: string) {
   // This would need to be implemented in hybrid-job-queue.ts if needed
   console.log('isValidQueue called - redirecting to hybrid system');
 
   return true;
 }
 
-export function getQueue(name: BullQueue) {
+export function getQueue(_name: BullQueue) {
   // This would need to be implemented in hybrid-job-queue.ts if needed
-  console.log(`getQueue called for ${name} - redirecting to hybrid system`);
+  console.log(`getQueue called for ${_name} - redirecting to hybrid system`);
 
   return {
-    add: async (jobName: string, data: any, options?: any) => {
-      console.log(`Job ${jobName} added to queue ${name} via proxy`);
+    add: async (jobName: string, _data: any, _options?: any) => {
+      console.log(`Job ${jobName} added to queue ${_name} via proxy`);
 
       // This will be handled by the hybrid system
       return { id: `proxy-job-${Date.now()}` };

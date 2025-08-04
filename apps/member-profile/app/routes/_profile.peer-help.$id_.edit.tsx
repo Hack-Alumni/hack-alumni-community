@@ -131,10 +131,10 @@ export default function EditHelpRequestModal() {
         <Button.Group flexDirection="row-reverse" spacing="between">
           <Button.Submit>Edit</Button.Submit>
 
-          <Button.Slot color="error" variant="secondary">
+          <Button.Slot variant="secondary">
             <Link
               to={generatePath(Route['/peer-help/:id/delete'], { id })}
-              unstable_viewTransition
+              // unstable_viewTransition
             >
               Delete
             </Link>

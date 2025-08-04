@@ -1,4 +1,8 @@
-import { getQueue, isValidQueue } from '@hackcommunity/core/bull';
+import {
+  type BullQueue,
+  getQueue,
+  isValidQueue,
+} from '@hackcommunity/core/bull';
 
 /**
  * Validates a queue name and returns the corresponding queue instance.
@@ -20,7 +24,7 @@ export async function validateQueue(queueName: unknown) {
     });
   }
 
-  const queue = getQueue(name);
+  const queue = getQueue(name as BullQueue);
 
   return queue;
 }

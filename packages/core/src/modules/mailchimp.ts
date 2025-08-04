@@ -3,7 +3,6 @@ import { match } from 'ts-pattern';
 import { sleep } from '@hackcommunity/utils';
 
 import { registerWorker } from '@/infrastructure/bull';
-import { MailchimpBullJob } from '@/infrastructure/bull.types';
 import { redis } from '@/infrastructure/redis';
 import { reportException } from '@/infrastructure/sentry';
 import { IS_PRODUCTION } from '@/shared/env';
@@ -215,26 +214,24 @@ async function releaseMailchimpConnection(): Promise<void> {
 
 // Worker
 
-export const mailchimpWorker = registerWorker(
-  'mailchimp',
-  MailchimpBullJob,
-  async (job) => {
-    const result = await match(job)
-      .with({ name: 'mailchimp.add' }, ({ data }) => {
-        return addMailchimpMember(data);
-      })
-      .with({ name: 'mailchimp.remove' }, ({ data }) => {
-        return removeMailchimpMember(data);
-      })
-      .with({ name: 'mailchimp.update' }, ({ data }) => {
-        return updateMailchimpMember(data);
-      })
-      .exhaustive();
+export const mailchimpWorker = registerWorker('mailchimp', async (job) => {
+  const result = await match(job)
+    .with({ name: 'mailchimp.add' }, ({ data }) => {
+      return addMailchimpMember(data);
+    })
+    .with({ name: 'mailchimp.remove' }, ({ data }) => {
+      return removeMailchimpMember(data);
+    })
+    .with({ name: 'mailchimp.update' }, ({ data }) => {
+      return updateMailchimpMember(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
 
-    if (!result.ok) {
-      throw new Error(result.error);
-    }
-
-    return result.data;
+  if (!result.ok) {
+    throw new Error(result.error);
   }
-);
+
+  return result.data;
+});

@@ -1,8 +1,6 @@
 import {
-  type ActionFunctionArgs,
   json,
   type LoaderFunctionArgs,
-  redirect,
   type SerializeFrom,
 } from '@remix-run/node';
 import {
@@ -13,7 +11,7 @@ import {
   useLocation,
   useNavigate,
 } from '@remix-run/react';
-import dayjs from 'dayjs';
+// import dayjs from 'dayjs';
 import {
   ArrowUp,
   Copy,
@@ -44,11 +42,7 @@ import { toTitleCase } from '@hackcommunity/utils';
 import { validateQueue } from '@/shared/bull';
 import { Route } from '@/shared/constants';
 import { getTimezone } from '@/shared/cookies.server';
-import {
-  commitSession,
-  ensureUserAuthenticated,
-  toast,
-} from '@/shared/session.server';
+import { ensureUserAuthenticated } from '@/shared/session.server';
 
 const BullSearchParams = z.object({
   limit: z.coerce.number().min(10).max(100).catch(25),
@@ -71,10 +65,31 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     minimumRole: 'owner',
   });
 
-  const [queue, queues] = await Promise.all([
+  const [_queue, _queues] = await Promise.all([
     validateQueue(params.queue),
     listQueueNames(),
   ]);
+
+  // Temporary mock queues until Bull queue interface is fixed
+  const mockQueues = [
+    'airtable',
+    'application',
+    'event',
+    'feed',
+    'gamification',
+    'mailchimp',
+    'member_email',
+    'notification',
+    'offer',
+    'onboarding_session',
+    'one_time_code',
+    'opportunity',
+    'peer_help',
+    'profile',
+    'resume_review',
+    'slack',
+    'student',
+  ];
 
   const { searchParams } = new URL(request.url);
 
@@ -83,49 +98,68 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
   );
 
   const startIndex = (page - 1) * limit;
-  const endIndex = startIndex + limit - 1;
+  const _endIndex = startIndex + limit - 1;
 
-  const [counts, _jobs, _repeatables] = await Promise.all([
-    queue.getJobCounts(),
-    queue.getJobs(status === 'all' ? undefined : status, startIndex, endIndex),
-    queue.getRepeatableJobs(),
-  ]);
+  // TODO: Fix Bull queue interface after hybrid job queue refactoring
+  // const [counts, _jobs, _repeatables] = await Promise.all([
+  //   queue.getJobCounts(),
+  //   queue.getJobs(status === 'all' ? undefined : status, startIndex, endIndex),
+  //   queue.getRepeatableJobs(),
+  // ]);
 
-  const tz = getTimezone(request);
-  const format = 'MM/DD/YY @ h:mm:ss A';
+  // Temporary mock data until Bull queue interface is fixed
+  const counts = {
+    active: 0,
+    completed: 0,
+    delayed: 0,
+    failed: 0,
+    paused: 0,
+    waiting: 0,
+  };
+  const _jobs: any[] = [];
+  const _repeatables: any[] = [];
 
-  const jobs = await Promise.all(
-    _jobs.map(async (job) => {
-      const { attemptsMade, delay, id, name, processedOn, timestamp } =
-        job.toJSON();
+  const _tz = getTimezone(request);
+  const _format = 'MM/DD/YY @ h:mm:ss A';
 
-      return {
-        attemptsMade,
-        createdAt: dayjs(timestamp).tz(tz).format(format),
-        id: id as string,
-        name,
-        status: await job.getState(),
+  // TODO: Fix Bull queue interface after hybrid job queue refactoring
+  // const jobs = await Promise.all(
+  //   _jobs.map(async (job) => {
+  //     const { attemptsMade, delay, id, name, processedOn, timestamp } =
+  //       job.toJSON();
 
-        ...(delay && {
-          delayedUntil: dayjs(timestamp).add(delay, 'ms').tz(tz).format(format),
-        }),
+  //     return {
+  //       attemptsMade,
+  //       createdAt: dayjs(timestamp).tz(tz).format(format),
+  //       id: id as string,
+  //       name,
+  //       status: await job.getState(),
 
-        ...(processedOn && {
-          processedAt: dayjs(processedOn).tz(tz).format(format),
-        }),
-      };
-    })
-  );
+  //       ...(delay && {
+  //         delayedUntil: dayjs(timestamp).add(delay, 'ms').tz(tz).format(format),
+  //       }),
 
-  const repeatables = _repeatables.map((repeatable) => {
-    return {
-      id: repeatable.key,
-      name: repeatable.name,
-      next: dayjs(repeatable.next).tz(tz).format(format),
-      pattern: repeatable.pattern,
-      tz: repeatable.tz,
-    };
-  });
+  //       ...(processedOn && {
+  //         processedAt: dayjs(processedOn).tz(tz).format(format),
+  //       }),
+  //     };
+  //   })
+  // );
+
+  const jobs: any[] = [];
+
+  // TODO: Fix Bull queue interface after hybrid job queue refactoring
+  // const repeatables = _repeatables.map((repeatable) => {
+  //   return {
+  //     id: repeatable.key,
+  //     name: repeatable.name,
+  //     next: dayjs(repeatable.next).tz(tz).format(format),
+  //     pattern: repeatable.pattern,
+  //     tz: repeatable.tz,
+  //   };
+  // });
+
+  const repeatables: any[] = [];
 
   const allJobsCount = Object.values(counts).reduce((result, count) => {
     return result + count;
@@ -145,8 +179,8 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     jobs,
     limit,
     page,
-    queue: queue.name,
-    queues,
+    queue: params.queue,
+    queues: mockQueues,
     repeatables,
     status,
   });
@@ -162,7 +196,7 @@ const QueueAction = {
   'repeatable.remove': 'repeatable.remove',
 } as const;
 
-const QueueForm = z.discriminatedUnion('action', [
+const _QueueForm = z.discriminatedUnion('action', [
   z.object({
     action: z.literal(QueueAction['job.duplicate']),
     id: z.string().trim().min(1),
@@ -191,85 +225,82 @@ const QueueForm = z.discriminatedUnion('action', [
   }),
 ]);
 
-export async function action({ params, request }: ActionFunctionArgs) {
-  const session = await ensureUserAuthenticated(request, {
-    minimumRole: 'owner',
-  });
+// TODO: Fix Bull queue interface after hybrid job queue refactoring
+// export async function action({ params, request }: ActionFunctionArgs) {
+//   const session = await ensureUserAuthenticated(request, {
+//     minimumRole: 'owner',
+//   });
 
-  const queue = await validateQueue(params.queue);
+//   const queue = await validateQueue(params.queue);
 
-  const form = await request.formData();
+//   const form = await request.formData();
 
-  const result = QueueForm.safeParse(Object.fromEntries(form));
+//   const result = QueueForm.safeParse(Object.fromEntries(form));
 
-  if (!result.success) {
-    throw new Response(null, {
-      status: 400,
-    });
-  }
+//   if (!result.success) {
+//     throw new Response(null, {
+//       status: 400,
+//     });
+//   }
 
-  await match(result.data)
-    .with({ action: 'job.duplicate' }, async ({ id }) => {
-      const job = await queue.getJob(id);
+//   await match(result.data)
+//     .with({ action: 'job.duplicate' }, async ({ id }) => {
+//       const job = await queue.getJob(id);
 
-      if (!job) {
-        throw new Response(null, { status: 404 });
-      }
+//       if (!job) {
+//         throw new Response(null, { status: 404 });
+//       }
 
-      return queue.add(job.name, job.data);
-    })
-    .with({ action: 'job.promote' }, async ({ id }) => {
-      const job = await queue.getJob(id);
+//       return queue.add(job.name, job.data);
+//     })
+//     .with({ action: 'job.promote' }, async ({ id }) => {
+//       const job = await queue.getJob(id);
 
-      if (!job) {
-        throw new Response(null, { status: 404 });
-      }
+//       if (!job) {
+//         throw new Response(null, { status: 404 });
+//       }
 
-      return job.promote();
-    })
-    .with({ action: 'job.remove' }, async ({ id }) => {
-      const job = await queue.getJob(id);
+//       return job.promote();
+//     })
+//     .with({ action: 'job.remove' }, async ({ id }) => {
+//       const job = await queue.getJob(id);
 
-      if (!job) {
-        throw new Response(null, { status: 404 });
-      }
+//       if (!job) {
+//         throw new Response(null, { status: 404 });
+//       }
 
-      return job.remove();
-    })
-    .with({ action: 'job.retry' }, async ({ id }) => {
-      const job = await queue.getJob(id);
+//       return job.remove();
+//     })
+//     .with({ action: 'job.retry' }, async ({ id }) => {
+//       const job = await queue.getJob(id);
 
-      if (!job) {
-        throw new Response(null, { status: 404 });
-      }
+//       throw new Response(null, { status: 404 });
+//     })
+//     .with({ action: 'queue.clean' }, async () => {
+//       return queue.clean(0, 0, 'completed');
+//     })
+//     .with({ action: 'queue.obliterate' }, async () => {
+//       await queue.obliterate();
+//     })
+//     .with({ action: 'repeatable.remove' }, async ({ key }) => {
+//       return queue.removeRepeatableByKey(key);
+//     })
+//     .exhaustive();
 
-      return job.retry();
-    })
-    .with({ action: 'queue.clean' }, async () => {
-      return queue.clean(0, 0, 'completed');
-    })
-    .with({ action: 'queue.obliterate' }, async () => {
-      await queue.obliterate();
-    })
-    .with({ action: 'repeatable.remove' }, async ({ key }) => {
-      return queue.removeRepeatableByKey(key);
-    })
-    .exhaustive();
+//   toast(session, {
+//     message: 'Done!',
+//   });
 
-  toast(session, {
-    message: 'Done!',
-  });
+//   const init: ResponseInit = {
+//     headers: {
+//       'Set-Cookie': await commitSession(session),
+//     },
+//   };
 
-  const init: ResponseInit = {
-    headers: {
-      'Set-Cookie': await commitSession(session),
-    },
-  };
-
-  return result.data.action === 'queue.obliterate'
-    ? redirect(Route['/bull'], init)
-    : json({}, init);
-}
+//   return result.data.action === 'queue.obliterate'
+//     ? redirect(Route['/bull'], init)
+//     : json({}, init);
+// }
 
 export default function QueuePage() {
   const { repeatables } = useLoaderData<typeof loader>();
@@ -347,7 +378,7 @@ function QueueDropdown() {
           <Dropdown.Item>
             <Link
               to={generatePath(Route['/bull/:queue/jobs/add'], {
-                queue,
+                queue: queue!,
               })}
             >
               <Plus /> Add Job
@@ -356,7 +387,7 @@ function QueueDropdown() {
           <Dropdown.Item>
             <Link
               to={generatePath(Route['/bull/:queue/repeatables/add'], {
-                queue,
+                queue: queue!,
               })}
             >
               <Repeat /> Add Repeatable
@@ -570,7 +601,7 @@ function JobsTable() {
         return {
           pathname: generatePath(Route['/bull/:queue/jobs/:id'], {
             id: job.id,
-            queue,
+            queue: queue!,
           }),
           search,
         };

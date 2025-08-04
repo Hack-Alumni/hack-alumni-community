@@ -1,5 +1,4 @@
 import { createClient } from '@supabase/supabase-js';
-import { z } from 'zod';
 
 import { BullJob } from './bull.types';
 import { reportException } from './sentry';

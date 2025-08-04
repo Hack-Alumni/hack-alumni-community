@@ -8,10 +8,7 @@ import { id } from '@hackcommunity/utils';
 
 import { getChatCompletion } from '@/infrastructure/ai';
 import { job, registerWorker } from '@/infrastructure/bull';
-import {
-  type GetBullJobData,
-  ResumeReviewBullJob,
-} from '@/infrastructure/bull.types';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { STUDENT_PROFILE_URL } from '@/shared/env';
 import { ColorStackError } from '@/shared/errors';
 import { fail, type Result, success } from '@/shared/utils/core';
@@ -207,13 +204,14 @@ export async function reviewResume({
 
 export const resumeReviewWorker = registerWorker(
   'resume_review',
-  ResumeReviewBullJob,
   async (job) => {
     const result = await match(job)
       .with({ name: 'resume_review.check' }, ({ data }) => {
         return checkResumeReview(data);
       })
-      .exhaustive();
+      .otherwise(() => {
+        throw new Error(`Unknown job type: ${job.name}`);
+      });
 
     if (!result.ok) {
       throw new Error(result.error);

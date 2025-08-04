@@ -29,6 +29,10 @@ build
 dist
 tsconfig.tsbuildinfo
 
+# Compiled TypeScript files
+*.js
+*.d.ts
+*.d.ts.map
 
 # Debugging
 

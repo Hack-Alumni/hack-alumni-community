@@ -25,7 +25,7 @@ import {
   Modal,
   validateForm,
 } from '@hackcommunity/ui';
-import { id } from '@hackcommunity/utils';
+// import { id } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
 import { findStudentByEmail } from '@/shared/queries/student';
@@ -128,12 +128,10 @@ async function importEventAttendees(
         email: true,
         eventId: true,
         name: true,
-        id: true,
         studentId: true,
       }).parse({
         email,
         eventId,
-        id: id(),
         name,
         studentId: row?.studentId,
       });

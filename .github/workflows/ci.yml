@@ -35,7 +35,7 @@ jobs:
       HEAD_SHA: ${{ github.event.pull_request.head.sha }}
       DATABASE_URL: postgres://hackalumni:hackalumni@localhost:5432/hackalumni
       REDIS_URL: redis://localhost:6379
-      NODE_ENV: test
+      ENVIRONMENT: test
 
     steps:
       - name: Checkout repository code
@@ -66,9 +66,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-
-      - name: Setup environment
-        run: yarn env:setup
 
       - name: Run database migrations and generate types
         run: yarn db:migrate

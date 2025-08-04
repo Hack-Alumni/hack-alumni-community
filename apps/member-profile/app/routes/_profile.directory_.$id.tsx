@@ -201,10 +201,11 @@ function MemberHeader() {
           <a
             href={member.slackUrl}
             onClick={() => {
-              trackFromClient({
-                event: 'Directory - CTA Clicked',
-                properties: { CTA: 'Slack' },
-              });
+              // TODO: Re-implement tracking after analytics setup
+              // trackFromClient({
+              //   event: 'Directory - CTA Clicked',
+              //   properties: { CTA: 'Slack' },
+              // });
             }}
           >
             <img alt="Slack Logo" className="h-5 w-5" src="/images/slack.svg" />{' '}
@@ -324,6 +325,7 @@ function MemberSocials() {
 type MemberSocialItemProps = {
   href: string;
   logo: string | React.ReactNode;
+  social: string;
   // Track event removed
 };
 
@@ -335,10 +337,11 @@ function MemberSocialItem({ href, logo, social }: MemberSocialItemProps) {
       <a
         href={href}
         onClick={() => {
-          trackFromClient({
-            event: 'Directory - CTA Clicked',
-            properties: { CTA: social },
-          });
+          // TODO: Re-implement tracking after analytics setup
+          // trackFromClient({
+          //   event: 'Directory - CTA Clicked',
+          //   properties: { CTA: social },
+          // });
         }}
         target="_blank"
       >

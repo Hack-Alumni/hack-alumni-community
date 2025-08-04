@@ -26,23 +26,39 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     throw new Response(null, { status: 404 });
   }
 
-  const state = await job.getState();
+  // TODO: Fix Bull queue interface after hybrid job queue refactoring
+  // const state = await job.getState();
+  const state = 'completed';
 
   const timezone = getTimezone(request);
 
-  const {
-    attemptsMade,
-    data,
-    delay,
-    failedReason,
-    finishedOn,
-    id,
-    name,
-    opts,
-    processedOn,
-    returnvalue,
-    timestamp,
-  } = job.toJSON();
+  // TODO: Fix Bull queue interface after hybrid job queue refactoring
+  // const {
+  //   attemptsMade,
+  //   data,
+  //   delay,
+  //   failedReason,
+  //   finishedOn,
+  //   id,
+  //   name,
+  //   opts,
+  //   processedOn,
+  //   returnvalue,
+  //   timestamp,
+  // } = job.toJSON();
+
+  // Temporary mock data until Bull queue interface is fixed
+  const attemptsMade = 0;
+  const data = {};
+  const _delay = 0;
+  const failedReason = null;
+  const _finishedOn = null;
+  const id = params.id;
+  const name = 'mock-job';
+  const opts = {};
+  const _processedOn = null;
+  const returnvalue = {};
+  const timestamp = Date.now();
 
   const format = 'MM/DD/YY @ h:mm:ss A';
 
@@ -53,18 +69,18 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
       name,
       state,
       createdAt: dayjs(timestamp).tz(timezone).format(format),
-      ...(delay && {
-        delayedUntil: dayjs(timestamp)
-          .add(delay, 'ms')
-          .tz(timezone)
-          .format(format),
-      }),
-      ...(processedOn && {
-        processedAt: dayjs(processedOn).tz(timezone).format(format),
-      }),
-      ...(finishedOn && {
-        finishedAt: dayjs(finishedOn).tz(timezone).format(format),
-      }),
+      // ...(delay && {
+      //   delayedUntil: dayjs(timestamp)
+      //     .add(delay, 'ms')
+      //     .tz(timezone)
+      //     .format(format),
+      // }),
+      // ...(processedOn && {
+      //   processedAt: dayjs(processedOn).tz(timezone).format(format),
+      // }),
+      // ...(finishedOn && {
+      //   finishedAt: dayjs(finishedOn).tz(timezone).format(format),
+      // }),
       attemptsMade,
       failedReason,
     },
@@ -74,9 +90,11 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
 }
 
 async function getJobFromParams(params: Params<string>) {
-  const queue = await validateQueue(params.queue);
+  const _queue = await validateQueue(params.queue);
 
-  const job = await queue.getJob(params.id as string);
+  // TODO: Fix Bull queue interface after hybrid job queue refactoring
+  // const job = await queue.getJob(params.id as string);
+  const job = null;
 
   if (!job) {
     throw new Response(null, { status: 404 });

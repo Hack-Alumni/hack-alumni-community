@@ -663,7 +663,7 @@ async function parseAnswerForMemberProfile(
 
   try {
     metadataJSON = JSON.parse(metadataSection.trim());
-  } catch (error) {
+  } catch {
     return fail({
       code: 400,
       error: 'Failed to parse thread metadata into JSON.',

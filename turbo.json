@@ -19,7 +19,9 @@
     "start": {
       "cache": false
     },
-    "test": {},
+    "test": {
+      "env": ["DATABASE_URL", "REDIS_URL", "ENVIRONMENT", "CI"]
+    },
     "type-check": {
       "dependsOn": ["^build"]
     }

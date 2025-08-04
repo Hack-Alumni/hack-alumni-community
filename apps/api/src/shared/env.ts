@@ -7,8 +7,11 @@ import { z } from 'zod';
 
 import { Environment } from '@hackcommunity/core/api';
 
-// Loads the .env file into `process.env`.
-config();
+// Only load .env file for local development, not in CI
+if (!process.env.CI) {
+  // Loads the .env file into `process.env`.
+  config();
+}
 
 const EnvironmentVariable = z.string().trim().min(1);
 

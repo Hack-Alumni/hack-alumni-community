@@ -42,7 +42,7 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "turbo": "latest",
-    "typescript": "^5.4.2"
+    "typescript": "5.8.3"
   },
   "engines": {
     "npm": ">=7.0.0",

@@ -4,13 +4,10 @@ import { z } from 'zod';
 
 import { db, relativeTime } from '@hackcommunity/db';
 import { type ExtractValue, nullableField } from '@hackcommunity/types';
-import { id, toTitleCase } from '@hackcommunity/utils';
+import { id } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
-import {
-  type GetBullJobData,
-  PeerHelpBullJob,
-} from '@/infrastructure/bull.types';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { reportException } from '@/infrastructure/sentry';
 import { ActivityType } from '@/modules/gamification/gamification.types';
 import { slack } from '@/modules/slack/instances';
@@ -517,20 +514,18 @@ async function sendFinishReminder(
 
 // Worker
 
-export const peerHelpWorker = registerWorker(
-  'peer_help',
-  PeerHelpBullJob,
-  async (job) => {
-    const result = await match(job)
-      .with({ name: 'peer_help.finish_reminder' }, ({ data }) => {
-        return sendFinishReminder(data);
-      })
-      .exhaustive();
+export const peerHelpWorker = registerWorker('peer_help', async (job) => {
+  const result = await match(job)
+    .with({ name: 'peer_help.finish_reminder' }, ({ data }) => {
+      return sendFinishReminder(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
 
-    if (!result.ok) {
-      throw new Error(result.error);
-    }
-
-    return result.data;
+  if (!result.ok) {
+    throw new Error(result.error);
   }
-);
+
+  return result.data;
+});

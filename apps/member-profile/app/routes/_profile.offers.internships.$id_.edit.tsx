@@ -214,7 +214,7 @@ export default function EditInternshipOffer() {
         <Button.Group flexDirection="row-reverse" spacing="between">
           <Button.Submit>Save</Button.Submit>
 
-          <Button.Slot color="error" variant="secondary">
+          <Button.Slot variant="secondary">
             <Link
               to={generatePath(Route['/offers/internships/:id/delete'], { id })}
             >

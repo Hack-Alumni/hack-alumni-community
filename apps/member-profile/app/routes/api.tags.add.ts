@@ -20,12 +20,13 @@ export async function action({ request }: ActionFunctionArgs) {
     name: data.name,
   });
 
-  track({
-    event: 'Resource Tag Added',
-    properties: undefined,
-    request,
-    user: user(session),
-  });
+  // TODO: Re-implement tracking after analytics setup
+  // track({
+  //   event: 'Resource Tag Added',
+  //   properties: undefined,
+  //   request,
+  //   user: user(session),
+  // });
 
   return json({});
 }

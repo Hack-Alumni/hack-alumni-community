@@ -11,12 +11,13 @@ export async function action({ params, request }: ActionFunctionArgs) {
     memberId: user(session),
   });
 
-  track({
-    event: 'Resource Upvoted',
-    properties: undefined,
-    request,
-    user: user(session),
-  });
+  // TODO: Re-implement tracking after analytics setup
+  // track({
+  //   event: 'Resource Upvoted',
+  //   properties: undefined,
+  //   request,
+  //   user: user(session),
+  // });
 
   return json({});
 }

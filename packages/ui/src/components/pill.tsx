@@ -66,7 +66,7 @@ export const Pill = ({
   return body;
 };
 
-function getPillStyle(color: PillProps['color']): React.CSSProperties {
+export function getPillStyle(color: PillProps['color']): React.CSSProperties {
   return match(color)
     .with('amber-100', () => ({ backgroundColor: Colors.Amber50 }))
     .with('blue-100', () => ({ backgroundColor: Colors.CoreBlue10 }))

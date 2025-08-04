@@ -13,7 +13,7 @@ import {
 } from './combobox-popover';
 import { Divider } from './divider';
 import { getInputCn, type InputProps } from './input';
-import { getPillCn } from './pill';
+import { getPillCn, getPillStyle } from './pill';
 import { type AccentColor } from '../utils/constants';
 import { setInputValue } from '../utils/core';
 import { cx } from '../utils/cx';
@@ -163,11 +163,9 @@ export function MultiComboboxValues({ name }: Pick<InputProps, 'name'>) {
         {values.map((value) => {
           return (
             <li
-              className={cx(
-                getPillCn({ color: value.color || 'pink-100' }),
-                'flex items-center gap-1'
-              )}
+              className={cx(getPillCn({}), 'flex items-center gap-1')}
               key={value.value}
+              style={getPillStyle(value.color || 'pink-100')}
             >
               {value.label}
 

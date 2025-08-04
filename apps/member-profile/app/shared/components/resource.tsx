@@ -315,10 +315,11 @@ function ResourceActionGroup({
               onClick={() => {
                 navigator.clipboard.writeText(shareableUri);
                 toast({ message: 'Copied URL to clipboard!' });
-                trackFromClient({
-                  event: 'Resource Link Copied',
-                  properties: undefined,
-                });
+                // TODO: Re-implement tracking after analytics setup
+                // trackFromClient({
+                //   event: 'Resource Link Copied',
+                //   properties: undefined,
+                // });
               }}
               type="button"
             >

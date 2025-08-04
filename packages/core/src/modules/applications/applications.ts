@@ -7,10 +7,7 @@ import { type Application, OtherDemographic } from '@hackcommunity/types';
 import { id, run } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
-import {
-  ApplicationBullJob,
-  type GetBullJobData,
-} from '@/infrastructure/bull.types';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import {
   type ApplicationRejectionReason,
   ApplicationStatus,
@@ -73,7 +70,7 @@ export async function getApplication<
 type ApplicationsSearchParams = {
   limit: number;
   page: number;
-  search: string;
+  search?: string;
   status: ApplicationStatus | 'all';
   timezone: string;
 };
@@ -88,8 +85,8 @@ export async function listApplications({
   const query = db
     .selectFrom('applications')
     .$if(!!search, (qb) => {
-      if (search.includes(',')) {
-        const emails = search.split(',').map((email) => email.trim());
+      if (search!.includes(',')) {
+        const emails = search!.split(',').map((email) => email.trim());
 
         if (!emails.length) {
           return qb;
@@ -100,13 +97,13 @@ export async function listApplications({
 
       return qb.where((eb) =>
         eb.or([
-          eb('applications.email', 'ilike', `%${search}%`),
-          eb('applications.firstName', 'ilike', `%${search}%`),
-          eb('applications.lastName', 'ilike', `%${search}%`),
+          eb('applications.email', 'ilike', `%${search!}%`),
+          eb('applications.firstName', 'ilike', `%${search!}%`),
+          eb('applications.lastName', 'ilike', `%${search!}%`),
           eb(
             sql`applications.first_name || ' ' || applications.last_name`,
             'ilike',
-            `%${search}%`
+            `%${search!}%`
           ),
         ])
       );
@@ -489,17 +486,15 @@ function queueRejectionEmail({
 
 // Worker
 
-export const applicationWorker = registerWorker(
-  'application',
-  ApplicationBullJob,
-  async (job) => {
-    return match(job)
-      .with({ name: 'application.review' }, ({ data }) => {
-        return reviewApplication(data);
-      })
-      .exhaustive();
-  }
-);
+export const applicationWorker = registerWorker('application', async (job) => {
+  return match(job)
+    .with({ name: 'application.review' }, ({ data }) => {
+      return reviewApplication(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
+});
 
 async function reviewApplication({
   applicationId,

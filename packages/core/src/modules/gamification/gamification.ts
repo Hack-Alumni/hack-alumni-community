@@ -9,10 +9,7 @@ import { Student } from '@hackcommunity/types';
 import { id } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
-import {
-  GamificationBullJob,
-  type GetBullJobData,
-} from '@/infrastructure/bull.types';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import {
   type Activity,
   type ActivityPeriod,
@@ -185,7 +182,6 @@ export async function grantPoints({
 
 export const gamificationWorker = registerWorker(
   'gamification',
-  GamificationBullJob,
   async (job) => {
     dayjs.extend(quarterOfYear);
 
@@ -196,7 +192,9 @@ export const gamificationWorker = registerWorker(
       .with({ name: 'gamification.activity.completed.undo' }, ({ data }) => {
         return revokeGamificationPoints(data);
       })
-      .exhaustive();
+      .otherwise(() => {
+        throw new Error(`Unknown job type: ${job.name}`);
+      });
   }
 );
 
@@ -405,11 +403,15 @@ async function grantGamificationPoints(
       async (input) => {
         const startOfPeriod = match(activity.period as ActivityPeriod)
           .with('quarterly', () => dayjs().startOf('quarter').toDate())
-          .exhaustive();
+          .otherwise(() => {
+            throw new Error(`Unknown activity period: ${activity.period}`);
+          });
 
         const endOfPeriod = match(activity.period as ActivityPeriod)
           .with('quarterly', () => dayjs().endOf('quarter').toDate())
-          .exhaustive();
+          .otherwise(() => {
+            throw new Error(`Unknown activity period: ${activity.period}`);
+          });
 
         // If the student has already completed this activity this period,
         // we shouldn't give them points.
@@ -432,7 +434,9 @@ async function grantGamificationPoints(
           .execute();
       }
     )
-    .exhaustive();
+    .otherwise(() => {
+      throw new Error(`Unknown activity type: ${data.type}`);
+    });
 
   queueSlackNotification({
     points: activityCompleted.points,
@@ -479,12 +483,16 @@ async function revokeGamificationPoints(
   const startOfPeriod = match(activity.period as ActivityPeriod | null)
     .with('quarterly', () => dayjs().startOf('quarter').toDate())
     .with(null, () => null)
-    .exhaustive();
+    .otherwise(() => {
+      throw new Error(`Unknown activity period: ${activity.period}`);
+    });
 
   const endOfPeriod = match(activity.period as ActivityPeriod | null)
     .with('quarterly', () => dayjs().endOf('quarter').toDate())
     .with(null, () => null)
-    .exhaustive();
+    .otherwise(() => {
+      throw new Error(`Unknown activity period: ${activity.period}`);
+    });
 
   const deleteQuery = db
     .deleteFrom('completedActivities')
@@ -572,5 +580,7 @@ async function revokeGamificationPoints(
 
       await deleteQuery.execute();
     })
-    .exhaustive();
+    .otherwise(() => {
+      throw new Error(`Unknown activity type: ${data.type}`);
+    });
 }

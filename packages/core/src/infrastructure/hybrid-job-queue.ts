@@ -1,6 +1,5 @@
 import { createClient } from '@supabase/supabase-js';
 import { Client as QStashClient } from '@upstash/qstash';
-import { z } from 'zod';
 
 import { BullJob } from './bull.types';
 import { reportException } from './sentry';
@@ -9,9 +8,9 @@ import { reportException } from './sentry';
 const SUPABASE_URL = process.env.SUPABASE_URL as string;
 const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY as string;
 const UPSTASH_QSTASH_TOKEN = process.env.UPSTASH_QSTASH_TOKEN as string;
-const UPSTASH_QSTASH_CURRENT_SIGNING_KEY = process.env
+const _UPSTASH_QSTASH_CURRENT_SIGNING_KEY = process.env
   .UPSTASH_QSTASH_CURRENT_SIGNING_KEY as string;
-const UPSTASH_QSTASH_NEXT_SIGNING_KEY = process.env
+const _UPSTASH_QSTASH_NEXT_SIGNING_KEY = process.env
   .UPSTASH_QSTASH_NEXT_SIGNING_KEY as string;
 
 // Lazy client initialization
@@ -72,7 +71,7 @@ const REAL_TIME_JOBS = [
 ];
 
 // Job types that should be scheduled via Supabase
-const SCHEDULED_JOBS = [
+const _SCHEDULED_JOBS = [
   'student.birthdate.daily',
   'student.anniversary.email',
   'student.points.recurring',

@@ -1,6 +1,5 @@
 import { match } from 'ts-pattern';
 
-import { SlackBullJob } from '@/infrastructure/bull.types';
 import { registerJobProcessor } from '@/infrastructure/hybrid-job-queue';
 import { addSlackMessage } from './use-cases/add-slack-message';
 // import { answerChatbotQuestion } from './use-cases/answer-chatbot-question';
@@ -79,7 +78,9 @@ registerJobProcessor('slack', async (job) => {
       .with({ name: 'slack.secured_the_bag.reminder' }, async ({ data }) => {
         return sendSecuredTheBagReminder(data);
       })
-      .exhaustive()
+      .otherwise(() => {
+        throw new Error(`Unknown job type: ${job.name}`);
+      })
   );
 });
 
@@ -144,7 +145,9 @@ export const slackWorker = {
         .with({ name: 'slack.secured_the_bag.reminder' }, async ({ data }) => {
           return sendSecuredTheBagReminder(data);
         })
-        .exhaustive()
+        .otherwise(() => {
+          throw new Error(`Unknown job type: ${job.name}`);
+        })
     );
   },
 };
