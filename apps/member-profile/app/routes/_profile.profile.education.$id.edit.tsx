@@ -39,7 +39,10 @@ import {
   user,
 } from '@/shared/session.server';
 
-export async function loader({ params, request }: LoaderFunctionArgs) {
+export async function loader({
+  params,
+  request,
+}: LoaderFunctionArgs): Promise<Response> {
   const session = await ensureUserAuthenticated(request);
 
   const education = await getEducation({

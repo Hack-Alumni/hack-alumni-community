@@ -8,7 +8,13 @@ import { z } from 'zod';
 
 import { updateMember } from '@hackcommunity/core/member-profile/server';
 import { nullableField, Student } from '@hackcommunity/types';
-import { Button, getErrors, InputField, Text, validateForm } from '@hackcommunity/ui';
+import {
+  Button,
+  getErrors,
+  InputField,
+  Text,
+  validateForm,
+} from '@hackcommunity/ui';
 
 import {
   ProfileHeader,

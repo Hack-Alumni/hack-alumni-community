@@ -4,13 +4,10 @@
   "installCommand": "yarn install",
   "framework": null,
   "functions": {
-    "apps/member-profile/build/server/index.js": {
+    "apps/api/src/routes/jobs.process.ts": {
       "maxDuration": 30
     },
-    "apps/admin-dashboard/build/server/index.js": {
-      "maxDuration": 30
-    },
-    "apps/api/src/main.ts": {
+    "apps/api/src/routes/cron.cleanup-old-jobs.ts": {
       "maxDuration": 30
     }
   },
@@ -30,5 +27,15 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  }
+  },
+  "crons": [
+    {
+      "path": "/api/jobs/process",
+      "schedule": "* * * * *"
+    },
+    {
+      "path": "/api/cron/cleanup-old-jobs",
+      "schedule": "0 2 * * *"
+    }
+  ]
 }

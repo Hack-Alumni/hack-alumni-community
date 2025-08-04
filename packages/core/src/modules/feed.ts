@@ -6,7 +6,7 @@ import { match } from 'ts-pattern';
 import { db } from '@hackcommunity/db';
 
 import { job, registerWorker } from '@/infrastructure/bull';
-import { FeedBullJob, type GetBullJobData } from '@/infrastructure/bull.types';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { STUDENT_PROFILE_URL } from '@/shared/env';
 
 // Environment Variables
@@ -15,12 +15,14 @@ const SLACK_FEED_CHANNEL_ID = process.env.SLACK_FEED_CHANNEL_ID || '';
 
 // Worker
 
-export const feedWorker = registerWorker('feed', FeedBullJob, async (job) => {
+export const feedWorker = registerWorker('feed', async (job) => {
   return match(job)
     .with({ name: 'feed.slack.recurring' }, ({ data }) => {
       return sendFeedSlackNotification(data);
     })
-    .exhaustive();
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
 });
 
 // Send Feed Slack Notification

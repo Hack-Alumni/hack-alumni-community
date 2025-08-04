@@ -1,6 +1,5 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { CreateTagInput } from '@hackcommunity/core/resources';
 import { createTag } from '@hackcommunity/core/resources/server';
 import { validateForm } from '@hackcommunity/ui';
@@ -21,12 +20,13 @@ export async function action({ request }: ActionFunctionArgs) {
     name: data.name,
   });
 
-  track({
-    event: 'Resource Tag Added',
-    properties: undefined,
-    request,
-    user: user(session),
-  });
+  // TODO: Re-implement tracking after analytics setup
+  // track({
+  //   event: 'Resource Tag Added',
+  //   properties: undefined,
+  //   request,
+  //   user: user(session),
+  // });
 
   return json({});
 }

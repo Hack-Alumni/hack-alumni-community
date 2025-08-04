@@ -10,7 +10,6 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useSearchParams } from '@remix-run/react';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { AddResourceInput } from '@hackcommunity/core/resources';
 import { addResource } from '@hackcommunity/core/resources/server';
 import {
@@ -87,13 +86,6 @@ export async function action({ request }: ActionFunctionArgs) {
       { status: result.code }
     );
   }
-
-  track({
-    event: 'Resource Added',
-    properties: undefined,
-    request,
-    user: user(session),
-  });
 
   toast(session, {
     message: 'Added resource!',

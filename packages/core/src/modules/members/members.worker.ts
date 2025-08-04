@@ -6,7 +6,6 @@ import { db } from '@hackcommunity/db';
 import { splitArray } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
-import { StudentBullJob } from '@/infrastructure/bull.types';
 import { backfillActiveStatuses } from '@/modules/active-statuses/use-cases/backfill-active-statuses';
 import { createNewActiveStatuses } from '@/modules/active-statuses/use-cases/create-new-active-statuses';
 import {
@@ -24,55 +23,53 @@ import { backfillEngagementRecords } from './use-cases/backfill-engagement-recor
 import { sendBirthdayNotification } from './use-cases/send-birthday-notification';
 import { viewMemberProfile } from './use-cases/view-member-profile';
 
-export const memberWorker = registerWorker(
-  'student',
-  StudentBullJob,
-  async (job) => {
-    const result = await match(job)
-      .with({ name: 'student.activated' }, ({ data }) => {
-        return onMemberActivated(data);
-      })
-      .with(
-        { name: 'student.activation_requirement_completed' },
-        async ({ data }) => {
-          return onActivationStepCompleted(data);
-        }
-      )
-      .with({ name: 'student.anniversary.email' }, ({ data }) => {
-        return sendAnniversaryEmail(data);
-      })
-      .with({ name: 'student.birthdate.daily' }, ({ data }) => {
-        return sendBirthdayNotification(data);
-      })
-      .with({ name: 'student.company_review_notifications' }, ({ data }) => {
-        return sendCompanyReviewNotifications(data);
-      })
-      .with({ name: 'student.created' }, ({ data }) => {
-        return onMemberCreated(data);
-      })
-      .with({ name: 'student.engagement.backfill' }, ({ data }) => {
-        return backfillEngagementRecords(data);
-      })
-      .with({ name: 'student.points.recurring' }, ({ data: _ }) => {
-        return updatePointTotals();
-      })
-      .with({ name: 'student.profile.viewed' }, ({ data }) => {
-        return viewMemberProfile(data);
-      })
-      .with({ name: 'student.removed' }, ({ data }) => {
-        return onMemberRemoved(data);
-      })
-      .with({ name: 'student.statuses.backfill' }, ({ data }) => {
-        return backfillActiveStatuses(data);
-      })
-      .with({ name: 'student.statuses.new' }, ({ data }) => {
-        return createNewActiveStatuses(data);
-      })
-      .exhaustive();
+export const memberWorker = registerWorker('student', async (job) => {
+  const result = await match(job)
+    .with({ name: 'student.activated' }, ({ data }) => {
+      return onMemberActivated(data);
+    })
+    .with(
+      { name: 'student.activation_requirement_completed' },
+      async ({ data }) => {
+        return onActivationStepCompleted(data);
+      }
+    )
+    .with({ name: 'student.anniversary.email' }, ({ data }) => {
+      return sendAnniversaryEmail(data);
+    })
+    .with({ name: 'student.birthdate.daily' }, ({ data }) => {
+      return sendBirthdayNotification(data);
+    })
+    .with({ name: 'student.company_review_notifications' }, ({ data }) => {
+      return sendCompanyReviewNotifications(data);
+    })
+    .with({ name: 'student.created' }, ({ data }) => {
+      return onMemberCreated(data);
+    })
+    .with({ name: 'student.engagement.backfill' }, ({ data }) => {
+      return backfillEngagementRecords(data);
+    })
+    .with({ name: 'student.points.recurring' }, ({ data: _ }) => {
+      return updatePointTotals();
+    })
+    .with({ name: 'student.profile.viewed' }, ({ data }) => {
+      return viewMemberProfile(data);
+    })
+    .with({ name: 'student.removed' }, ({ data }) => {
+      return onMemberRemoved(data);
+    })
+    .with({ name: 'student.statuses.backfill' }, ({ data }) => {
+      return backfillActiveStatuses(data);
+    })
+    .with({ name: 'student.statuses.new' }, ({ data }) => {
+      return createNewActiveStatuses(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
 
-    return result;
-  }
-);
+  return result;
+});
 
 /**
  * This is a weekly job that runs and updates the point totals for all members.

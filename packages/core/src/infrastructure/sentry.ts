@@ -1,6 +1,6 @@
 import * as Sentry from '@sentry/node';
 
-import { type ErrorContext, ErrorWithContext } from '@/shared/errors';
+import { type ErrorContext, ErrorWithContext } from '../shared/errors';
 
 /**
  * Reports an exception to Sentry and logs the error to the console.

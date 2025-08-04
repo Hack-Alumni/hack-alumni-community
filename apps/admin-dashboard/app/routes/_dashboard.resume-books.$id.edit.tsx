@@ -7,7 +7,10 @@ import {
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
 
-import { getResumeBook, updateResumeBook } from '@hackcommunity/core/resume-books';
+import {
+  getResumeBook,
+  updateResumeBook,
+} from '@hackcommunity/core/resume-books';
 import {
   RESUME_BOOK_TIMEZONE,
   UpdateResumeBookInput,

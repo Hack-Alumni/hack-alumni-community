@@ -41,7 +41,7 @@ export const Pill = ({
     <span
       className={cx(
         getTextCn({ variant: 'sm' }),
-        getPillCn({ color, onCloseHref }),
+        getPillCn({ onCloseHref }),
         className
       )}
       style={getPillStyle(color)}
@@ -66,7 +66,7 @@ export const Pill = ({
   return body;
 };
 
-function getPillStyle(color: PillProps['color']): React.CSSProperties {
+export function getPillStyle(color: PillProps['color']): React.CSSProperties {
   return match(color)
     .with('amber-100', () => ({ backgroundColor: Colors.Amber50 }))
     .with('blue-100', () => ({ backgroundColor: Colors.CoreBlue10 }))
@@ -86,10 +86,7 @@ function getPillStyle(color: PillProps['color']): React.CSSProperties {
     .exhaustive();
 }
 
-export function getPillCn({
-  _color,
-  onCloseHref,
-}: Omit<PillProps, 'children'>) {
+export function getPillCn({ onCloseHref }: Pick<PillProps, 'onCloseHref'>) {
   return cx(
     'w-max rounded-full px-2 text-sm',
 

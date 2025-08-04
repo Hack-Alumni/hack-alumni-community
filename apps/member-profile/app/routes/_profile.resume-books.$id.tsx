@@ -37,7 +37,11 @@ import {
   SubmitResumeInput,
 } from '@hackcommunity/core/resume-books/types';
 import { db } from '@hackcommunity/db';
-import { FORMATTED_RACE, Race, WorkAuthorizationStatus } from '@hackcommunity/types';
+import {
+  FORMATTED_RACE,
+  Race,
+  WorkAuthorizationStatus,
+} from '@hackcommunity/types';
 import {
   Button,
   Checkbox,

@@ -11,7 +11,10 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { deleteOffer, hasOfferWritePermission } from '@hackcommunity/core/offers';
+import {
+  deleteOffer,
+  hasOfferWritePermission,
+} from '@hackcommunity/core/offers';
 import { db } from '@hackcommunity/db';
 import { Button, ErrorMessage, getErrors, Modal } from '@hackcommunity/ui';
 

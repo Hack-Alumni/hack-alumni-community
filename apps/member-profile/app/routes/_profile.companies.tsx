@@ -19,7 +19,6 @@ import {
   ListCompaniesWhere,
 } from '@hackcommunity/core/employment';
 import { listCompanies } from '@hackcommunity/core/employment/server';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   Button,
   cx,
@@ -67,13 +66,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
       'companies.name',
     ],
     where: { search: searchParams.search },
-  });
-
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Companies' },
-    request,
-    user: user(session),
   });
 
   return json({

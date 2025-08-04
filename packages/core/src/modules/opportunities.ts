@@ -11,11 +11,7 @@ import { id } from '@hackcommunity/utils';
 
 import { getChatCompletion } from '@/infrastructure/ai';
 import { job, registerWorker } from '@/infrastructure/bull';
-import {
-  type GetBullJobData,
-  OpportunityBullJob,
-} from '@/infrastructure/bull.types';
-import { track } from '@/infrastructure/mixpanel';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { getPageContent } from '@/infrastructure/puppeteer';
 import { redis } from '@/infrastructure/redis';
 import { reportException } from '@/infrastructure/sentry';
@@ -74,14 +70,6 @@ export async function bookmarkOpportunity({
       .select(['companies.name as companyName', 'postedBy'])
       .where('opportunities.id', '=', opportunityId)
       .executeTakeFirst();
-
-    if (opportunity && opportunity.companyName) {
-      track({
-        event: 'Opportunity Bookmarked',
-        properties: { Company: opportunity.companyName },
-        user: memberId,
-      });
-    }
 
     if (opportunity && opportunity.postedBy) {
       job('gamification.activity.completed', {
@@ -332,8 +320,8 @@ async function createOpportunity({
   if (!isProtectedURL) {
     try {
       websiteContent = await getPageContent(link);
-    } catch (e) {
-      reportException(e);
+    } catch {
+      reportException(new Error('Failed to get page content'));
     }
   }
 
@@ -683,7 +671,7 @@ export async function refineOpportunity(
 
   try {
     json = JSON.parse(completionResult.data);
-  } catch (e) {
+  } catch {
     console.debug(
       'Failed to parse JSON from AI response.',
       completionResult.data
@@ -1070,26 +1058,24 @@ export async function listOpportunityTags() {
 
 // Worker
 
-export const opportunityWorker = registerWorker(
-  'opportunity',
-  OpportunityBullJob,
-  async (job) => {
-    const result = await match(job)
-      .with({ name: 'opportunity.check_expired' }, async ({ data }) => {
-        return checkForExpiredOpportunity(data.opportunityId, data.force);
-      })
-      .with({ name: 'opportunity.check_expired.all' }, async ({ data }) => {
-        return checkForExpiredOpportunities(data);
-      })
-      .with({ name: 'opportunity.create' }, async ({ data }) => {
-        return createOpportunity(data);
-      })
-      .exhaustive();
+export const opportunityWorker = registerWorker('opportunity', async (job) => {
+  const result = await match(job)
+    .with({ name: 'opportunity.check_expired' }, async ({ data }) => {
+      return checkForExpiredOpportunity(data.opportunityId, data.force);
+    })
+    .with({ name: 'opportunity.check_expired.all' }, async ({ data }) => {
+      return checkForExpiredOpportunities(data);
+    })
+    .with({ name: 'opportunity.create' }, async ({ data }) => {
+      return createOpportunity(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
 
-    if (!result.ok) {
-      throw new Error(result.error);
-    }
-
-    return result.data;
+  if (!result.ok) {
+    throw new Error(result.error);
   }
-);
+
+  return result.data;
+});

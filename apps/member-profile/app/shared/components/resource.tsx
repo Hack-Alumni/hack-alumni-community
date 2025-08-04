@@ -25,7 +25,6 @@ import {
 } from '@hackcommunity/ui/tooltip';
 
 import { Route } from '@/shared/constants';
-import { useMixpanelTracker } from '@/shared/hooks/use-mixpanel-tracker';
 import { useToast } from '@/shared/hooks/use-toast';
 
 type ResourceProps = {
@@ -279,7 +278,6 @@ function ResourceActionGroup({
 }: Pick<ResourceProps, 'editable' | 'id' | 'shareableUri'>) {
   const [searchParams] = useSearchParams();
   const toast = useToast();
-  const { trackFromClient } = useMixpanelTracker();
 
   const buttonClassName = getIconButtonCn({
     backgroundColor: 'gray-100',
@@ -317,10 +315,11 @@ function ResourceActionGroup({
               onClick={() => {
                 navigator.clipboard.writeText(shareableUri);
                 toast({ message: 'Copied URL to clipboard!' });
-                trackFromClient({
-                  event: 'Resource Link Copied',
-                  properties: undefined,
-                });
+                // TODO: Re-implement tracking after analytics setup
+                // trackFromClient({
+                //   event: 'Resource Link Copied',
+                //   properties: undefined,
+                // });
               }}
               type="button"
             >

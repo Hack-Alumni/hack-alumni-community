@@ -1,6 +1,7 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { Link, Outlet, useLoaderData } from '@remix-run/react';
 import dayjs from 'dayjs';
+import MediumIcon from 'public/MediumIcon';
 import { type PropsWithChildren } from 'react';
 import {
   ExternalLink,
@@ -11,7 +12,6 @@ import {
   Linkedin,
   Twitter,
 } from 'react-feather';
-import MediumIcon from 'public/MediumIcon';
 import { match } from 'ts-pattern';
 
 import { countEventAttendees } from '@hackcommunity/core/events/attendees';
@@ -19,7 +19,6 @@ import {
   countMessagesSent,
   getActiveStreakLeaderboard,
 } from '@hackcommunity/core/member-profile/server';
-import { getIpAddress, setMixpanelProfile, track } from '@hackcommunity/core/mixpanel';
 import { db } from '@hackcommunity/db';
 import {
   ACTIVATION_REQUIREMENTS,
@@ -64,20 +63,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
   ]);
 
   const statuses = fillRecentStatuses(_statuses, timezone);
-
-  setMixpanelProfile(id, {
-    email: student.email,
-    firstName: student.firstName,
-    lastName: student.lastName,
-    ip: getIpAddress(request),
-  });
-
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Home' },
-    request,
-    user: id,
-  });
 
   return json({
     eventsAttendedCount,
@@ -480,6 +465,7 @@ function ResourceItem({
     </li>
   );
 }
+
 function SocialsCard() {
   return (
     <Card>

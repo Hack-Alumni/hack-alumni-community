@@ -121,7 +121,7 @@ export async function action({ params, request }: ActionFunctionArgs) {
         'Set-Cookie': await commitSession(session),
       },
     });
-  } catch (e) {
+  } catch {
     return json(
       { error: 'Something went wrong, please try again.' },
       { status: 500 }

@@ -7,7 +7,6 @@ import { Form, useActionData, useLoaderData } from '@remix-run/react';
 import { type z } from 'zod';
 
 import { updateMember } from '@hackcommunity/core/member-profile/server';
-import { track } from '@hackcommunity/core/mixpanel';
 import { Student } from '@hackcommunity/types';
 import {
   Button,
@@ -54,13 +53,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
       'preferredName',
     ])
     .executeTakeFirstOrThrow();
-
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Profile' },
-    request,
-    user: id,
-  });
 
   return json({
     student,

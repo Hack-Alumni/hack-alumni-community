@@ -2,7 +2,8 @@ import { config } from 'dotenv';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
-const env = config({ path: './.env.test' }).parsed;
+// Only load .env.test for local development, not in CI
+const env = process.env.CI ? undefined : config({ path: './.env.test' }).parsed;
 
 // If there is no ".env.test" file found, then we'll throw error, except in the
 // CI environment because in CI we manually set the environment variables

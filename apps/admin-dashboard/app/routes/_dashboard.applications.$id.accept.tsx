@@ -6,7 +6,10 @@ import {
 } from '@remix-run/node';
 import { Form, useActionData, useLoaderData } from '@remix-run/react';
 
-import { acceptApplication, getApplication } from '@hackcommunity/core/applications';
+import {
+  acceptApplication,
+  getApplication,
+} from '@hackcommunity/core/applications';
 import { Button, ErrorMessage, Modal } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';

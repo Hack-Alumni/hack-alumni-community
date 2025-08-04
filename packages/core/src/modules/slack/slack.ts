@@ -12,7 +12,6 @@ import {
   rerankDocuments,
 } from '@/infrastructure/ai';
 import { job } from '@/infrastructure/bull';
-import { track } from '@/infrastructure/mixpanel';
 import { getPineconeIndex } from '@/infrastructure/pinecone';
 import { cache, ONE_HOUR_IN_SECONDS } from '@/infrastructure/redis';
 import { sendSlackNotification } from '@/modules/notifications/use-cases/send-slack-notification';
@@ -68,25 +67,11 @@ export async function answerChatbotQuestion({
     return;
   }
 
-  // Track the question asked by the user in Mixpanel but asychronously so that
   // we don't block the Slack event from being processed.
   db.selectFrom('students')
     .select(['id'])
     .where('slackId', '=', userId)
-    .executeTakeFirst()
-    .then((member) => {
-      if (member) {
-        track({
-          application: 'Slack',
-          event: 'Chatbot Question Asked',
-          properties: {
-            Question: text,
-            Type: 'DM',
-          },
-          user: member.id,
-        });
-      }
-    });
+    .executeTakeFirst();
 
   const questionResult = await isQuestion(text);
 
@@ -238,16 +223,6 @@ export async function answerPublicQuestionInPrivate({
     workspace: 'regular',
   });
 
-  track({
-    application: 'Slack',
-    event: 'Public Question Answered',
-    properties: {
-      '# of Threads Found': threads.length,
-      Question: question,
-      Where: 'DM',
-    },
-  });
-
   return success({});
 }
 
@@ -289,25 +264,11 @@ export async function answerPublicQuestion({
   threadId,
   userId,
 }: AnswerPublicQuestionInput): Promise<Result> {
-  // Track the question asked by the user in Mixpanel but asychronously so that
   // we don't block the Slack event from being processed.
   db.selectFrom('students')
     .select(['id'])
     .where('slackId', '=', userId)
-    .executeTakeFirst()
-    .then((member) => {
-      if (member) {
-        track({
-          application: 'Slack',
-          event: 'Chatbot Question Asked',
-          properties: {
-            Question: text as string,
-            Type: 'Public',
-          },
-          user: member.id,
-        });
-      }
-    });
+    .executeTakeFirst();
 
   const slackMessage = await db
     .selectFrom('slackMessages')
@@ -616,13 +577,6 @@ export async function answerMemberProfileQuestion({
     ONE_HOUR_IN_SECONDS
   );
 
-  track({
-    application: 'Member Profile',
-    event: 'Chatbot Question Asked',
-    properties: { Question: question },
-    user: memberId,
-  });
-
   return success(parsedAnswer);
 }
 
@@ -709,7 +663,7 @@ async function parseAnswerForMemberProfile(
 
   try {
     metadataJSON = JSON.parse(metadataSection.trim());
-  } catch (error) {
+  } catch {
     return fail({
       code: 400,
       error: 'Failed to parse thread metadata into JSON.',

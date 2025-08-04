@@ -64,11 +64,14 @@ export async function action({ params, request }: ActionFunctionArgs) {
     message: 'Added repeatable.',
   });
 
-  return redirect(generatePath(Route['/bull/:queue'], { queue: queue.name }), {
-    headers: {
-      'Set-Cookie': await commitSession(session),
-    },
-  });
+  return redirect(
+    generatePath(Route['/bull/:queue'], { queue: params.queue! }),
+    {
+      headers: {
+        'Set-Cookie': await commitSession(session),
+      },
+    }
+  );
 }
 
 export default function AddRepeatablePage() {

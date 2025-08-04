@@ -9,7 +9,7 @@
   },
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo",
-    "build:vercel": "yarn build && yarn build:api",
+    "build:vercel": "yarn workspace @hackcommunity/member-profile build && yarn workspace @hackcommunity/admin-dashboard build && yarn build:api",
     "build:api": "cd apps/api && yarn build",
     "db:migrate": "yarn workspace @hackcommunity/db migrate",
     "db:migrate:down": "yarn workspace @hackcommunity/db migrate:down",
@@ -18,6 +18,7 @@
     "db:types": "yarn workspace @hackcommunity/db types",
     "dev": "turbo run dev --cache-dir=.turbo",
     "dev:apps": "yarn dev --filter=./apps/*",
+    "dev:setup": "./scripts/dev-setup.sh",
     "dx:down": "docker compose down",
     "dx:nuke": "docker compose down --volumes --remove-orphans",
     "dx:up": "docker compose up -d",
@@ -30,7 +31,9 @@
     "start:vercel": "node apps/member-profile/build/server/index.js",
     "test": "turbo run test --cache-dir=.turbo",
     "type-check": "turbo run type-check --cache-dir=.turbo",
-    "vercel-build": "yarn build:vercel"
+    "vercel-build": "yarn build:vercel",
+    "clean": "turbo run clean --cache-dir=.turbo",
+    "clean:all": "rm -rf node_modules && rm -rf apps/*/node_modules && rm -rf packages/*/node_modules && rm -rf config/*/node_modules && yarn install"
   },
   "dependencies": {
     "@vercel/node": "^3.0.0",
@@ -39,11 +42,11 @@
   "devDependencies": {
     "prettier": "^3.2.5",
     "turbo": "latest",
-    "typescript": "^5.4.2"
+    "typescript": "5.8.3"
   },
   "engines": {
     "npm": ">=7.0.0",
-    "node": "^20.0.0"
+    "node": ">=20.0.0"
   },
   "packageManager": "yarn@1.22.10"
 }

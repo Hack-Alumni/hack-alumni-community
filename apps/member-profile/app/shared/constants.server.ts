@@ -20,7 +20,7 @@ const BaseEnvironmentConfig = z.object({
   GOOGLE_CLIENT_SECRET: EnvironmentVariable,
   GOOGLE_MAPS_API_KEY: EnvironmentVariable,
   JWT_SECRET: EnvironmentVariable,
-  MIXPANEL_TOKEN: EnvironmentVariable,
+
   OPENAI_API_KEY: EnvironmentVariable,
   PINECONE_API_KEY: EnvironmentVariable,
   R2_ACCESS_KEY_ID: EnvironmentVariable,
@@ -51,7 +51,7 @@ const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
     GOOGLE_CLIENT_ID: true,
     GOOGLE_CLIENT_SECRET: true,
     GOOGLE_MAPS_API_KEY: true,
-    MIXPANEL_TOKEN: true,
+
     OPENAI_API_KEY: true,
     PINECONE_API_KEY: true,
     R2_ACCESS_KEY_ID: true,

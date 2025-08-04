@@ -12,7 +12,6 @@ import { Plus } from 'react-feather';
 
 import { isMemberAdmin } from '@hackcommunity/core/admins';
 import { ListSearchParams } from '@hackcommunity/core/member-profile/ui';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   ListResourcesOrderBy,
   ListResourcesWhere,
@@ -196,12 +195,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     return result;
   });
 
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Resources' },
-    request,
-    user: user(session),
-  });
+  // Track event removed
 
   return json({
     limit: searchParams.limit,

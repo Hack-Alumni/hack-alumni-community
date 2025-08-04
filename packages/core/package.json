@@ -20,6 +20,8 @@
     "./applications/types": "./src/modules/applications/applications.types.ts",
     "./applications/ui": "./src/modules/applications/applications.ui.tsx",
     "./bull": "./src/infrastructure/bull.ts",
+    "./job-queue": "./src/infrastructure/job-queue.ts",
+    "./hybrid-job-queue": "./src/infrastructure/hybrid-job-queue.ts",
     "./chapters": "./src/modules/chapters/chapters.ts",
     "./education": "./src/modules/education/education.ts",
     "./education/types": "./src/modules/education/education.types.ts",
@@ -37,7 +39,6 @@
     "./location": "./src/modules/location/location.ts",
     "./location/types": "./src/modules/location/location.types.ts",
     "./location/ui": "./src/modules/location/location.ui.tsx",
-    "./mixpanel": "./src/infrastructure/mixpanel.ts",
     "./offers": "./src/modules/compensation/offers.ts",
     "./offers/ui": "./src/modules/compensation/offers.ui.tsx",
     "./opportunities": "./src/modules/opportunities.ts",
@@ -62,7 +63,8 @@
     "lint:fix": "eslint . --fix",
     "script": "tsx src/script.ts",
     "test": "vitest run",
-    "type-check": "tsc --noEmit"
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf dist && rm -rf node_modules/.cache"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.576.0",
@@ -76,13 +78,14 @@
     "@slack/web-api": "^6.7.2",
     "@upstash/redis": "^1.28.4",
     "bullmq": "^4.12.2",
-    "canvas": "^2.11.2",
+    "@supabase/supabase-js": "^2.39.0",
+    "@upstash/qstash": "^2.8.2",
+
     "dayjs": "^1.11.5",
     "dedent": "^0.7.0",
     "googleapis": "^126.0.1",
     "is-ip": "^5.0.1",
     "jsonwebtoken": "^9.0.2",
-    "mixpanel": "^0.18.0",
     "nanoid": "^3.0.0",
     "nodemailer": "^6.9.13",
     "pdfjs-dist": "^4.5.136",
@@ -108,5 +111,8 @@
     "vite": "^5.0.0",
     "vite-tsconfig-paths": "^4.3.1",
     "vitest": "^1.3.1"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }

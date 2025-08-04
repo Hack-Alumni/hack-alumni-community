@@ -15,7 +15,6 @@ import { ArrowRight, Check, Edit, Info, User } from 'react-feather';
 import { z } from 'zod';
 
 import { ListSearchParams } from '@hackcommunity/core/member-profile/ui';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   type HelpRequestStatus,
   HelpRequestType,
@@ -30,7 +29,11 @@ import {
   Text,
 } from '@hackcommunity/ui';
 import { FilterList } from '@hackcommunity/ui/filter';
-import { FilterPopover, FilterRoot, FilterTrigger } from '@hackcommunity/ui/filter';
+import {
+  FilterPopover,
+  FilterRoot,
+  FilterTrigger,
+} from '@hackcommunity/ui/filter';
 import { type FilterValue } from '@hackcommunity/ui/filter';
 import { FilterItem } from '@hackcommunity/ui/filter';
 import {
@@ -103,13 +106,6 @@ export async function loader({ request }: LoaderFunctionArgs) {
     if (view === 'me') {
       filters.push('My Requests');
     }
-
-    track({
-      event: 'Help Request List Viewed',
-      properties: { Filter: filters },
-      request,
-      user: memberId,
-    });
   }
 
   return json({
