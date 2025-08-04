@@ -3,14 +3,6 @@
   "buildCommand": "./build.sh",
   "installCommand": "yarn install",
   "framework": null,
-  "functions": {
-    "apps/api/src/routes/jobs.process.ts": {
-      "maxDuration": 30
-    },
-    "apps/api/src/routes/cron.cleanup-old-jobs.ts": {
-      "maxDuration": 30
-    }
-  },
   "rewrites": [
     {
       "source": "/api/(.*)",
