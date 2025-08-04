@@ -106,12 +106,24 @@ and their specific purposes.
 
 ### **UPSTASH_QSTASH_TOKEN**
 
-- **Purpose**: Token for Upstash QStash real-time job processing
+- **Purpose**: Token for Upstash QStash real-time job processing and scheduled
+  jobs
 - **How to Get**:
   1. Go to [Upstash Console](https://console.upstash.com)
   2. Create a new QStash database
   3. Copy the token from the dashboard
-- **Usage**: Processes real-time jobs like Slack messages, notifications
+- **Usage**:
+  - Processes real-time jobs like Slack messages, notifications
+  - Handles scheduled jobs (every minute processing, daily cleanup)
+  - **To check your schedules**:
+
+    ```bash
+    # List all schedules
+    curl -H "Authorization: Bearer $UPSTASH_QSTASH_TOKEN" https://qstash.upstash.io/v2/schedules | jq .
+
+    # Or visit the Upstash Console
+    # https://console.upstash.com/qstash
+    ```
 
 ### **UPSTASH_QSTASH_CURRENT_SIGNING_KEY** & **UPSTASH_QSTASH_NEXT_SIGNING_KEY**
 
@@ -483,6 +495,34 @@ and their specific purposes.
 5. ✅ Email Service (Postmark)
 6. ✅ Slack Integration
 7. ✅ Error Tracking (Sentry)
+
+### **QStash Schedule Setup:**
+
+After deployment, run the following to setup scheduled jobs:
+
+```bash
+# Update API_URL with your actual Vercel domain
+# Edit .env file and change API_URL to your real domain
+# Example: API_URL=https://your-project.vercel.app
+
+# Setup QStash schedules
+yarn qstash:setup
+```
+
+**This creates:**
+
+- **Every 5 minutes**: Processes scheduled jobs
+- **Daily at 2 AM**: Cleans up old jobs
+
+**To check your schedules:**
+
+```bash
+# List all schedules
+curl -H "Authorization: Bearer $UPSTASH_QSTASH_TOKEN" https://qstash.upstash.io/v2/schedules | jq .
+
+# Or visit the Upstash Console
+# https://console.upstash.com/qstash
+```
 
 ### **Optional Features:**
 

@@ -166,6 +166,33 @@ vercel env pull .env
 yarn db:migrate
 ```
 
+#### **Step 5: Setup QStash Schedules**
+
+```bash
+# Update API_URL with your actual Vercel domain
+# Edit .env file and change API_URL to your real domain
+# Example: API_URL=https://your-project.vercel.app
+
+# Setup QStash schedules
+yarn qstash:setup
+```
+
+**What this does:**
+
+- Creates a schedule that runs every 5 minutes for processing scheduled jobs
+- Creates a schedule that runs daily at 2 AM for cleaning up old jobs
+- Both schedules point to your API endpoint: `/api/jobs/process-immediate`
+
+**To check your schedules:**
+
+```bash
+# List all schedules
+curl -H "Authorization: Bearer $UPSTASH_QSTASH_TOKEN" https://qstash.upstash.io/v2/schedules | jq .
+
+# Or visit the Upstash Console
+# https://console.upstash.com/qstash
+```
+
 ---
 
 ### **Method 2: Vercel UI Deployment**

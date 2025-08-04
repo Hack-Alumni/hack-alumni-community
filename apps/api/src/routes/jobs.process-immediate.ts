@@ -1,6 +1,10 @@
 import { verifySignature } from '@upstash/qstash/nextjs';
 
-import { processImmediateJob } from '@hackcommunity/core/hybrid-job-queue';
+import {
+  processImmediateJob,
+  triggerJobCleanup,
+  triggerScheduledJobProcessing,
+} from '@hackcommunity/core/hybrid-job-queue';
 
 export async function action(request: Request) {
   try {
@@ -16,6 +20,24 @@ export async function action(request: Request) {
       });
     }
 
+    // Handle QStash schedule jobs
+    if (name === 'scheduled.job.process') {
+      const result = await triggerScheduledJobProcessing();
+
+      return new Response(JSON.stringify({ success: true, result }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    if (name === 'cleanup.old.jobs') {
+      const result = await triggerJobCleanup();
+
+      return new Response(JSON.stringify({ success: true, result }), {
+        headers: { 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Handle regular immediate jobs
     const result = await processImmediateJob({ name, data });
 
     return new Response(JSON.stringify({ success: true, result }), {
