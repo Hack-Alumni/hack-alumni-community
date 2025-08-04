@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "buildCommand": "yarn vercel-build",
+  "buildCommand": "./build.sh",
   "installCommand": "yarn install",
   "framework": null,
   "functions": {
