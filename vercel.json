@@ -27,15 +27,5 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "crons": [
-    {
-      "path": "/api/jobs/process",
-      "schedule": "* * * * *"
-    },
-    {
-      "path": "/api/cron/cleanup-old-jobs",
-      "schedule": "0 2 * * *"
-    }
-  ]
+  }
 }

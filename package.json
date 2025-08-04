@@ -27,6 +27,7 @@
     "lint:fix": "turbo run lint:fix --cache-dir=.turbo",
     "prisma:setup": "yarn workspace @hackcommunity/scripts prisma:setup",
     "prisma:studio": "yarn workspace @hackcommunity/db prisma:studio",
+    "qstash:setup": "tsx scripts/setup-qstash-schedules.ts",
     "start": "turbo run start --cache-dir=.turbo",
     "start:vercel": "node apps/member-profile/build/server/index.js",
     "test": "turbo run test --cache-dir=.turbo",
