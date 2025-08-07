@@ -1,25 +1,19 @@
 # Render configuration for Hack Alumni Community monorepo
-# This file defines all the services that will be deployed to Render
+# This file defines all the services that will be deployed to Render (Free Tier)
 
 services:
   # API Service
   - type: web
     name: hack-alumni-api
     env: node
-    buildCommand:
-      chmod +x scripts/render-build.sh && SERVICE_NAME=hack-alumni-api
-      ./scripts/render-build.sh
-    startCommand:
-      chmod +x scripts/render-start.sh && SERVICE_NAME=hack-alumni-api
-      ./scripts/render-start.sh
+    buildCommand: yarn install && yarn workspace @hackcommunity/api build
+    startCommand: yarn workspace @hackcommunity/api start
     rootDir: .
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 3000
-      - key: SERVICE_NAME
-        value: hack-alumni-api
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
@@ -57,20 +51,14 @@ services:
   - type: web
     name: hack-alumni-admin-dashboard
     env: node
-    buildCommand:
-      chmod +x scripts/render-build.sh &&
-      SERVICE_NAME=hack-alumni-admin-dashboard ./scripts/render-build.sh
-    startCommand:
-      chmod +x scripts/render-start.sh &&
-      SERVICE_NAME=hack-alumni-admin-dashboard ./scripts/render-start.sh
+    buildCommand: yarn install && yarn workspace @hackcommunity/admin-dashboard build
+    startCommand: yarn workspace @hackcommunity/admin-dashboard start
     rootDir: .
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 3001
-      - key: SERVICE_NAME
-        value: hack-alumni-admin-dashboard
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
@@ -86,20 +74,14 @@ services:
   - type: web
     name: hack-alumni-member-profile
     env: node
-    buildCommand:
-      chmod +x scripts/render-build.sh &&
-      SERVICE_NAME=hack-alumni-member-profile ./scripts/render-build.sh
-    startCommand:
-      chmod +x scripts/render-start.sh &&
-      SERVICE_NAME=hack-alumni-member-profile ./scripts/render-start.sh
+    buildCommand: yarn install && yarn workspace @hackcommunity/member-profile build
+    startCommand: yarn workspace @hackcommunity/member-profile start
     rootDir: .
     envVars:
       - key: NODE_ENV
         value: production
       - key: PORT
         value: 3002
-      - key: SERVICE_NAME
-        value: hack-alumni-member-profile
       - key: DATABASE_URL
         sync: false
       - key: JWT_SECRET
