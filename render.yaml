@@ -6,7 +6,6 @@ services:
   - type: web
     name: hack-alumni-api
     env: node
-    plan: starter
     buildCommand:
       chmod +x scripts/render-build.sh && SERVICE_NAME=hack-alumni-api
       ./scripts/render-build.sh
@@ -58,7 +57,6 @@ services:
   - type: web
     name: hack-alumni-admin-dashboard
     env: node
-    plan: starter
     buildCommand:
       chmod +x scripts/render-build.sh &&
       SERVICE_NAME=hack-alumni-admin-dashboard ./scripts/render-build.sh
@@ -88,7 +86,6 @@ services:
   - type: web
     name: hack-alumni-member-profile
     env: node
-    plan: starter
     buildCommand:
       chmod +x scripts/render-build.sh &&
       SERVICE_NAME=hack-alumni-member-profile ./scripts/render-build.sh
