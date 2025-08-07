@@ -1,6 +1,7 @@
 # Docker Deployment Guide
 
-This guide will help you deploy the Hack Alumni Community monorepo using Docker on Render.
+This guide will help you deploy the Hack Alumni Community monorepo using Docker
+on Render.
 
 ## 🐳 Docker Setup
 
@@ -64,6 +65,7 @@ yarn docker:clean
 ### Option 1: Using render.yaml (Recommended)
 
 1. **Push your code to GitHub**:
+
    ```bash
    git add .
    git commit -m "feat: add Docker support"
@@ -74,7 +76,8 @@ yarn docker:clean
    - Go to [Render Dashboard](https://dashboard.render.com)
    - Click "New +" → "Blueprint"
    - Connect your GitHub repository
-   - Render will automatically detect the `render.yaml` file with Docker configuration
+   - Render will automatically detect the `render.yaml` file with Docker
+     configuration
 
 3. **Configure Environment Variables**:
    - Go to each service's "Environment" tab
@@ -139,6 +142,7 @@ The `docker-compose.yml` file defines:
 Each service requires specific environment variables:
 
 #### API Service
+
 ```
 NODE_ENV=production
 PORT=3000
@@ -161,6 +165,7 @@ ENVIRONMENT=production
 ```
 
 #### Admin Dashboard Service
+
 ```
 NODE_ENV=production
 PORT=3001
@@ -172,6 +177,7 @@ API_BASE_URL=https://hack-alumni-api.onrender.com
 ```
 
 #### Member Profile Service
+
 ```
 NODE_ENV=production
 PORT=3002
@@ -191,10 +197,11 @@ AWS_S3_BUCKET=your-s3-bucket
 ### Common Issues
 
 1. **Build Failures**:
+
    ```bash
    # Check Docker logs
    docker-compose logs -f
-   
+
    # Rebuild without cache
    docker-compose build --no-cache
    ```
@@ -215,8 +222,10 @@ AWS_S3_BUCKET=your-s3-bucket
 
 ### Performance Optimization
 
-1. **Multi-stage Builds**: The Dockerfile uses multi-stage builds to reduce image size
-2. **Layer Caching**: Dependencies are installed in a separate layer for better caching
+1. **Multi-stage Builds**: The Dockerfile uses multi-stage builds to reduce
+   image size
+2. **Layer Caching**: Dependencies are installed in a separate layer for better
+   caching
 3. **Alpine Linux**: Uses lightweight Alpine Linux base image
 4. **Non-root User**: Runs as non-root user for security
 
@@ -275,4 +284,4 @@ docker inspect <container-id>
 4. **Monitor deployment**: Check logs and performance
 5. **Test functionality**: Verify all services work correctly
 
-Your monorepo is now ready for Docker deployment on Render! 🚀🐳 
+Your monorepo is now ready for Docker deployment on Render! 🚀🐳
