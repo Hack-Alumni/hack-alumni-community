@@ -1,13 +1,14 @@
 # Render configuration for Hack Alumni Community monorepo
-# This file defines all the services that will be deployed to Render (Free Tier)
+# This file defines all the services that will be deployed to Render using Docker
 
 services:
   # API Service
   - type: web
     name: hack-alumni-api
-    env: node
-    buildCommand: yarn install && yarn workspace @hackcommunity/api build
-    startCommand: yarn workspace @hackcommunity/api start
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: yarn workspace @hackcommunity/api start
     rootDir: .
     envVars:
       - key: NODE_ENV
@@ -50,9 +51,10 @@ services:
   # Admin Dashboard Service
   - type: web
     name: hack-alumni-admin-dashboard
-    env: node
-    buildCommand: yarn install && yarn workspace @hackcommunity/admin-dashboard build
-    startCommand: yarn workspace @hackcommunity/admin-dashboard start
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: yarn workspace @hackcommunity/admin-dashboard start
     rootDir: .
     envVars:
       - key: NODE_ENV
@@ -73,9 +75,10 @@ services:
   # Member Profile Service
   - type: web
     name: hack-alumni-member-profile
-    env: node
-    buildCommand: yarn install && yarn workspace @hackcommunity/member-profile build
-    startCommand: yarn workspace @hackcommunity/member-profile start
+    env: docker
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    dockerCommand: yarn workspace @hackcommunity/member-profile start
     rootDir: .
     envVars:
       - key: NODE_ENV

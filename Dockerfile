@@ -1,5 +1,5 @@
 # Dockerfile for Hack Alumni Community monorepo
-# This Dockerfile is optimized for Render deployment
+# This Dockerfile is optimized for Render deployment with Docker
 
 FROM node:20-alpine AS base
 
@@ -24,7 +24,7 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-# Build the application
+# Build all packages and applications
 RUN yarn build
 
 # Production image, copy all the files and run the app
@@ -37,7 +37,7 @@ ENV PORT 3000
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
-# Copy built application
+# Copy built applications and dependencies
 COPY --from=builder /app/apps/api/dist ./apps/api/dist
 COPY --from=builder /app/apps/admin-dashboard/build ./apps/admin-dashboard/build
 COPY --from=builder /app/apps/member-profile/build ./apps/member-profile/build
@@ -58,5 +58,5 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
-# Start the application
+# Start the application (this will be overridden by Render)
 CMD ["yarn", "start:render"]

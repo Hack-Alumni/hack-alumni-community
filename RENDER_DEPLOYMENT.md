@@ -17,7 +17,8 @@ You have two main options for deployment:
 
 #### Option A: Manual Service Creation (Recommended - Free Tier)
 
-Since the Blueprint approach might require payment information, let's use manual service creation:
+Since the Blueprint approach might require payment information, let's use manual
+service creation:
 
 1. **Create API Service**:
    - Go to [Render Dashboard](https://dashboard.render.com)
@@ -26,7 +27,8 @@ Since the Blueprint approach might require payment information, let's use manual
    - Configure:
      - **Name**: `hack-alumni-api`
      - **Root Directory**: `.` (root)
-     - **Build Command**: `yarn install && yarn workspace @hackcommunity/api build`
+     - **Build Command**:
+       `yarn install && yarn workspace @hackcommunity/api build`
      - **Start Command**: `yarn workspace @hackcommunity/api start`
      - **Environment**: `Node`
      - **Plan**: `Free` (or leave blank for free tier)
@@ -36,7 +38,8 @@ Since the Blueprint approach might require payment information, let's use manual
    - Configure:
      - **Name**: `hack-alumni-admin-dashboard`
      - **Root Directory**: `.` (root)
-     - **Build Command**: `yarn install && yarn workspace @hackcommunity/admin-dashboard build`
+     - **Build Command**:
+       `yarn install && yarn workspace @hackcommunity/admin-dashboard build`
      - **Start Command**: `yarn workspace @hackcommunity/admin-dashboard start`
      - **Environment**: `Node`
      - **Plan**: `Free` (or leave blank for free tier)
@@ -46,7 +49,8 @@ Since the Blueprint approach might require payment information, let's use manual
    - Configure:
      - **Name**: `hack-alumni-member-profile`
      - **Root Directory**: `.` (root)
-     - **Build Command**: `yarn install && yarn workspace @hackcommunity/member-profile build`
+     - **Build Command**:
+       `yarn install && yarn workspace @hackcommunity/member-profile build`
      - **Start Command**: `yarn workspace @hackcommunity/member-profile start`
      - **Environment**: `Node`
      - **Plan**: `Free` (or leave blank for free tier)

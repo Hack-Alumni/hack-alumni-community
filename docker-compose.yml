@@ -1,46 +1,100 @@
-# This file helps us easily spin up our Postgres and Redis databases in local
-# development (this is not meant to be used in production), bypassing the need
-# to install and configure these services on our local machines.
+# Docker Compose configuration for Hack Alumni Community monorepo
+# This file is for local development and testing
+
+version: '3.8'
 
 services:
-  browserless:
-    container_name: hackalumni-browserless
-    image: ghcr.io/browserless/chromium
+  # API Service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
     ports:
-      - 3333:3000
-
-  postgres:
-    container_name: hackalumni-postgres
-    image: postgres:15-alpine
-    ports:
-      # We're using port 5433 to avoid any potential conflicts.
-      - 5433:5432
-    volumes:
-      - pg_data:/var/lib/postgresql/data
+      - "3000:3000"
     environment:
-      POSTGRES_DB: hackalumni
-      POSTGRES_PASSWORD: hackalumni
-      POSTGRES_USER: hackalumni
-
-  postgres-test:
-    container_name: hackalumni-postgres-test
-    image: postgres:15-alpine
-    ports:
-      # We're using port 5434 to avoid any potential conflicts.
-      - 5434:5432
-    environment:
-      POSTGRES_DB: hackalumni_test
-      POSTGRES_PASSWORD: hackalumni
-      POSTGRES_USER: hackalumni
-
-  redis:
-    container_name: hackalumni-redis
-    image: redis:latest
-    ports:
-      - 6380:6379
+      - NODE_ENV=production
+      - PORT=3000
+      - SERVICE_NAME=hack-alumni-api
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - SENTRY_DSN=${SENTRY_DSN}
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - AWS_S3_BUCKET=${AWS_S3_BUCKET}
+      - POSTMARK_API_TOKEN=${POSTMARK_API_TOKEN}
+      - SLACK_BOT_TOKEN=${SLACK_BOT_TOKEN}
+      - SLACK_SIGNING_SECRET=${SLACK_SIGNING_SECRET}
+      - SLACK_APP_TOKEN=${SLACK_APP_TOKEN}
+      - QSTASH_TOKEN=${QSTASH_TOKEN}
+      - QSTASH_CURRENT_SIGNING_KEY=${QSTASH_CURRENT_SIGNING_KEY}
+      - QSTASH_NEXT_SIGNING_KEY=${QSTASH_NEXT_SIGNING_KEY}
+      - REDIS_URL=${REDIS_URL}
+      - ENVIRONMENT=production
+    command: yarn workspace @hackcommunity/api start
     volumes:
-      - redis_data:/data
+      - ./apps/api:/app/apps/api
+      - ./packages:/app/packages
+    networks:
+      - hack-alumni-network
 
-volumes:
-  pg_data:
-  redis_data:
+  # Admin Dashboard Service
+  admin-dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - SERVICE_NAME=hack-alumni-admin-dashboard
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - SENTRY_DSN=${SENTRY_DSN}
+      - ENVIRONMENT=production
+      - API_BASE_URL=http://api:3000
+    command: yarn workspace @hackcommunity/admin-dashboard start
+    volumes:
+      - ./apps/admin-dashboard:/app/apps/admin-dashboard
+      - ./packages:/app/packages
+    depends_on:
+      - api
+    networks:
+      - hack-alumni-network
+
+  # Member Profile Service
+  member-profile:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: runner
+    ports:
+      - "3002:3002"
+    environment:
+      - NODE_ENV=production
+      - PORT=3002
+      - SERVICE_NAME=hack-alumni-member-profile
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - SENTRY_DSN=${SENTRY_DSN}
+      - ENVIRONMENT=production
+      - API_BASE_URL=http://api:3000
+      - AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+      - AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+      - AWS_REGION=${AWS_REGION}
+      - AWS_S3_BUCKET=${AWS_S3_BUCKET}
+    command: yarn workspace @hackcommunity/member-profile start
+    volumes:
+      - ./apps/member-profile:/app/apps/member-profile
+      - ./packages:/app/packages
+    depends_on:
+      - api
+    networks:
+      - hack-alumni-network
+
+networks:
+  hack-alumni-network:
+    driver: bridge
