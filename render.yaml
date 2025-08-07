@@ -1,0 +1,130 @@
+# Render configuration for Hack Alumni Community monorepo
+# This file defines all the services that will be deployed to Render
+
+services:
+  # API Service
+  - type: web
+    name: hack-alumni-api
+    env: node
+    plan: starter
+    buildCommand:
+      chmod +x scripts/render-build.sh && SERVICE_NAME=hack-alumni-api
+      ./scripts/render-build.sh
+    startCommand:
+      chmod +x scripts/render-start.sh && SERVICE_NAME=hack-alumni-api
+      ./scripts/render-start.sh
+    rootDir: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: SERVICE_NAME
+        value: hack-alumni-api
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_REGION
+        sync: false
+      - key: AWS_S3_BUCKET
+        sync: false
+      - key: POSTMARK_API_TOKEN
+        sync: false
+      - key: SLACK_BOT_TOKEN
+        sync: false
+      - key: SLACK_SIGNING_SECRET
+        sync: false
+      - key: SLACK_APP_TOKEN
+        sync: false
+      - key: QSTASH_TOKEN
+        sync: false
+      - key: QSTASH_CURRENT_SIGNING_KEY
+        sync: false
+      - key: QSTASH_NEXT_SIGNING_KEY
+        sync: false
+      - key: REDIS_URL
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+
+  # Admin Dashboard Service
+  - type: web
+    name: hack-alumni-admin-dashboard
+    env: node
+    plan: starter
+    buildCommand:
+      chmod +x scripts/render-build.sh &&
+      SERVICE_NAME=hack-alumni-admin-dashboard ./scripts/render-build.sh
+    startCommand:
+      chmod +x scripts/render-start.sh &&
+      SERVICE_NAME=hack-alumni-admin-dashboard ./scripts/render-start.sh
+    rootDir: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: SERVICE_NAME
+        value: hack-alumni-admin-dashboard
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: API_BASE_URL
+        value: https://hack-alumni-api.onrender.com
+
+  # Member Profile Service
+  - type: web
+    name: hack-alumni-member-profile
+    env: node
+    plan: starter
+    buildCommand:
+      chmod +x scripts/render-build.sh &&
+      SERVICE_NAME=hack-alumni-member-profile ./scripts/render-build.sh
+    startCommand:
+      chmod +x scripts/render-start.sh &&
+      SERVICE_NAME=hack-alumni-member-profile ./scripts/render-start.sh
+    rootDir: .
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3002
+      - key: SERVICE_NAME
+        value: hack-alumni-member-profile
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: SENTRY_DSN
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: API_BASE_URL
+        value: https://hack-alumni-api.onrender.com
+      - key: AWS_ACCESS_KEY_ID
+        sync: false
+      - key: AWS_SECRET_ACCESS_KEY
+        sync: false
+      - key: AWS_REGION
+        sync: false
+      - key: AWS_S3_BUCKET
+        sync: false
+
+# Database (if using Render's managed PostgreSQL)
+databases:
+  - name: hack-alumni-db
+    databaseName: hack_alumni
+    user: hack_alumni_user
+    plan: starter

@@ -11,6 +11,8 @@
     "build": "turbo run build --cache-dir=.turbo",
     "build:vercel": "yarn workspace @hackcommunity/member-profile build && yarn workspace @hackcommunity/admin-dashboard build && yarn build:api",
     "build:api": "cd apps/api && yarn build",
+    "build:render": "./scripts/render-build.sh",
+    "start:render": "./scripts/render-start.sh",
     "db:migrate": "yarn workspace @hackcommunity/db migrate",
     "db:migrate:down": "yarn workspace @hackcommunity/db migrate:down",
     "db:migration:create": "yarn workspace @hackcommunity/db migration:create",
