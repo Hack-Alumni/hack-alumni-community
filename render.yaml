@@ -121,10 +121,3 @@ services:
         sync: false
       - key: AWS_S3_BUCKET
         sync: false
-
-# Database (if using Render's managed PostgreSQL)
-databases:
-  - name: hack-alumni-db
-    databaseName: hack_alumni
-    user: hack_alumni_user
-    plan: starter

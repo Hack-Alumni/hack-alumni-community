@@ -11,7 +11,7 @@ been created for the Hack Alumni Community monorepo.
    - Defines 3 web services: API, Admin Dashboard, Member Profile
    - Configures build and start commands
    - Sets up environment variables
-   - Includes PostgreSQL database configuration
+   - Uses Supabase for database (external service)
 
 2. **`Dockerfile`** - Docker configuration for Render
    - Multi-stage build for optimization
@@ -76,10 +76,10 @@ been created for the Hack Alumni Community monorepo.
 
 ### Database
 
-4. **PostgreSQL Database** (`hack-alumni-db`)
-   - Plan: Starter
-   - Database name: `hack_alumni`
-   - User: `hack_alumni_user`
+4. **Supabase PostgreSQL Database** (External Service)
+   - Hosted on Supabase platform
+   - Connection string format: `postgresql://postgres:[PASSWORD]@db.[PROJECT-REF].supabase.co:5432/postgres`
+   - Managed by Supabase (no Render costs)
 
 ## 🔧 Configuration Details
 

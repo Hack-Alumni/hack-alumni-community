@@ -1,8 +1,8 @@
 # Render Environment Variables Example
 # Copy this file and fill in your actual values for Render deployment
 
-# Database
-DATABASE_URL=postgresql://username:password@host:port/database
+# Database (Supabase)
+DATABASE_URL=postgresql://postgres:[YOUR-PASSWORD]@db.[YOUR-PROJECT-REF].supabase.co:5432/postgres
 
 # JWT
 JWT_SECRET=your-jwt-secret-here

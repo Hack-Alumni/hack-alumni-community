@@ -7,6 +7,7 @@ This guide will help you deploy the Hack Alumni Community monorepo to Render.
 ### 1. Prerequisites
 
 - [Render account](https://render.com)
+- [Supabase account](https://supabase.com) for database
 - GitHub repository with your code
 - Environment variables ready
 
@@ -71,7 +72,7 @@ a complete list.
 #### Required for All Services:
 
 - `NODE_ENV=production`
-- `DATABASE_URL` (PostgreSQL connection string)
+- `DATABASE_URL` (Supabase PostgreSQL connection string)
 - `JWT_SECRET` (for authentication)
 - `SENTRY_DSN` (for error tracking)
 
@@ -94,16 +95,27 @@ a complete list.
 
 - `API_BASE_URL` (URL of the API service)
 
-### Database Setup
+### Database Setup (Supabase)
 
-1. **Create PostgreSQL Database**:
-   - In Render Dashboard → "New +" → "PostgreSQL"
-   - Choose a plan (Starter is fine for development)
-   - Note the connection details
+1. **Create Supabase Project**:
+   - Go to [Supabase Dashboard](https://app.supabase.com)
+   - Click "New Project"
+   - Choose your organization
+   - Enter project name: `hack-alumni-community`
+   - Set a secure database password
+   - Choose a region close to your users
+   - Click "Create new project"
 
-2. **Run Migrations**:
-   - After deployment, you'll need to run database migrations
-   - You can do this via Render's shell or by adding a build step
+2. **Get Database Connection String**:
+   - In your Supabase project dashboard
+   - Go to Settings → Database
+   - Copy the connection string
+   - Format:
+     `postgresql://postgres:[YOUR-PASSWORD]@db.[YOUR-PROJECT-REF].supabase.co:5432/postgres`
+
+3. **Run Database Migrations**:
+   - Use the connection string in your `DATABASE_URL` environment variable
+   - Run migrations: `yarn db:migrate`
 
 ### Custom Domains
 
