@@ -15,7 +15,43 @@ This guide will help you deploy the Hack Alumni Community monorepo to Render.
 
 You have two main options for deployment:
 
-#### Option A: Using render.yaml (Recommended)
+#### Option A: Manual Service Creation (Recommended - Free Tier)
+
+Since the Blueprint approach might require payment information, let's use manual service creation:
+
+1. **Create API Service**:
+   - Go to [Render Dashboard](https://dashboard.render.com)
+   - Click "New +" → "Web Service"
+   - Connect your GitHub repository
+   - Configure:
+     - **Name**: `hack-alumni-api`
+     - **Root Directory**: `.` (root)
+     - **Build Command**: `yarn install && yarn workspace @hackcommunity/api build`
+     - **Start Command**: `yarn workspace @hackcommunity/api start`
+     - **Environment**: `Node`
+     - **Plan**: `Free` (or leave blank for free tier)
+
+2. **Create Admin Dashboard Service**:
+   - Repeat the process for admin dashboard
+   - Configure:
+     - **Name**: `hack-alumni-admin-dashboard`
+     - **Root Directory**: `.` (root)
+     - **Build Command**: `yarn install && yarn workspace @hackcommunity/admin-dashboard build`
+     - **Start Command**: `yarn workspace @hackcommunity/admin-dashboard start`
+     - **Environment**: `Node`
+     - **Plan**: `Free` (or leave blank for free tier)
+
+3. **Create Member Profile Service**:
+   - Repeat the process for member profile
+   - Configure:
+     - **Name**: `hack-alumni-member-profile`
+     - **Root Directory**: `.` (root)
+     - **Build Command**: `yarn install && yarn workspace @hackcommunity/member-profile build`
+     - **Start Command**: `yarn workspace @hackcommunity/member-profile start`
+     - **Environment**: `Node`
+     - **Plan**: `Free` (or leave blank for free tier)
+
+#### Option B: Using render.yaml (If Blueprint Works)
 
 1. **Fork/Clone the repository** to your GitHub account
 2. **Connect to Render**:
@@ -31,36 +67,6 @@ You have two main options for deployment:
 4. **Deploy**:
    - Render will automatically build and deploy all services
    - Each service will be available at its own URL
-
-#### Option B: Manual Service Creation
-
-1. **Create API Service**:
-   - Go to Render Dashboard → "New +" → "Web Service"
-   - Connect your GitHub repository
-   - Configure:
-     - **Name**: `hack-alumni-api`
-     - **Root Directory**: `.` (root)
-     - **Build Command**:
-       `yarn install && yarn workspace @hackcommunity/api build`
-     - **Start Command**: `yarn workspace @hackcommunity/api start`
-     - **Environment**: `Node`
-     - **Plan**: `Starter`
-
-2. **Create Admin Dashboard Service**:
-   - Repeat the process for admin dashboard
-   - Configure:
-     - **Name**: `hack-alumni-admin-dashboard`
-     - **Build Command**:
-       `yarn install && yarn workspace @hackcommunity/admin-dashboard build`
-     - **Start Command**: `yarn workspace @hackcommunity/admin-dashboard start`
-
-3. **Create Member Profile Service**:
-   - Repeat the process for member profile
-   - Configure:
-     - **Name**: `hack-alumni-member-profile`
-     - **Build Command**:
-       `yarn install && yarn workspace @hackcommunity/member-profile build`
-     - **Start Command**: `yarn workspace @hackcommunity/member-profile start`
 
 ## 🔧 Configuration
 
