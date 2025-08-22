@@ -5,9 +5,9 @@
   "sideEffects": false,
   "type": "module",
   "license": "MIT",
-  "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
+      "scripts": {
+      "build": "yarn remix vite:build",
+      "dev": "remix vite:dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "remix-serve ./build/server/index.js",
