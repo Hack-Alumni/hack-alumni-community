@@ -4,8 +4,8 @@ services:
     name: hack-alumni-member-profile
     env: node
     plan: free
-    buildCommand: yarn install && yarn build:render
-    startCommand: yarn start:render
+    buildCommand: yarn install && yarn workspace @hackcommunity/member-profile build
+    startCommand: yarn workspace @hackcommunity/member-profile start
     envVars:
       - key: NODE_ENV
         value: production
@@ -41,8 +41,8 @@ services:
     name: hack-alumni-api
     env: node
     plan: free
-    buildCommand: yarn install && yarn build:api:render
-    startCommand: yarn start:api:render
+    buildCommand: yarn install && yarn workspace @hackcommunity/api build
+    startCommand: yarn workspace @hackcommunity/api start
     envVars:
       - key: NODE_ENV
         value: production
@@ -73,13 +73,13 @@ services:
     healthCheckPath: /health
     autoDeploy: true
 
-  # Cron Jobs (Background Worker)
-  - type: worker
-    name: hack-alumni-cron-worker
+  # Cron Jobs (Background Jobs Service)
+  - type: web
+    name: hack-alumni-cron-service
     env: node
     plan: free
-    buildCommand: yarn install && yarn build:api:render
-    startCommand: yarn start:cron:render
+    buildCommand: yarn install && yarn workspace @hackcommunity/api build
+    startCommand: yarn workspace @hackcommunity/api start:cron
     envVars:
       - key: NODE_ENV
         value: production
@@ -99,12 +99,13 @@ services:
         sync: false
       - key: QSTASH_TOKEN
         sync: false
-      - key: QSTASH_CURRENT_SIGNING_KEY
+      - key: UPSTASH_QSTASH_CURRENT_SIGNING_KEY
         sync: false
-      - key: QSTASH_NEXT_SIGNING_KEY
+      - key: UPSTASH_QSTASH_NEXT_SIGNING_KEY
         sync: false
       - key: SENTRY_DSN
         sync: false
       - key: SENTRY_ENVIRONMENT
         value: production
+    healthCheckPath: /health
     autoDeploy: true
