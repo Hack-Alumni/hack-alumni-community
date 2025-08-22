@@ -54,11 +54,6 @@ export default function DashboardLayout() {
             {role === AdminRole.AMBASSADOR ? (
               <>
                 <Dashboard.NavigationLink
-                  icon={<Layers />}
-                  label={`Applications (${pendingApplications})`}
-                  pathname={Route['/applications']}
-                />
-                <Dashboard.NavigationLink
                   icon={<Video />}
                   label="Onboarding"
                   pathname={Route['/onboarding-sessions']}
@@ -67,34 +62,9 @@ export default function DashboardLayout() {
             ) : (
               <>
                 <Dashboard.NavigationLink
-                  icon={<Layers />}
-                  label={`Applications (${pendingApplications})`}
-                  pathname={Route['/applications']}
-                />
-                <Dashboard.NavigationLink
                   icon={<User />}
                   label="Members"
                   pathname={Route['/students']}
-                />
-                <Dashboard.NavigationLink
-                  icon={<Calendar />}
-                  label="Events"
-                  pathname={Route['/events']}
-                />
-                <Dashboard.NavigationLink
-                  icon={<BookOpen />}
-                  label="Resume Books"
-                  pathname={Route['/resume-books']}
-                />
-                <Dashboard.NavigationLink
-                  icon={<Video />}
-                  label="Onboarding"
-                  pathname={Route['/onboarding-sessions']}
-                />
-                <Dashboard.NavigationLink
-                  icon={<Gift />}
-                  label="Gamification"
-                  pathname={Route['/gamification/activities']}
                 />
                 <Dashboard.NavigationLink
                   icon={<User />}
@@ -115,11 +85,6 @@ export default function DashboardLayout() {
                       icon={<ToggleRight />}
                       label="Feature Flags"
                       pathname={Route['/feature-flags']}
-                    />
-                    <Dashboard.NavigationLink
-                      icon={<Target />}
-                      label="Bull"
-                      pathname={Route['/bull']}
                     />
                   </>
                 )}
