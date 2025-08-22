@@ -38,7 +38,6 @@ import {
 import { run, toEscapedString } from '@hackcommunity/utils';
 
 import { Route } from '@/shared/constants';
-import { useMixpanelTracker } from '@/shared/hooks/use-mixpanel-tracker';
 import { ensureUserAuthenticated } from '@/shared/session.server';
 import { formatName } from '@/shared/utils/format.utils';
 
@@ -57,7 +56,7 @@ const Coordinates = z
   .min(1)
   .nullable()
   .transform((value) => value?.split(',')?.map(Number))
-  .catch(null);
+  .catch(() => undefined);
 
 export async function loader({ request }: LoaderFunctionArgs) {
   await ensureUserAuthenticated(request);
@@ -109,11 +108,11 @@ export async function loader({ request }: LoaderFunctionArgs) {
             };
           })),
         hometown: null,
-        hometownLatitude: hometown?.[1],
-        hometownLongitude: hometown?.[0],
+        hometownLatitude: hometown?.[1] ?? null,
+        hometownLongitude: hometown?.[0] ?? null,
         location: null,
-        locationLatitude: location?.[1],
-        locationLongitude: location?.[0],
+        locationLatitude: location?.[1] ?? null,
+        locationLongitude: location?.[0] ?? null,
       },
     }),
   ]);
@@ -407,17 +406,16 @@ function MembersGrid() {
 type MemberInView = SerializeFrom<typeof loader>['members'][number];
 
 function MemberItem({ member }: { member: MemberInView }) {
-  const { trackFromClient } = useMixpanelTracker();
-
   return (
     <li>
       <Link
         className="grid grid-cols-[3rem,1fr] items-center gap-4 rounded-2xl p-2 hover:bg-gray-100 sm:grid-cols-[4rem,1fr]"
         onClick={() => {
-          trackFromClient({
-            event: 'Directory - Profile Clicked',
-            properties: undefined,
-          });
+          // TODO: Re-implement tracking after analytics setup
+          // trackFromClient({
+          //   event: 'Directory - Profile Clicked',
+          //   properties: undefined,
+          // });
         }}
         to={generatePath(Route['/directory/:id'], { id: member.id })}
       >

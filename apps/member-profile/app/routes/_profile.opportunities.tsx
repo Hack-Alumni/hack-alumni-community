@@ -15,7 +15,6 @@ import { sql } from 'kysely';
 import { jsonBuildObject } from 'kysely/helpers/postgres';
 import { Bookmark, Calendar, Tag, Zap } from 'react-feather';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { db } from '@hackcommunity/db';
 import {
   type AccentColor,
@@ -81,14 +80,7 @@ export async function loader({ request }: LoaderFunctionArgs) {
     listOpportunities(searchParams, { limit, memberId, page }),
   ]);
 
-  if (pathname === Route['/opportunities']) {
-    track({
-      event: 'Page Viewed',
-      properties: { Page: 'Opportunities' },
-      request,
-      user: memberId,
-    });
-  }
+  // Track event removed
 
   return json({
     allCompanies,

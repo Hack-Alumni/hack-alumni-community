@@ -17,8 +17,14 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { type ResourceType, UpdateResourceInput } from '@hackcommunity/core/resources';
-import { getResource, updateResource } from '@hackcommunity/core/resources/server';
+import {
+  type ResourceType,
+  UpdateResourceInput,
+} from '@hackcommunity/core/resources';
+import {
+  getResource,
+  updateResource,
+} from '@hackcommunity/core/resources/server';
 import {
   Button,
   Divider,
@@ -186,7 +192,7 @@ export default function EditResourceModal() {
         <Button.Group flexDirection="row-reverse" spacing="between">
           <Button.Submit>Save</Button.Submit>
 
-          <Button.Slot color="error" variant="secondary">
+          <Button.Slot variant="secondary">
             <Link
               to={generatePath(Route['/resources/:id/delete'], {
                 id: resource.id,

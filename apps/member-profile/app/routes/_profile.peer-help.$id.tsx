@@ -15,7 +15,6 @@ import {
 import dayjs from 'dayjs';
 import { ArrowDown, ArrowUp, Edit, User } from 'react-feather';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   type HelpRequestStatus,
   type HelpRequestType,
@@ -83,18 +82,6 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
   }
 
   const { pathname } = new URL(request.url);
-
-  if (pathname === generatePath(Route['/peer-help/:id'], { id })) {
-    track({
-      event: 'Help Request Viewed',
-      properties: {
-        Status: toTitleCase(helpRequest.status),
-        Type: toTitleCase(helpRequest.type),
-      },
-      request,
-      user: memberId,
-    });
-  }
 
   const createdAtObject = dayjs(helpRequest.createdAt);
 
@@ -263,7 +250,7 @@ function EditButton({ id }: Pick<HelpRequestInView, 'id'>) {
               pathname: generatePath(Route['/peer-help/:id/edit'], { id }),
               search: searchParams.toString(),
             }}
-            unstable_viewTransition
+            // unstable_viewTransition
           >
             <Edit />
           </Link>
@@ -288,7 +275,7 @@ function OfferHelpToggle() {
       <Button.Slot variant="secondary">
         <Link
           to={generatePath(Route['/peer-help/:id'], { id })}
-          unstable_viewTransition
+          // unstable_viewTransition
         >
           Collapse <ArrowUp size={20} />
         </Link>
@@ -300,7 +287,7 @@ function OfferHelpToggle() {
     <Button.Slot variant="primary">
       <Link
         to={generatePath(Route['/peer-help/:id/offer'], { id })}
-        unstable_viewTransition
+        // unstable_viewTransition
       >
         Offer Help <ArrowDown size={20} />
       </Link>

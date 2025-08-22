@@ -2,9 +2,12 @@ import { config } from 'dotenv';
 
 import { type Environment } from './types';
 
-// Loads the .env file into `process.env`. Note that if the config was already
-// loaded (for example, in tests), this will not overwrite any existing values.
-config();
+// Only load .env file for local development, not in CI
+if (!process.env.CI) {
+  // Loads the .env file into `process.env`. Note that if the config was already
+  // loaded (for example, in tests), this will not overwrite any existing values.
+  config();
+}
 
 // These are environment-related variables.
 

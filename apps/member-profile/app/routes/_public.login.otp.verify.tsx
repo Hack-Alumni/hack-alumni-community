@@ -11,8 +11,12 @@ import {
   OneTimeCodeForm,
   VerifyOneTimeCodeInput,
 } from '@hackcommunity/core/member-profile/ui';
-import { track } from '@hackcommunity/core/mixpanel';
-import { Button, ErrorMessage, getErrors, validateForm } from '@hackcommunity/ui';
+import {
+  Button,
+  ErrorMessage,
+  getErrors,
+  validateForm,
+} from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
 import { ENV } from '@/shared/constants.server';
@@ -68,12 +72,6 @@ export async function action({ request }: ActionFunctionArgs) {
     const session = await getSession(request);
 
     session.set(SESSION.USER_ID, userId);
-
-    track({
-      event: 'Logged In',
-      properties: { Method: 'OTP' },
-      user: userId,
-    });
 
     const redirectUrl = session.get(SESSION.REDIRECT_URL) || Route['/home'];
 

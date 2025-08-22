@@ -1,6 +1,6 @@
 {
   "name": "@hackcommunity/scripts",
-  "description": "One-off scripts for Oyster local development.",
+  "description": "One-off scripts for Hack Alumni Community local development.",
   "version": "0.0.0",
   "private": true,
   "type": "module",

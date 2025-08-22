@@ -4,14 +4,10 @@ import { z } from 'zod';
 
 import { db, relativeTime } from '@hackcommunity/db';
 import { type ExtractValue, nullableField } from '@hackcommunity/types';
-import { id, toTitleCase } from '@hackcommunity/utils';
+import { id } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
-import {
-  type GetBullJobData,
-  PeerHelpBullJob,
-} from '@/infrastructure/bull.types';
-import { track } from '@/infrastructure/mixpanel';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { reportException } from '@/infrastructure/sentry';
 import { ActivityType } from '@/modules/gamification/gamification.types';
 import { slack } from '@/modules/slack/instances';
@@ -217,15 +213,6 @@ export async function finishHelpRequest(
     type: 'help_peer',
   });
 
-  track({
-    event: 'Help Request Finished',
-    properties: {
-      Status: toTitleCase(status),
-      Type: toTitleCase(helpRequest.type),
-    },
-    user: memberId,
-  });
-
   return success({});
 }
 
@@ -328,12 +315,6 @@ export async function offerHelp(
       .executeTakeFirstOrThrow();
   });
 
-  track({
-    event: 'Help Request Offered',
-    properties: { Type: toTitleCase(helpRequest.type) },
-    user: memberId,
-  });
-
   return success({});
 }
 
@@ -426,12 +407,6 @@ export async function requestHelp({
       .executeTakeFirstOrThrow();
   });
 
-  track({
-    event: 'Help Requested',
-    properties: { Type: toTitleCase(type) },
-    user: memberId,
-  });
-
   job('notification.slack.send', {
     channel: process.env.SLACK_FEED_CHANNEL_ID!,
     message: `🚨 A new <${STUDENT_PROFILE_URL}/peer-help/${helpRequest.id}|help request> was posted!\n\n>${description}`,
@@ -514,11 +489,6 @@ async function sendFinishReminder(
       message,
       workspace: 'regular',
     });
-
-    track({
-      event: 'Help Request Reminder Sent',
-      properties: { Type: toTitleCase(helpRequest.type) },
-    });
   }
 
   const ids = helpRequests.map((helpRequest) => {
@@ -544,20 +514,18 @@ async function sendFinishReminder(
 
 // Worker
 
-export const peerHelpWorker = registerWorker(
-  'peer_help',
-  PeerHelpBullJob,
-  async (job) => {
-    const result = await match(job)
-      .with({ name: 'peer_help.finish_reminder' }, ({ data }) => {
-        return sendFinishReminder(data);
-      })
-      .exhaustive();
+export const peerHelpWorker = registerWorker('peer_help', async (job) => {
+  const result = await match(job)
+    .with({ name: 'peer_help.finish_reminder' }, ({ data }) => {
+      return sendFinishReminder(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
 
-    if (!result.ok) {
-      throw new Error(result.error);
-    }
-
-    return result.data;
+  if (!result.ok) {
+    throw new Error(result.error);
   }
-);
+
+  return result.data;
+});

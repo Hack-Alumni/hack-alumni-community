@@ -21,7 +21,7 @@ export async function listCompanyReviews<
   memberId,
   select,
   where,
-}: ListCompanyReviewsOptions<Selection>) {
+}: ListCompanyReviewsOptions<Selection>): Promise<any[]> {
   const reviews = await db
     .selectFrom('companyReviews')
     .leftJoin(

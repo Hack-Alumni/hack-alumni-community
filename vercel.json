@@ -1,19 +1,8 @@
 {
   "version": 2,
-  "buildCommand": "yarn vercel-build",
+  "buildCommand": "./build.sh",
   "installCommand": "yarn install",
   "framework": null,
-  "functions": {
-    "apps/member-profile/build/server/index.js": {
-      "maxDuration": 30
-    },
-    "apps/admin-dashboard/build/server/index.js": {
-      "maxDuration": 30
-    },
-    "apps/api/src/main.ts": {
-      "maxDuration": 30
-    }
-  },
   "rewrites": [
     {
       "source": "/api/(.*)",

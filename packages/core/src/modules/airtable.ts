@@ -10,10 +10,7 @@ import {
 } from '@hackcommunity/types';
 
 import { registerWorker } from '@/infrastructure/bull';
-import {
-  AirtableBullJob,
-  type GetBullJobData,
-} from '@/infrastructure/bull.types';
+import { type GetBullJobData } from '@/infrastructure/bull.types';
 import { IS_PRODUCTION } from '@/shared/env';
 import { ColorStackError, ErrorWithContext } from '@/shared/errors';
 import { RateLimiter } from '@/shared/utils/rate-limiter';
@@ -54,29 +51,27 @@ function getAirtableHeaders(
 
 // Bull Worker
 
-export const airtableWorker = registerWorker(
-  'airtable',
-  AirtableBullJob,
-  async (job) => {
-    return match(job)
-      .with({ name: 'airtable.record.create' }, ({ data }) => {
-        return createAirtableRecord(data);
-      })
-      .with({ name: 'airtable.record.create.member' }, ({ data }) => {
-        return createAirtableMemberRecord(data);
-      })
-      .with({ name: 'airtable.record.delete' }, ({ data }) => {
-        return deleteAirtableRecord(data);
-      })
-      .with({ name: 'airtable.record.update' }, ({ data }) => {
-        return updateAirtableRecord(data);
-      })
-      .with({ name: 'airtable.record.update.bulk' }, ({ data }) => {
-        return bulkUpdateAirtableRecord(data);
-      })
-      .exhaustive();
-  }
-);
+export const airtableWorker = registerWorker('airtable', async (job) => {
+  return match(job)
+    .with({ name: 'airtable.record.create' }, ({ data }) => {
+      return createAirtableRecord(data);
+    })
+    .with({ name: 'airtable.record.create.member' }, ({ data }) => {
+      return createAirtableMemberRecord(data);
+    })
+    .with({ name: 'airtable.record.delete' }, ({ data }) => {
+      return deleteAirtableRecord(data);
+    })
+    .with({ name: 'airtable.record.update' }, ({ data }) => {
+      return updateAirtableRecord(data);
+    })
+    .with({ name: 'airtable.record.update.bulk' }, ({ data }) => {
+      return bulkUpdateAirtableRecord(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
+});
 
 // Core
 

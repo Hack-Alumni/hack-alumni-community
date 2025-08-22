@@ -11,7 +11,10 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { addFullTimeOffer, AddFullTimeOfferInput } from '@hackcommunity/core/offers';
+import {
+  addFullTimeOffer,
+  AddFullTimeOfferInput,
+} from '@hackcommunity/core/offers';
 import {
   OfferAdditionalNotesField,
   OfferBaseSalaryField,

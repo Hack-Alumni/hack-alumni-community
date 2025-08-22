@@ -9,6 +9,6 @@ import type {} from '../../node_modules/kysely/dist/esm/dynamic/dynamic-referenc
 import type {} from '../../node_modules/kysely/dist/esm/util/type-utils';
 
 declare module 'kysely' {
-  export * from '../../node_modules/kysely/dist/esm/dynamic/dynamic-reference-builder';
-  export * from '../../node_modules/kysely/dist/esm/util/type-utils';
+  export type * from '../../node_modules/kysely/dist/esm/dynamic/dynamic-reference-builder';
+  export type * from '../../node_modules/kysely/dist/esm/util/type-utils';
 }

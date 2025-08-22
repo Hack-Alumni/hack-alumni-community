@@ -12,7 +12,6 @@ import { type PropsWithChildren } from 'react';
 
 import { listCompanyReviews } from '@hackcommunity/core/employment/server';
 import { listMembersInDirectory } from '@hackcommunity/core/member-profile/server';
-import { track } from '@hackcommunity/core/mixpanel';
 import { listResources } from '@hackcommunity/core/resources/server';
 import { listSlackMessages } from '@hackcommunity/core/slack/server';
 import { Divider, Text } from '@hackcommunity/ui';
@@ -108,13 +107,6 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     const endRange = dayObject.endOf('week').format(format);
 
     return `${startRange} - ${endRange}`;
-  });
-
-  track({
-    event: 'Page Viewed',
-    properties: { Page: 'Last Week in ColorStack' },
-    request,
-    user: user(session),
   });
 
   return json({

@@ -1,6 +1,9 @@
 import { useState } from 'react';
 
-import { CityCombobox, type CityComboboxProps } from '@hackcommunity/core/location/ui';
+import {
+  CityCombobox,
+  type CityComboboxProps,
+} from '@hackcommunity/core/location/ui';
 import { Field, type FieldProps, Input, Text } from '@hackcommunity/ui';
 
 export function CurrentLocationField({

@@ -9,7 +9,6 @@ import { id } from '@hackcommunity/utils';
 
 import { job, registerWorker } from '@/infrastructure/bull';
 import { type GetBullJobData } from '@/infrastructure/bull.types';
-import { EventBullJob } from '@/infrastructure/bull.types';
 import { listAirmeetEvents } from '@/modules/events/airmeet';
 import { ActivityType } from '@/modules/gamification/gamification.types';
 import { getMemberByEmail } from '@/modules/members/queries/get-member-by-email';
@@ -406,36 +405,36 @@ export function formatEventDate(
       start = startTimeObject.format('dddd, MMMM D, YYYY, h:mm A');
       end = endTimeObject.format('dddd, MMMM D, YYYY, h:mm A');
     })
-    .exhaustive();
+    .otherwise(() => {
+      throw new Error('Invalid date format options');
+    });
 
   return `${start} - ${end}`;
 }
 
 // Worker
 
-export const eventWorker = registerWorker(
-  'event',
-  EventBullJob,
-  async (job) => {
-    return match(job)
-      .with({ name: 'event.attended' }, ({ data }) => {
-        return onEventAttended(data);
-      })
-      .with({ name: 'event.recent.sync' }, ({ data }) => {
-        return syncRecentAirmeetEvents(data);
-      })
-      .with({ name: 'event.register' }, ({ data }) => {
-        return registerForEventOnAirmeet(data);
-      })
-      .with({ name: 'event.registered' }, ({ data }) => {
-        return onRegisteredForEvent(data);
-      })
-      .with({ name: 'event.sync' }, ({ data }) => {
-        return syncAirmeetEvent(data);
-      })
-      .exhaustive();
-  }
-);
+export const eventWorker = registerWorker('event', async (job) => {
+  return match(job)
+    .with({ name: 'event.attended' }, ({ data }) => {
+      return onEventAttended(data);
+    })
+    .with({ name: 'event.recent.sync' }, ({ data }) => {
+      return syncRecentAirmeetEvents(data);
+    })
+    .with({ name: 'event.register' }, ({ data }) => {
+      return registerForEventOnAirmeet(data);
+    })
+    .with({ name: 'event.registered' }, ({ data }) => {
+      return onRegisteredForEvent(data);
+    })
+    .with({ name: 'event.sync' }, ({ data }) => {
+      return syncAirmeetEvent(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
+});
 
 async function onEventAttended({
   eventId,

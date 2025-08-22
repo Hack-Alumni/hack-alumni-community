@@ -13,7 +13,10 @@ import {
   useSearchParams,
 } from '@remix-run/react';
 
-import { editFullTimeOffer, EditFullTimeOfferInput } from '@hackcommunity/core/offers';
+import {
+  editFullTimeOffer,
+  EditFullTimeOfferInput,
+} from '@hackcommunity/core/offers';
 import {
   OfferAdditionalNotesField,
   OfferBaseSalaryField,
@@ -235,7 +238,7 @@ export default function EditFullTimeOffer() {
         <Button.Group flexDirection="row-reverse" spacing="between">
           <Button.Submit>Save</Button.Submit>
 
-          <Button.Slot color="error" variant="secondary">
+          <Button.Slot variant="secondary">
             <Link
               to={generatePath(Route['/offers/full-time/:id/delete'], { id })}
             >

@@ -14,14 +14,18 @@ import {
   listWorkExperiences,
 } from '@hackcommunity/core/member-profile/server';
 import { WorkExperienceItem } from '@hackcommunity/core/member-profile/ui';
-import { type MixpanelEvent } from '@hackcommunity/core/mixpanel';
-import { Button, cx, ProfilePicture, Text, type TextProps } from '@hackcommunity/ui';
+import {
+  Button,
+  cx,
+  ProfilePicture,
+  Text,
+  type TextProps,
+} from '@hackcommunity/ui';
 
 import { Card } from '@/shared/components/card';
 import { EducationExperienceItem } from '@/shared/components/education-experience';
 import { ExperienceList } from '@/shared/components/profile';
 import { ENV } from '@/shared/constants.server';
-import { useMixpanelTracker } from '@/shared/hooks/use-mixpanel-tracker';
 import {
   getEducationExperiences,
   getMember,
@@ -179,7 +183,7 @@ function CoreSection({ children }: PropsWithChildren) {
 function MemberHeader() {
   const { member } = useLoaderData<typeof loader>();
 
-  const { trackFromClient } = useMixpanelTracker();
+  // Track event removed
 
   return (
     <header className="flex items-center justify-between gap-[inherit]">
@@ -197,10 +201,11 @@ function MemberHeader() {
           <a
             href={member.slackUrl}
             onClick={() => {
-              trackFromClient({
-                event: 'Directory - CTA Clicked',
-                properties: { CTA: 'Slack' },
-              });
+              // TODO: Re-implement tracking after analytics setup
+              // trackFromClient({
+              //   event: 'Directory - CTA Clicked',
+              //   properties: { CTA: 'Slack' },
+              // });
             }}
           >
             <img alt="Slack Logo" className="h-5 w-5" src="/images/slack.svg" />{' '}
@@ -320,21 +325,23 @@ function MemberSocials() {
 type MemberSocialItemProps = {
   href: string;
   logo: string | React.ReactNode;
-  social: MixpanelEvent['Directory - CTA Clicked']['CTA'];
+  social: string;
+  // Track event removed
 };
 
 function MemberSocialItem({ href, logo, social }: MemberSocialItemProps) {
-  const { trackFromClient } = useMixpanelTracker();
+  // Track event removed
 
   return (
     <li>
       <a
         href={href}
         onClick={() => {
-          trackFromClient({
-            event: 'Directory - CTA Clicked',
-            properties: { CTA: social },
-          });
+          // TODO: Re-implement tracking after analytics setup
+          // trackFromClient({
+          //   event: 'Directory - CTA Clicked',
+          //   properties: { CTA: social },
+          // });
         }}
         target="_blank"
       >

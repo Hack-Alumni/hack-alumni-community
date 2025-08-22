@@ -15,7 +15,6 @@ import { emojify } from 'node-emoji';
 import { Edit, Flag } from 'react-feather';
 
 import { job } from '@hackcommunity/core/bull';
-import { track } from '@hackcommunity/core/mixpanel';
 import {
   getOpportunityDetails,
   reportOpportunity,
@@ -97,13 +96,6 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
     }),
 
     slackMessagePostedAt: dayjs().to(opportunity.slackMessagePostedAt),
-  });
-
-  track({
-    event: 'Opportunity Viewed',
-    properties: { Company: opportunity.companyName as string },
-    request,
-    user: memberId,
   });
 
   return json({ ...opportunity, reported: !!report });

@@ -98,7 +98,7 @@ export const redis = {
 
     return await redisClient.del(key);
   },
-  keys: async (pattern: string) => {
+  keys: async (_pattern: string) => {
     if (!redisClient) {
       throw new Error('Redis not initialized');
     }

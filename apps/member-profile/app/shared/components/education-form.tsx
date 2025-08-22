@@ -5,7 +5,10 @@ import React, {
   useState,
 } from 'react';
 
-import { MajorCombobox, SchoolCombobox } from '@hackcommunity/core/education/ui';
+import {
+  MajorCombobox,
+  SchoolCombobox,
+} from '@hackcommunity/core/education/ui';
 import {
   DegreeType,
   FORMATTED_DEGREEE_TYPE,

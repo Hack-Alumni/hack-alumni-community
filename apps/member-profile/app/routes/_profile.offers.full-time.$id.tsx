@@ -2,7 +2,6 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node';
 import { generatePath, useLoaderData, useSearchParams } from '@remix-run/react';
 import dayjs from 'dayjs';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { db } from '@hackcommunity/db';
 import { Divider, Modal } from '@hackcommunity/ui';
 
@@ -34,13 +33,6 @@ export async function loader({ params, request }: LoaderFunctionArgs) {
       statusText: 'The full-time offer you are looking for does not exist.',
     });
   }
-
-  track({
-    event: 'Offer Viewed',
-    properties: { Company: offer.companyName as string, Type: 'Full-Time' },
-    request,
-    user: memberId,
-  });
 
   return json(offer);
 }

@@ -223,7 +223,7 @@ slackShortcutsRouter.post(
         });
 
       return res.status(200).json({});
-    } catch (e) {
+    } catch {
       return res.status(500).json({
         message: 'Failed to process Slack request.',
       });

@@ -2,7 +2,7 @@ import { defer, type LoaderFunctionArgs } from '@remix-run/node';
 import { Await, useLoaderData } from '@remix-run/react';
 import { Suspense } from 'react';
 
-import { getOysterContributorStats } from '@hackcommunity/core/github';
+import { getHackAlumniContributorStats } from '@hackcommunity/core/github';
 import { Modal, Spinner, Text } from '@hackcommunity/ui';
 
 import { Route } from '@/shared/constants';
@@ -11,20 +11,20 @@ import { ensureUserAuthenticated } from '@/shared/session.server';
 export async function loader({ request }: LoaderFunctionArgs) {
   await ensureUserAuthenticated(request);
 
-  const statsPromise = getOysterContributorStats();
+  const statsPromise = getHackAlumniContributorStats();
 
   return defer({
     statsPromise,
   });
 }
 
-export default function OysterContributorsModal() {
+export default function HackAlumniContributorsModal() {
   const { statsPromise } = useLoaderData<typeof loader>();
 
   return (
     <Modal onCloseTo={Route['/']}>
       <Modal.Header>
-        <Modal.Title>Oyster (GitHub) Contributions</Modal.Title>
+        <Modal.Title>Hack Alumni Community (GitHub) Contributions</Modal.Title>
         <Modal.CloseButton />
       </Modal.Header>
 

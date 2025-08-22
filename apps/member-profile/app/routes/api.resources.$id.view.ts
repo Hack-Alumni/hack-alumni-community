@@ -1,6 +1,5 @@
 import { type ActionFunctionArgs, json } from '@remix-run/node';
 
-import { track } from '@hackcommunity/core/mixpanel';
 import { viewResource } from '@hackcommunity/core/resources/server';
 
 import { ensureUserAuthenticated, user } from '@/shared/session.server';
@@ -12,12 +11,13 @@ export async function action({ params, request }: ActionFunctionArgs) {
     memberId: user(session),
   });
 
-  track({
-    event: 'Resource Viewed',
-    properties: undefined,
-    request,
-    user: user(session),
-  });
+  // TODO: Re-implement tracking after analytics setup
+  // track({
+  //   event: 'Resource Viewed',
+  //   properties: undefined,
+  //   request,
+  //   user: user(session),
+  // });
 
   return json({});
 }

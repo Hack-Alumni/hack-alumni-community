@@ -20,13 +20,13 @@ type PullRequest = z.infer<typeof PullRequest>;
 // Core
 
 /**
- * Returns high-level Oyster contributor statistics.
+ * Returns high-level Hack Alumni Community contributor statistics.
  *
  * For now, we're only interested in the number of unique contributors for
  * each type of contribution. We can expand this function to include more
  * detailed statistics in the future.
  */
-export async function getOysterContributorStats() {
+export async function getHackAlumniContributorStats() {
   const prs = await getMergedPullRequests();
 
   const choreContributors = new Set<string>();
@@ -61,7 +61,7 @@ export async function getOysterContributorStats() {
 }
 
 /**
- * Returns the merged pull requests for the Oyster repository.
+ * Returns the merged pull requests for the Hack Alumni Community repository.
  *
  * The GitHub API paginates the results, so we need to follow the `next` link
  * in the response headers to fetch all the pull requests. See documentation

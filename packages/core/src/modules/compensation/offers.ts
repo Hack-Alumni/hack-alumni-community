@@ -9,7 +9,6 @@ import { id } from '@hackcommunity/utils';
 
 import { getChatCompletion } from '@/infrastructure/ai';
 import { job, registerWorker } from '@/infrastructure/bull';
-import { OfferBullJob } from '@/infrastructure/bull.types';
 import { redis } from '@/infrastructure/redis';
 import { getMostRelevantCompany } from '@/modules/employment/companies';
 import { saveCompanyIfNecessary } from '@/modules/employment/use-cases/save-company-if-necessary';
@@ -690,7 +689,7 @@ async function shareOffer({
       const json = JSON.parse(jsonString);
 
       offers.push(Offer.parse(json));
-    } catch (error) {
+    } catch {
       return fail({
         code: 400,
         error: 'Failed to parse or validate JSON from AI response.',
@@ -954,23 +953,21 @@ export async function hasOfferWritePermission({
 
 // Worker
 
-export const offerWorker = registerWorker(
-  'offer',
-  OfferBullJob,
-  async (job) => {
-    const result = await match(job)
-      .with({ name: 'offer.backfill' }, async ({ data }) => {
-        return backfillOffers(data);
-      })
-      .with({ name: 'offer.share' }, async ({ data }) => {
-        return shareOffer(data);
-      })
-      .exhaustive();
+export const offerWorker = registerWorker('offer', async (job) => {
+  const result = await match(job)
+    .with({ name: 'offer.backfill' }, async ({ data }) => {
+      return backfillOffers(data);
+    })
+    .with({ name: 'offer.share' }, async ({ data }) => {
+      return shareOffer(data);
+    })
+    .otherwise(() => {
+      throw new Error(`Unknown job type: ${job.name}`);
+    });
 
-    if (!result.ok) {
-      throw new Error(result.error);
-    }
-
-    return result.data;
+  if (!result.ok) {
+    throw new Error(result.error);
   }
-);
+
+  return result.data;
+});

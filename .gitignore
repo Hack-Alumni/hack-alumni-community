@@ -29,6 +29,10 @@ build
 dist
 tsconfig.tsbuildinfo
 
+# Compiled TypeScript files
+*.js
+*.d.ts
+*.d.ts.map
 
 # Debugging
 
@@ -40,6 +44,15 @@ yarn-error.log*
 
 .DS_Store
 
+# Supabase
+
+supabase/.temp
+
 # Other
 
 schema.prisma
+
+# docs to ignore
+SYSTEM_DESIGN.md
+ARCHITECTURE_DIAGRAM.md
+DATABASE_SCHEMA.md

@@ -171,7 +171,7 @@ type GiftCard = {
   recipient: Customer;
 };
 
-type CreateGiftCardResult = Result<{}>;
+type CreateGiftCardResult = Result<Record<string, never>>;
 
 /**
  * Creates a new gift card and assigns it to a customer.

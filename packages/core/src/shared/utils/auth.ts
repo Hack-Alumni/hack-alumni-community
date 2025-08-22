@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import type { SignOptions } from 'jsonwebtoken';
 
 // Environment Variables
 
@@ -21,13 +22,9 @@ export function encodeBasicAuthenticationToken(
 
 // JWT
 
-type SignTokenOptions = Partial<{
-  expiresIn: string;
-}>;
-
 export function signToken<T extends object>(
   data: T,
-  options: SignTokenOptions = {}
+  options: SignOptions = {}
 ): string {
   return jwt.sign(data, JWT_SECRET, options);
 }

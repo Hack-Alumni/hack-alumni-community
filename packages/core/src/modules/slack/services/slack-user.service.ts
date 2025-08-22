@@ -20,7 +20,7 @@ export async function getSlackUserByEmail(email: string) {
     };
 
     return result;
-  } catch (e) {
+  } catch {
     return null;
   }
 }

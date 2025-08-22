@@ -7,8 +7,11 @@ import { z } from 'zod';
 
 import { Environment } from '@hackcommunity/core/api';
 
-// Loads the .env file into `process.env`.
-config();
+// Only load .env file for local development, not in CI
+if (!process.env.CI) {
+  // Loads the .env file into `process.env`.
+  config();
+}
 
 const EnvironmentVariable = z.string().trim().min(1);
 
@@ -34,7 +37,7 @@ const BaseEnvironmentConfig = z.object({
   MAILCHIMP_API_KEY: EnvironmentVariable,
   MAILCHIMP_AUDIENCE_ID: EnvironmentVariable,
   MAILCHIMP_SERVER_PREFIX: EnvironmentVariable,
-  MIXPANEL_TOKEN: EnvironmentVariable,
+
   OPENAI_API_KEY: EnvironmentVariable,
   PINECONE_API_KEY: EnvironmentVariable,
   PORT: z.coerce.number(),
@@ -58,9 +61,15 @@ const BaseEnvironmentConfig = z.object({
   SLACK_INTRODUCTIONS_CHANNEL_ID: EnvironmentVariable,
   SLACK_SIGNING_SECRET: EnvironmentVariable,
   STUDENT_PROFILE_URL: EnvironmentVariable,
+  SUPABASE_URL: EnvironmentVariable,
+  SUPABASE_ANON_KEY: EnvironmentVariable,
   TWILIO_ACCOUNT_SID: EnvironmentVariable,
   TWILIO_AUTH_TOKEN: EnvironmentVariable,
   TWILIO_PHONE_NUMBER: EnvironmentVariable,
+  UPSTASH_QSTASH_TOKEN: EnvironmentVariable,
+  UPSTASH_QSTASH_CURRENT_SIGNING_KEY: EnvironmentVariable,
+  UPSTASH_QSTASH_NEXT_SIGNING_KEY: EnvironmentVariable,
+  CRON_SECRET: EnvironmentVariable.optional(),
 });
 
 const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
@@ -82,7 +91,7 @@ const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
     MAILCHIMP_API_KEY: true,
     MAILCHIMP_AUDIENCE_ID: true,
     MAILCHIMP_SERVER_PREFIX: true,
-    MIXPANEL_TOKEN: true,
+
     OPENAI_API_KEY: true,
     PINECONE_API_KEY: true,
     POSTMARK_API_TOKEN: true,
@@ -103,9 +112,15 @@ const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
     SLACK_FEED_CHANNEL_ID: true,
     SLACK_INTRODUCTIONS_CHANNEL_ID: true,
     SLACK_SIGNING_SECRET: true,
+    SUPABASE_URL: true,
+    SUPABASE_ANON_KEY: true,
     TWILIO_ACCOUNT_SID: true,
     TWILIO_AUTH_TOKEN: true,
     TWILIO_PHONE_NUMBER: true,
+    UPSTASH_QSTASH_TOKEN: true,
+    UPSTASH_QSTASH_CURRENT_SIGNING_KEY: true,
+    UPSTASH_QSTASH_NEXT_SIGNING_KEY: true,
+    CRON_SECRET: true,
   }).extend({
     ENVIRONMENT: z.literal(Environment.DEVELOPMENT),
     SMTP_HOST: EnvironmentVariable.optional(),
@@ -118,5 +133,5 @@ const EnvironmentConfig = z.discriminatedUnion('ENVIRONMENT', [
 ]);
 
 // Parse the environment variables into a type-safe object - will throw an
-// error if it fails.
+// error if any required environment variables are missing.
 export const ENV = EnvironmentConfig.parse(process.env);

@@ -1,5 +1,8 @@
 import { type Country } from '@hackcommunity/core/location/types';
-import { CityCombobox, type CityComboboxProps } from '@hackcommunity/core/location/ui';
+import {
+  CityCombobox,
+  type CityComboboxProps,
+} from '@hackcommunity/core/location/ui';
 import { FORMATTED_GENDER, type Gender } from '@hackcommunity/types';
 import {
   Checkbox,
