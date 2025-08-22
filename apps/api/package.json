@@ -9,6 +9,7 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "tsx ./src/main.ts",
+    "start:cron": "tsx ./src/routes/cron.cleanup-old-jobs.ts",
     "type-check": "tsc --noEmit",
     "clean": "rm -rf dist && rm -rf node_modules/.cache"
   },
