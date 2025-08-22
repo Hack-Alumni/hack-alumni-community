@@ -3,7 +3,7 @@ services:
   - type: web
     name: hack-alumni-member-profile
     env: node
-    plan: starter
+    plan: free
     buildCommand: yarn install && yarn build:render
     startCommand: yarn start:render
     envVars:
@@ -40,7 +40,7 @@ services:
   - type: web
     name: hack-alumni-api
     env: node
-    plan: starter
+    plan: free
     buildCommand: yarn install && yarn build:api:render
     startCommand: yarn start:api:render
     envVars:
@@ -77,7 +77,7 @@ services:
   - type: worker
     name: hack-alumni-cron-worker
     env: node
-    plan: starter
+    plan: free
     buildCommand: yarn install && yarn build:api:render
     startCommand: yarn start:cron:render
     envVars:
