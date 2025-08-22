@@ -6,7 +6,7 @@
   "type": "module",
   "license": "MIT",
       "scripts": {
-      "build": "yarn remix vite:build",
+      "build": "npx remix vite:build",
       "dev": "remix vite:dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

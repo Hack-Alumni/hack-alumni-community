@@ -10,7 +10,7 @@
   "scripts": {
     "build": "turbo run build --cache-dir=.turbo",
 
-    "build:render": "yarn workspace @hackcommunity/member-profile build && yarn build:api",
+    "build:render": "yarn workspace @hackcommunity/core build && yarn workspace @hackcommunity/member-profile build && yarn build:api",
     "build:api": "cd apps/api && yarn build",
     "db:migrate": "yarn workspace @hackcommunity/db migrate",
     "db:migrate:down": "yarn workspace @hackcommunity/db migrate:down",
