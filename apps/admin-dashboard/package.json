@@ -6,8 +6,8 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "build": "remix vite:build",
-    "dev": "remix vite:dev",
+    "build": "./node_modules/.bin/remix vite:build",
+    "dev": "./node_modules/.bin/remix vite:dev",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "start": "remix-serve ./build/server/index.js",
